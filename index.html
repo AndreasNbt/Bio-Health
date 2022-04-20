@@ -37,6 +37,10 @@
             border-bottom: 5px solid #094e19;
         }
 
+        .carousel {
+            border-left: 20px solid #094e19;
+        }
+
         .footerRow {
             margin-top: 20px;
             background-color: #97d199;
@@ -95,7 +99,7 @@
             </div>
         </div>
         <div class="row justify-content-center" id="carouselrow">
-            <div class="col-8">
+            <div class="col-8 carouselCol">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -111,36 +115,42 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="...">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Fourth slide label</h5>
                                 <p>Some representative placeholder content for the fourth slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Fifth slide label</h5>
                                 <p>Some representative placeholder content for the fifth slide.</p>
                             </div>
@@ -161,26 +171,32 @@
         </div>
         <div class="row justify-content-center" id="firstRowAfterCarousel">
             <div class="col-4">
-                <figure class="figure">
-                    <img src="https://picsum.photos/3000/2500" class="img-fluid" alt="Responsive image">
-                    <figcaption class="figcaption text-center text-dark">
-                        <h1>Offers</h1>
-                    </figcaption>
-                </figure>
+                <a href="offers.html">
+                    <figure class="figure">
+                        <img src="https://picsum.photos/3000/2500" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+                        <figcaption class="figcaption text-center text-dark">
+                            <h1>Offers</h1>
+                        </figcaption>
+                    </figure>
+                </a>
             </div>
             <div class="col-4">
-                <figure class="figure">
-                    <img src="https://picsum.photos/1920/720" class="img-fluid" alt="Responsive image">
-                    <figcaption class="figcaption text-center text-dark">
-                        <h5>New Products</h5>
-                    </figcaption>
-                </figure>
-                <figure class="figure">
-                    <img src="https://picsum.photos/1920/720" class="img-fluid" alt="Responsive image">
-                    <figcaption class="figcaption text-center text-dark">
-                        <h5>Useful Information</h5>
-                    </figcaption>
-                </figure>
+                <a href="newProducts.html">
+                    <figure class="figure">
+                        <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+                        <figcaption class="figcaption text-center text-dark">
+                            <h5>New Products</h5>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="UsefulInformation.html">
+                    <figure class="figure">
+                        <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+                        <figcaption class="figcaption text-center text-dark">
+                            <h5>Useful Information</h5>
+                        </figcaption>
+                    </figure>
+                </a>
             </div>
         </div>
         <div class="row justify-content-center footer">
