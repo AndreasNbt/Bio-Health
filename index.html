@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexstyle.css">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
+    <style>
+        [class *="col"] {
+            padding: 1rem;
+            background-color: #f1f1f1;
+            color: #fff
+        }
+
+        [class *="container"] {
+            background-color: #f1f1f1;
+        }
+
+        #firstRowAfterCarousel {
+            margin-top: 50px;
+        }
+
+        #carouselrow {
+            margin-top: 25px
+        }
+
+        .headerRow {
+            background-color: #97d199;
+            border-bottom: 5px solid #094e19;
+        }
+
+        .carousel {
+            border-left: 20px solid #094e19;
+        }
+
+        .footerRow {
+            margin-top: 20px;
+            background-color: #97d199;
+            border-top: 5px solid #094e19;
+        }
+
+        .socialMediaIcons {
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid border">
+        <div class="row justify-content-center">
+            <div class="col-2 headerRow"></div>
+            <div class="col-2 headerRow">
+                <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                            class="fas fa-bars fa-1x"></i></span></button>
+
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                    </ul>
+                    <!-- Links -->
+
+                </div>
+                <!-- <img src="bioandhealthlogo.png" alt="" width="50px"> -->
+            </div>
+            <div class="col-4 flex-column headerRow">
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-2 headerRow">
+                Account Cart and Favourites buttons will go here
+            </div>
+            <div class="col-2 headerRow">
+            </div>
+        </div>
+        <div class="row justify-content-center" id="carouselrow">
+            <div class="col-8 carouselCol">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Fourth slide label</h5>
+                                <p>Some representative placeholder content for the fourth slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#firstlink">
+                                <img src="https://picsum.photos/1920/720"  class="d-block w-100" alt="...">
+                            </a>                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Fifth slide label</h5>
+                                <p>Some representative placeholder content for the fifth slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" id="firstRowAfterCarousel">
+            <div class="col-4">
+                <a href="offers.html">
+                    <figure class="figure">
+                        <img src="https://picsum.photos/3000/2500" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+                        <figcaption class="figcaption text-center text-dark">
+                            <h1>Offers</h1>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="newProducts.html">
+                    <figure class="figure">
+                        <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+                        <figcaption class="figcaption text-center text-dark">
+                            <h5>New Products</h5>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="UsefulInformation.html">
+                    <figure class="figure">
+                        <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+                        <figcaption class="figcaption text-center text-dark">
+                            <h5>Useful Information</h5>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center footer">
+            <div class="col-2 footerRow"></div>
+            <div class="col-2 footerRow">
+                <u><b>Contact:</b>:</u><br>
+                Telephone: +30 2310 123 456
+                email: info@bioandhealth.gr
+            </div>
+            <div class="col-3 footerRow">
+                <u><b>Location:</b></u><br>
+                Eth. Antistasis 16, Kalamaria, Greece <br>
+                <b><a href="info.html">More Info</a></b>
+            </div>
+            <div class="col-3 footerRow"></div>
+            <div class="col-2 footerRow justify-content-evenly">
+                <h6>Get in touch with us</h6>
+                <a class="socialMediaIcons" href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>
+                <a class="socialMediaIcons" href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+                <a class="socialMediaIcons" href="https://www.google.com/"><i class="bi bi-google"></i></a>
+                <a class="socialMediaIcons" href="https://www.twitter.com/"><i class="bi bi-twitter"></i></a>
+            </div>
+        </div>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
