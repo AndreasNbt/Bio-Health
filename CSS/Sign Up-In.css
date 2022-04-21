@@ -1,0 +1,95 @@
+
+/* General Styles */
+
+.header-text {
+    font-family: 'Source Serif pro', serif;
+}
+
+.fill-text {
+    font-family: 'Alegreya', serif;
+    color: #5e7991;
+}
+
+.dark-green {
+    color: #1f5014;
+}
+
+.solid-border {
+    border: 1px solid #1f5014;
+}
+
+.hr-border {
+    border: none;
+    border-top: 1px solid #1f5014;
+}
+
+.extra-spacing {
+    letter-spacing: 0.1rem;
+}
+
+/* Inputs-Icons */
+
+.input-icons {
+    margin-bottom: 10px;
+}
+
+.icon {
+    padding: 10px;
+    color: gray;
+    position: absolute;
+    margin-left: 7px;
+    margin-top: 6px;
+}
+
+.input-field {
+    padding: 12px;
+    text-align: center;
+    width: 50%;
+    height: 2rem;
+    margin: 0.5rem;
+}
+
+
+/* Sign up - Sign in */
+
+.main {
+    min-height: 500px;
+    background-color: #f6f6e9;
+}
+
+.big-container {
+    width: 48%;
+    height: auto;
+}
+
+.small-container {
+    width: 23%;
+    height: auto;
+    padding: 1.5rem;
+}
+
+.small-container .fill-text {
+    margin: 4rem 0;
+}
+
+.sign-btn {
+    text-decoration: none;
+    height: 1.75rem;
+    width: 25%;
+    margin: 0.625rem;
+    border-radius: 5%;
+}
+
+.social {
+    padding: 1.25rem;
+}
+
+.forgot-password {
+    font-size: 0.6875rem;
+    right: 5.8rem;
+}
+
+.sign-btn:hover, .forgot-password:hover {
+    text-decoration: none;
+    color: #1f5014;
+}

@@ -1,0 +1,132 @@
+/* Navbar CSS */
+
+.navbar {
+    background-color: #97d199;
+    padding: 0 14%;
+}
+
+.navbar-logo, .navbar-logo:hover {
+    text-decoration: none;
+    color: #272727;
+}
+
+.navbar-logo-1 {
+    font-family: 'Source Serif pro', serif;
+    padding-top: 0.625rem;
+}
+
+.navbar-logo-2 {
+    font-family: 'Sensei', sans-serif;
+    left: 1.875rem;
+}
+
+
+/* Helper classes */
+
+.dark-gray, .nav-icon:hover {
+    color: #272727;
+}
+
+.dark-green {
+    color: #1f5014;
+}
+
+/* Search Bar */
+
+.search-bar {
+    background-color: #cbddd1;
+    width: 400px !important;
+    height: 50px;
+    left: 1.8rem;
+}
+
+
+.search-button {
+    border: 1px solid #1f5014;
+    border-radius: 50%;
+    background-color: inherit;
+    width: 40px;
+    height: 40px;
+    right: 45px;
+    top: 5px;
+}
+
+.navbar-nav .fa-cart-shopping {
+    margin-right: 0.25rem;
+}
+
+.nav-icon:not(:last-child) {
+    margin-right: 1.25rem;
+}
+
+.big-hr {
+    height: 0;
+    border: none;
+    border-top: 8px solid #1f5014;
+    opacity: 100%;
+}
+
+/* Media Queries */
+
+@media (max-width: 1100px) {
+    
+    .navbar {
+        padding: 0 12%;
+    }
+
+    .search-bar {
+        width: 300px !important;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 10%;
+    }
+
+    .search-bar {
+        width: 250px !important;
+    }
+
+    .search-button {
+        border: none;
+        right: 48px;
+    }
+
+    .nav-icon {
+        font-size: 0.8em;
+    }
+    
+    ::placeholder {
+        font-size: 10pt;
+    }
+
+
+    .navbar-logo h1 {
+        font-size: 16pt;
+    }
+
+    .nav-icon:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 700px) {
+
+
+    .navbar {
+        padding: 0 5%
+    }
+
+    .search-bar {
+        width: 250px !important;
+    }
+
+    .search-button {
+        border: 1px solid white;
+        border-radius: 50%;
+        left: 18px;
+    }
+}
