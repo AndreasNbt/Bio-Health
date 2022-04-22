@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Bio&Health</title>
+    <title>Upload new product - Bio&Health</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -13,6 +13,7 @@
     <link href="http://fonts.cdnfonts.com/css/sensei" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Sign Up-In.css">
     <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/new_product.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
 
  
@@ -41,51 +42,55 @@
     <br>
 
     <section id="main-section">
-        <form action="" id="sign-up-form">
-            <div class="container-fluid d-flex justify-content-center text-center" >
+        <form action="" id="product-form">
+            <div class="d-flex flex-row justify-content-center text-center" >
+
+                <div class="solid-border col-3 small-container">
+
+                    <div class="text-center py-1 align-items-center header">
+                        <h1 class="dark-green extra-spacing header-text m-0">Category</h1>
+                    </div>
+                    
+                    <hr class="hr-border m-0">
+
+                    <div class="category-links d-flex flex-column text-start px-3 py-2 my-2">
+                        <a href="" class="c-link">Category 1</a>
+                        <a href="" class="c-link">Category 2</a>
+                        <a href="" class="c-link">Category 3</a>
+                        <a href="" class="c-link">Category 4</a>
+                        <a href="" class="c-link">Category 5</a>
+                    </div>
+
+                    <div class="add">
+                        <a href="">Add a new category</a>
+                    </div>
+                    
+                </div>
+
                 <div class="solid-border col-6 big-container">
 
-                    <div class="text-center py-1">
-                        <h1 class="dark-green extra-spacing header-text mb-0">Create an account</h1>
+                    <div class="d-flex justify-content-center py-1">
+                        <h1 class="dark-green extra-spacing header-text m-0">Upload a new product</h1>
                     </div>
                     <hr class="hr-border m-0">
 
-                    <h5 class="dark-green header-text pt-4">With your Email</h5>
-                    <div class="input-icons text-center">
-                        <i class="fa-solid fa-envelope icon"></i>
-                        <input type="text" class="input-field" placeholder="Email" name="email" required>
+                    <h5 class="dark-green header-text pt-4">Product info</h5>
+                    <div class="text-center">
+                        <label for="product_name" class="product_label">Product Name</label>
+                        <input type="text" id="product_name" class="input-field" name="product_info" required>
                         <br>
-                        <i class="fa-solid fa-user icon"></i>
-                        <input type="text" class="input-field" placeholder="Username" name="username" required>
+                        <label for="product_description" class="product_label">Description</label>
+                        <textarea type="text" id="product_description" class="input-field" name="product_info" required></textarea>
                         <br>
-                        <i class="fa-solid fa-lock icon"></i>
-                        <input type="password" class="input-field" placeholder="Password" name="password" required>
+                        <label for="product_price" class="product_label">Price</label>
+                        <input type="number" id="product_price" class="input-field" name="product_info" required>
                         <br>
-                        <i class="fa-solid fa-lock icon"></i>
-                        <input type="password" class="input-field" placeholder="Confirm Password" name="confirm-password" required>
+                        <label for="product_image" class="product_label">Image</label>
+                        <input type="file" id="product_image" class="input-field" name="product_info" required>
                         <br>
                     </div>
 
                     <button class="sign-btn solid-border dark-green extra-spacing" type="submit">Sign Up</button>
-
-                    <h5 class="dark-green header-text pt-5">With your Socials</h5>
-
-                    <div class="social-icons my-1">
-                        <a href=""><i class="fa-brands fa-facebook fa-2x social"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-2x social"></i></a>
-                        <a href=""><i class="fa-brands fa-google fa-2x social"></i></a>
-                        <a href=""><i class="fa-brands fa-twitter fa-2x social"></i></a>
-                    </div>
-
-                </div>
-                <div class="solid-border col-3 small-container p-3">
-
-                    <div class="logo mt-3">
-                        <a href="#"><img src="bioandhealthlogo.png" width="128" height="128" alt="Logo"></a>
-                    </div>
-                    <h2 class="dark-green header-text my-5">Already have an account?</h2>
-                    <h6 class="fill-text">You can sign in with the button below</h6>
-                    <a href="SignIn.html" class="sign-btn solid-border dark-green extra-spacing my-5 px-4 py-1" >Sign In</a>
                 </div>
             </div>
         </form>

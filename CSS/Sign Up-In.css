@@ -4,6 +4,8 @@
 
 .header-text {
     font-family: 'Source Serif pro', serif;
+    position: relative;
+    top: 3px;
 }
 
 .fill-text {
@@ -66,7 +68,6 @@
 
 .small-container {
     background-color: #f6f6e9;
-    padding: 1.5rem;
     min-width: 175px;
     max-width: 350px;
 }
