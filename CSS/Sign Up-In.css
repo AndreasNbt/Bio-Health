@@ -62,6 +62,7 @@
 
 .big-container {
     background-color: #f6f6e9;
+    border-radius: 25px;
     min-width: 300px;
     min-height: 600px;
     max-width: 1100px;
@@ -69,6 +70,7 @@
 
 .small-container {
     background-color: #f6f6e9;
+    border-radius: 25px;
     min-width: 175px;
     min-height: 600px;
     max-width: 350px;
@@ -84,7 +86,7 @@
     height: 2rem;
     width: 28%;
     margin-top: 1rem;
-    border-radius: 5%;
+    border-radius: 25px;
 }
 
 .social {
