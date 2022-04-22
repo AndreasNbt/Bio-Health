@@ -42,59 +42,86 @@
     <br>
 
     <section id="main-section">
-        <form action="" id="product-form">
-            <div class="d-flex flex-row justify-content-center text-center" >
-
-                <div class="solid-border col-3 small-container">
+        <div class="d-flex flex-row justify-content-center text-center main">
+                <div class="solid-border col-2 d-flex flex-column my-3 category-container">
 
                     <div class="text-center py-1 align-items-center header">
-                        <h1 class="dark-green extra-spacing header-text m-0">Category</h1>
+                        <h1 class="dark-green extra-spacing header-text m-0">Categories</h1>
                     </div>
                     
                     <hr class="hr-border m-0">
 
-                    <div class="category-links d-flex flex-column text-start px-3 py-2 my-2">
-                        <a href="" class="c-link">Category 1</a>
-                        <a href="" class="c-link">Category 2</a>
-                        <a href="" class="c-link">Category 3</a>
-                        <a href="" class="c-link">Category 4</a>
-                        <a href="" class="c-link">Category 5</a>
+                    <div class="d-flex flex-column flex-grow-1 text-start px-4 py-3 my-1">
+                        <div class="category px-2">
+                            <a href="" class="c-link">Category 1</a>
+                        </div>
+                        <div class="category px-2 py-1">                           
+                            <a href="" class="c-link">Category 1</a>
+                        </div>
+                        <div class="category px-2 py-1">                            
+                            <a href="" class="c-link">Category 1</a>
+                        </div>
+                        <div class="category px-2 py-1">                
+                            <a href="" class="c-link">Category 1</a>
+                        </div>
+                        <div class="category px-2 py-1">                            
+                            <a href="" class="c-link">Category 1</a>
+                        </div>
                     </div>
 
-                    <div class="add">
-                        <a href="">Add a new category</a>
-                    </div>
-                    
-                </div>
+                    <hr class="hr-border m-0">  
 
-                <div class="solid-border col-6 big-container">
+                    <div class="add text-start py-3 my-1">
+                        <a href=""><i class="fa-solid fa-plus category-icon"></i></a>
+                        <a href="" class="c-link add-link ">Add a new category</a>
+                    </div>
+                </div> 
+
+                <div class="solid-border col-8 my-3 big-container">
 
                     <div class="d-flex justify-content-center py-1">
-                        <h1 class="dark-green extra-spacing header-text m-0">Upload a new product</h1>
+                        <h1 class="dark-green extra-spacing header-text m-0">Add a new product</h1>
                     </div>
                     <hr class="hr-border m-0">
 
-                    <h5 class="dark-green header-text pt-4">Product info</h5>
-                    <div class="text-center">
-                        <label for="product_name" class="product_label">Product Name</label>
-                        <input type="text" id="product_name" class="input-field" name="product_info" required>
-                        <br>
-                        <label for="product_description" class="product_label">Description</label>
-                        <textarea type="text" id="product_description" class="input-field" name="product_info" required></textarea>
-                        <br>
-                        <label for="product_price" class="product_label">Price</label>
-                        <input type="number" id="product_price" class="input-field" name="product_info" required>
-                        <br>
-                        <label for="product_image" class="product_label">Image</label>
-                        <input type="file" id="product_image" class="input-field" name="product_info" required>
-                        <br>
-                    </div>
+                    <form action="">
+                        <div>
+                            <div class="field d-flex flex-column">
+                                <label for="product_name" class="product_label text-start">Product Name</label>
+                                <input type="text" id="product_name" class="product-input-field" name="product_info" required>
+                            </div>
 
-                    <button class="sign-btn solid-border dark-green extra-spacing" type="submit">Sign Up</button>
+                            <div class="field d-flex flex-column">
+                                <label for="product_description" class="product_label text-start">Description</label>
+                                <textarea type="text" id="product_description" class="product-input-area" name="product_info" required></textarea>
+                            </div>
+                            
+                            <div class="field d-flex flex-column">
+                                <label for="product_name" class="product_label text-start">Category</label>
+                                <input type="text" id="product_name" class="product-input-field small" name="product_info" required>
+                            </div>
+
+                            <div class="field d-flex flex-column">
+                                <label for="product_price" class="product_label text-start">Price</label>
+                                <input type="number" id="product_price" class="product-input-field small" name="product_info" required>
+                            </div>
+
+                            <div class="field d-flex flex-column">
+                                <label for="product_price" class="product_label text-start">Stock</label>
+                                <input type="number" id="product_price" class="product-input-field small" name="product_info" required>
+                            </div>
+                            
+                            <div class="field d-flex flex-column">
+                                <label for="product_image" class="product_label text-start">Image</label>
+                                <input type="file" id="product_image" class="product-input-field p-0" name="product_info" required>
+                            </div>
+                            
+                        </div>
+
+                        <button class="sign-btn submit solid-border dark-green extra-spacing mb-2" type="submit">Submit</button>
+                    </form>
                 </div>
-            </div>
-        </form>
-
+        </div>
     </section>
 
 

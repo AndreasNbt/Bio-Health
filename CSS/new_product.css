@@ -1,13 +1,78 @@
 
+.main {
+    padding: 0 4%;
+}
 
 .header {
     text-align: center;
 }
 
-.category-links {
-    background-color: gray;
+.category-container {
+    background-color: #f6f6e9;
+    min-width: 175px;
+    min-height: 600px;
+    max-width: 350px;
+    margin-right: 100px;
+}
+
+.category {
+    margin-bottom: 2px;
+}
+
+.category-icon {
+    color: #272727;
+    position: relative;
+    bottom: 1px;
+    right: 1px;
 }
 
 .c-link {
+    color: #272727;
+    font-family: 'Source Serif pro', serif;
+    font-size: 16pt;
+    font-weight: 800;
+    text-decoration: none;
+}
 
+.add {
+    padding-left: 32px;
+}
+
+.add-link {
+    font-size: 14pt;
+    opacity: 0.8;
+}
+
+
+label {
+    display: block;
+    font-family: 'Source Serif pro', serif;
+    font-size: 16pt;
+}
+
+.field {
+    margin: 5px 50px;
+    padding: 12px;
+}
+
+.product-input-field {
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.small  {
+    width: 35% !important;
+}
+
+.product-input-area {
+        width: 100%;
+        height: 80px;
+}
+
+.submit {
+    font-size: 16pt;
+    font-weight: 600;
+    height: 50px;
 }
