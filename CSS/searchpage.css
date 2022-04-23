@@ -15,15 +15,9 @@
 .grid-justify-content-evenly {
     display: grid;
     grid-column-gap: 20px;
-    grid-row-gap: 10px;
+    grid-row-gap: 15px;
     grid-template-columns: repeat(auto-fill, 200px);
     justify-content: space-evenly;
-}
-
-.form-control {
-    color: #212529;
-    background-color: #fff;
-    border: 1px solid #ced4da;
 }
 
 .form-control:focus {
@@ -113,7 +107,7 @@ a:active {
 }
 
 .form-select {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     border: 1px solid #ced4da;
 }
 
@@ -123,7 +117,7 @@ a:active {
 }
 
 .filter-sort-label {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
 }
 
 .filter-sort-dropdown {
@@ -165,15 +159,15 @@ a:active {
 }
 
 .left-right-pad {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 12%;
+    padding-right: 12%;
 }
 
 .btn-outline-primary {
     background-color: var(--accent-color-light);
     color: black;
     border-color: var(--primary-color-colored);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     border-radius: 8px;
     font-weight: bold;
 }
