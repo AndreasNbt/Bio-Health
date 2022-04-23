@@ -1,0 +1,156 @@
+:root{
+    --primary-color-light: #f1f1f1;
+    --primary-color-colored: #1f5014;
+    --primary-color-dark: black;
+    --accent-color-light: white;
+    --accent-color-colored: #97d199;
+    --accent-color-dark: #212529;
+    --font-size-xl: 24px;
+    --font-size-lg: 16px;
+    --font-size-md: 12px;
+    --font-size-sm: 8px;
+    --font-size-xsm: 6px;
+}
+
+.btn-outline-primary {
+    background-color: var(--accent-color-light);
+    color: black;
+    border-color: var(--primary-color-colored);
+    font-size: var(--font-size-lg);
+    border-radius: 8px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent-color-colored);
+    border-color: black;
+    color: black;
+}
+
+.btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.05rem rgba(31, 80, 20, 0.5);
+}
+
+.btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
+    color: #fff;
+    background-color: var(--primary-color-colored);
+    border-color: black;
+}
+
+.btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+.btn-outline-primary:disabled, .btn-outline-primary.disabled {
+    color: var(--primary-color-colored);
+    background-color: transparent;
+}
+
+.form-select {
+    border: 1px solid #ced4da;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color-colored);
+    box-shadow: 0 0 0 0.25rem rgba(31, 80, 20, 0);
+}
+
+.border-primary {
+    border-color: var(--primary-color-colored) !important;
+}
+
+.vertical-scrollable> .row {
+    position: absolute;
+    top: 120px;
+    bottom: 100px;
+    left: 180px;
+    width: 50%;
+    overflow-y: scroll;
+}
+.col-sm-8 {
+    color: white;
+    font-size: 24px;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}
+
+.col-sm-8:nth-child(2n+1) {
+    background: green;
+}
+
+.col-sm-8:nth-child(2n+2) {
+    background: black;
+}
+
+.btn-close {
+    color: #000;
+}
+.btn-close:hover {
+    color: #000;
+    text-decoration: none;
+    opacity: 0.75;
+}
+.btn-close:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(31, 80, 20, 0.3);
+    opacity: 1;
+}
+
+.form-control {
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color-colored);
+    box-shadow: 0 0 0 0.25rem rgba(151, 209, 153, 0.25);
+}
+
+a:link {
+    color: var(--primary-color-dark);
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--primary-color-dark);
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color-dark);
+    font-size: var(--font-size-lg);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--primary-color-dark);
+    font-size: var(--font-size-lg);
+    text-decoration: underline;
+}
+
+.left-right-pad {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.text-xl {
+    font-size: var(--font-size-xl);
+}
+
+.text-lg {
+    font-size: var(--font-size-lg);
+}
+
+.text-md {
+    font-size: var(--font-size-md);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
+}
+
+.text-xsm {
+    font-size: var(--font-size-xsm);
+}
