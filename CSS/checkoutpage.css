@@ -12,6 +12,10 @@
     --font-size-xsm: 6px;
 }
 
+.border-primary {
+    border-color: var(--primary-color-colored) !important;
+}
+
 .btn-outline-danger {
     color: black;
     border-radius: 8px;
@@ -92,14 +96,6 @@
 .btn-outline-success:disabled, .btn-outline-success.disabled {
     color: var(--primary-color-colored);
     background-color: transparent;
-}
-
-.modal-header {
-    border-bottom: 1px solid var(--primary-color-colored);
-}
-
-.modal-footer {
-    border-top: 1px solid var(--primary-color-colored);
 }
 
 .form-control {
