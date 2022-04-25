@@ -66,6 +66,24 @@
     opacity: 100%;
 }
 
+#footer {
+    background-color: #97d199;
+    padding: 2% 12%;
+    border-top:7px solid rgb(0, 50, 21);
+}
+
+#footer .col {
+    padding: 0 2%;
+}
+
+.social-icon {
+    margin-left: 10px;
+}
+
+.copyright {
+    margin-bottom: 0
+}
+
 /* Media Queries */
 
 @media (max-width: 1100px) {
