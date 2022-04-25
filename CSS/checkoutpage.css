@@ -12,7 +12,37 @@
     --font-size-xsm: 6px;
 }
 
+.form-control {
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color-colored);
+    box-shadow: 0 0 0 0.25rem rgba(151, 209, 153, 0.25);
+}
+
 .left-right-pad {
     padding-left: 12%;
     padding-right: 12%;
+}
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
 }
