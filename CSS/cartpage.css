@@ -106,25 +106,25 @@
     box-shadow: 0 0 0 0.25rem rgba(151, 209, 153, 0.25);
 }
 
-a:link {
+#products a:link {
     color: var(--primary-color-dark);
     font-size: var(--font-size-lg);
     text-decoration: none;
 }
 
-a:visited {
+#products a:visited {
     color: var(--primary-color-dark);
     font-size: var(--font-size-lg);
     text-decoration: none;
 }
 
-a:hover {
+#products a:hover {
     color: var(--primary-color-dark);
     font-size: var(--font-size-lg);
     text-decoration: underline;
 }
 
-a:active {
+#products a:active {
     color: var(--primary-color-dark);
     font-size: var(--font-size-lg);
     text-decoration: underline;
@@ -133,6 +133,7 @@ a:active {
 .left-right-pad {
     padding-left: 12%;
     padding-right: 12%;
+    padding-bottom: 1.5rem;
 }
 
 .text-xl {

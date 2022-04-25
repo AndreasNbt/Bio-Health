@@ -26,6 +26,7 @@
 .left-right-pad {
     padding-left: 12%;
     padding-right: 12%;
+    padding-bottom: 1.5rem;
 }
 
 input[type=text] {

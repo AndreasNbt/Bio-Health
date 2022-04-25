@@ -41,7 +41,7 @@
 <div class="container-fluid left-right-pad">
     <!-- row with "Showing results for" message -->
     <div class="row pb-3 pt-2">
-        <div class="col-auto pt-3">
+        <div class="col-auto d-flex align-items-end">
             <h5>Showing results for "Search keyword":</h5>
         </div>
 
@@ -73,7 +73,7 @@
     </div>
 
     <!-- container with all the products' images -->
-    <div class="grid-justify-content-evenly">
+    <div id="products" class="grid-justify-content-evenly">
         <div class="container-fluid" style="padding: 0">
 
             <!-- link and image -->
@@ -763,8 +763,8 @@
 </div>
 
 <div id="footer" class="mt-auto">
-    <div class="row">
-        <div class="col col-sm-3">
+    <div class="row" style="--bs-gutter-x: 0">
+        <div class="col col-sm-3" style="padding-left: 0">
             <h4><b><u>Contact:</u></b></h4>
             <p>Telephone: +30 2310 123456</p>
             <p>Email: info@bioandhealth.gr</p>
@@ -778,7 +778,7 @@
         <div class="col col-sm-3">
             
         </div>
-        <div class="col col-sm-3 text-end">
+        <div class="col col-sm-3 text-end" style="padding-right: calc(var(--bs-gutter-x) * .5);">
             <h4>Get in touch with us</h4>
             <a href="http://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon"></i></a>
             <a href="http://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon"></i></a>
