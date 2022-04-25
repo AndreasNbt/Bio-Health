@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio & Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/sensei" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/checkoutpage.css">
+    <script src="checkoutpage.js"></script>
+</head>
+</head>
+<body>
+
+    <section id="navbar">
+        <nav class="navbar d-flex justify-content-between py-0">
+            <a href="#" class="navbar-logo dark-gray">
+                <h1 class="navbar-logo-1 m-0" style="color: #272727">Bio &</h1>
+                <h1 class="position-relative navbar-logo-2 m-0" style="color: #272727">Health</h1>
+            </a>
+            <form class="form-inline d-flex flex-row search">
+                <input class="form-control search-bar" type="text" placeholder="Search for a product, category...">
+                <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
+            </form>
+            <div class="navbar-nav d-flex flex-row justify-content-between">
+                <a class="nav-item nav-link nav-icon text-center dark-gray" style="color: #272727" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" style="color: #272727" href="#"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" style="color: #272727" href="#"><i class="fa-solid fa-heart fa-2x"></i></a>
+            </div>
+        </nav>
+        <hr class="big-hr m-0">
+    </section>
+
+    <div class="container-fluid left-right-pad">
+        <div class="row pt-5" style="padding: 0 20% 0 20%">
+            <div class="col-6">
+                <div class="d-flex" style="flex-direction: column">
+                    <h3 class="text-center">Billing address</h3>
+
+                    <label for="fname" class="pt-3"><i class="fa fa-user-o"></i> Full Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="John Doe">
+
+                    <label for="email" class="pt-3"><i class="fa fa-envelope-o"></i> Email</label>
+                    <input type="text" id="email" name="email" placeholder="email@example.com">
+
+                    <label for="adr" class="pt-3"><i class="fa fa-address-card-o"></i> Address</label>
+                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+
+                    <label for="city" class="pt-3"><i class="fa fa-building-o"></i> City</label>
+                    <input type="text" id="city" name="city" placeholder="New York">
+
+                    <div class="row pt-3">
+                        <div class="col-6 d-flex" style="flex-direction: column">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" placeholder="NY">
+                        </div>
+                        <div class="col-6 d-flex" style="flex-direction: column">
+                            <label for="zip">Zip</label>
+                            <input type="text" id="zip" name="zip" placeholder="10001">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="d-flex" style="flex-direction: column;">
+                    <h3 class="text-center">Payment</h3>
+
+                    <label for="fname" class="pt-3 pb-1">Accepted Cards</label>
+                    <div class="icon-container" style="height: 26px">
+                        <i class="fa fa-cc-visa" style="color:navy;size: 2;padding-right: 10px"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;scale: 100%;padding-right: 10px"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;scale: 100%;padding-right: 10px"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;scale: 100%;padding-right: 10px"></i>
+                    </div>
+
+                    <label for="city" class="pt-3"><i class="fa fa-building-o"></i> City</label>
+                    <input type="text" id="city" name="city" placeholder="New York">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

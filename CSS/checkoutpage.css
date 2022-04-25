@@ -1,0 +1,18 @@
+:root{
+    --primary-color-light: #f1f1f1;
+    --primary-color-colored: #1f5014;
+    --primary-color-dark: black;
+    --accent-color-light: white;
+    --accent-color-colored: #97d199;
+    --accent-color-dark: #212529;
+    --font-size-xl: 24px;
+    --font-size-lg: 16px;
+    --font-size-md: 12px;
+    --font-size-sm: 8px;
+    --font-size-xsm: 6px;
+}
+
+.left-right-pad {
+    padding-left: 12%;
+    padding-right: 12%;
+}
