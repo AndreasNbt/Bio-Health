@@ -12,31 +12,31 @@
     --font-size-xsm: 6px;
 }
 
-.form-check {
+#form .form-check {
     display: block;
     min-height: 1.5rem;
     padding-left: 1.5em;
     margin-bottom: 0.125rem;
 }
-.form-check .form-check-input {
+#form .form-check .form-check-input {
     float: left;
     margin-left: -1.5em;
 }
 
-.form-check-input {
+#form .form-check-input {
     border: 1px solid rgba(31, 80, 20, 0.25);
 }
-.form-check-input:focus {
+#form .form-check-input:focus {
     border-color: var(--accent-color-colored);
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(31, 80, 20, 0.25);
 }
-.form-check-input:checked {
+#form .form-check-input:checked {
     background-color: var(--primary-color-colored);
     border-color: var(--primary-color-colored);
 }
 
-.form-check-input[type=checkbox]:indeterminate {
+#form .form-check-input[type=checkbox]:indeterminate {
     background-color: var(--primary-color-colored);
     border-color: var(--primary-color-colored);
 }
@@ -127,13 +127,13 @@
     background-color: transparent;
 }
 
-.form-control {
+#form .form-control {
     color: #212529;
     background-color: #fff;
     border: 1px solid #ced4da;
 }
 
-.form-control:focus {
+#form .form-control:focus {
     border-color: var(--primary-color-colored);
     box-shadow: 0 0 0 0.25rem rgba(151, 209, 153, 0.25);
 }
@@ -144,7 +144,7 @@
     padding-bottom: 2rem;
 }
 
-input[type=text] {
+#form input[type=text] {
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
