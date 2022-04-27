@@ -1,8 +1,4 @@
-[class *="col"] {
-    padding: 1rem;
-    background-color: #f1f1f1;
-    color: #fff
-}
+
 
 [class *="container"] {
     background-color: #f1f1f1;
@@ -16,16 +12,16 @@
     margin-top: 25px
 }
 
-.headerRow {
-    background-color: #97d199;
-    border-bottom: 5px solid #094e19;
-}
-
 .carousel {
     border-left: 20px solid #094e19;
 }
 
 .footerRow {
+    border: none;
+    margin: 0
+}
+
+#footer {
     margin-top: 20px;
     background-color: #97d199;
     border-top: 5px solid #094e19;
