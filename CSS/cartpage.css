@@ -155,3 +155,7 @@
 .text-xsm {
     font-size: var(--font-size-xsm);
 }
+
+.grey-background {
+    background-color: var(--primary-color-light);
+}
