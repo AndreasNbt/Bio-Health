@@ -31,7 +31,16 @@
                 <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
             </form>
             <div class="navbar-nav d-flex flex-row justify-content-between">
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                    <div class="dropdown-content">
+                        <a class="signedout" href="SignIn.html">Sign in</a>
+                        <a class="signedout" href="SignUp.html">Create an account</a>
+                        <a class="signedin" href="AccountInfo.html">Account Information</a>
+                        <a class="signedin" href="#">My Orders</a>
+                        <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
+                    </div>
+                </div>
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-heart fa-2x"></i></a>
             </div>
