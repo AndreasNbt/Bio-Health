@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="CSS/Sign Up-In.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
+    <script src="JS/navbar.js"></script>
 
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body onload="UpdateDropdown(0)" class="d-flex flex-column min-vh-100">
     <section id="navbar">
         <nav class="navbar d-flex justify-content-between">
             <a href="index.html" class="navbar-logo dark-gray">
@@ -28,7 +29,16 @@
                 <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
             </form>
             <div class="navbar-nav d-flex flex-row justify-content-between">
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                    <div class="dropdown-content">
+                        <a class="signedout" href="SignIn.html">Sign in</a>
+                        <a class="signedout" href="SignUp.html">Create an account</a>
+                        <a class="signedin" href="#">Account Information</a>
+                        <a class="signedin" href="#">My Orders</a>
+                        <a class="signedin" onclick="UpdateDropdown(0)" href="#">Log out</a>
+                    </div>
+                </div>
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-heart fa-2x"></i></a>
             </div>
@@ -51,7 +61,7 @@
                     <br>
                     
 
-                    <h5 class="dark-green header-text m-0 pt-4">With your account</h5>
+                    <h5 class="dark-green header-text m-0 py-2">With your account</h5>
                     <div class="input-icons text-center">
                         <i class="fa-solid fa-envelope icon"></i>
                         <input type="text" class="input-field" placeholder="Email or username" name="email" required>
@@ -59,12 +69,12 @@
                         <i class="fa-solid fa-lock icon"></i>
                         <input type="password" class="input-field" placeholder="Password" name="username" required>
                         <br>
-                        <a href="#" class="forgot-password position-relative text-decoration-none dark-green">Forgot your password?</a>
+                        <a href="#" class="forgot-password text-decoration-none dark-green">Forgot your password?</a>
                     </div>
                     <br>
-                    <button class="sign-btn solid-border dark-green extra-spacing" type="submit">Sign In</button>
+                    <button id="signup" class="sign-btn solid-border dark-green extra-spacing" type="submit">Sign In</button>
 
-                    <h5 class="dark-green header-text pt-5">With your Socials</h5>
+                    <h5 class="dark-green header-text py-2">With your Socials</h5>
 
                     <div class="social-icons mx-0 my-1">
                         <a href=""><i class="fa-brands fa-facebook fa-2x social"></i></a>
@@ -74,7 +84,7 @@
                     </div>
 
                 </div>
-                <div class="solid-border col-3 small-container">
+                <div class="solid-border col-3 small-container p-3">
 
                     <div class="logo mt-3">
                         <a href="#"><img src="bioandhealthlogo.png" width="128" height="128" alt="Logo"></a>
