@@ -54,10 +54,20 @@ label {
 .field {
     margin: 5px 50px;
     padding: 12px;
+    text-align: center;
 }
 
 .product-input-field {
     width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.account-input {
+    display: block;
+    margin: auto;
+    min-width: 600px;
     height: 40px;
     margin-top: 5px;
     padding: 5px;

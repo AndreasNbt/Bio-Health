@@ -81,6 +81,11 @@
     margin: 4rem 0;
 }
 
+#signup {
+    margin-bottom: 80px;
+    margin-top: 5px;
+}
+
 .sign-btn {
     text-decoration: none;
     height: 2rem;
@@ -94,8 +99,12 @@
 }
 
 .forgot-password {
-    font-size: 0.6875rem;
-    right: 5.8rem;
+    font-size: 10pt;
+    padding: 12px;
+    text-align: start;
+    width: 55%;
+    height: 20px;
+    margin: 0.8rem;
 }
 
 .sign-btn:hover, .forgot-password:hover {

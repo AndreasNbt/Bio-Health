@@ -24,31 +24,39 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
+    <script src="JS/navbar.js"></script>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-<section id="navbar">
-    <nav class="navbar d-flex justify-content-between">
-        <a href="index.html" class="navbar-logo dark-gray">
-            <h1 class="navbar-logo-1">Bio &</h1>
-            <h1 class="position-relative navbar-logo-2">Health</h1>
-        </a>
-        <form class="form-inline d-flex flex-row search">
-            <input class="form-control search-bar" type="text" placeholder="Search for a product">
-            <button type="submit" class="search-button position-relative"><i
-                    class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
-        </form>
-        <div class="navbar-nav d-flex flex-row justify-content-between">
-            <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i
-                    class="fa-solid fa-user-gear fa-2x"></i></a>
-            <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i
-                    class="fa-solid fa-cart-shopping fa-2x"></i></a>
-            <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i
-                    class="fa-solid fa-heart fa-2x"></i></a>
-        </div>
-    </nav>
+<body onload="UpdateDropdown(0)" class="d-flex flex-column min-vh-100">
+    <section id="navbar">
+        <nav class="navbar d-flex justify-content-between">
+            <a href="index.html" class="navbar-logo dark-gray">
+                <h1 class="navbar-logo-1">Bio &</h1>
+                <h1 class="position-relative navbar-logo-2">Health</h1>
+            </a>
+            <form class="form-inline d-flex flex-row search">
+                <input class="form-control search-bar" type="text" placeholder="Search for a product">
+                <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
+            </form>
+            <div class="navbar-nav d-flex flex-row justify-content-between">
+                <div class="dropdown">
+                    <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                    <div class="dropdown-content">
+                        <a class="signedout" href="SignIn.html">Sign in</a>
+                        <a class="signedout" href="SignUp.html">Create an account</a>
+                        <a class="signedin" href="AccountInfo.html">Account Information</a>
+                        <a class="signedin" href="#">My Orders</a>
+                        <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
+                    </div>
+                </div>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-heart fa-2x"></i></a>
+            </div>
+        </nav>
+    </section>
+
     <hr class="big-hr m-0">
-</section>
+    <br>
 
 <div class="container-fluid border">
     <div class="row justify-content-center">
