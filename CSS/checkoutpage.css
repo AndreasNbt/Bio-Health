@@ -50,6 +50,7 @@
     color: black;
     border-radius: 8px;
 }
+
 .btn-outline-danger:hover {
     color: black;
     background-color: #ff7f7f;
@@ -70,6 +71,7 @@
     color: #dc3545;
     background-color: transparent;
 }
+
 .btn-outline-primary {
     background-color: var(--accent-color-light);
     color: black;
