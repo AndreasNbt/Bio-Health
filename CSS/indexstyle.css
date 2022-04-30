@@ -1,4 +1,23 @@
 
+.main {
+    padding: 2% 15%;
+}
+
+.categories {
+    border-top: 5px solid #094e19;
+    border-bottom: 5px solid #094e19;
+    padding: 25px;
+}
+
+.categories a {
+    text-decoration: none;
+}
+
+.caption {
+    padding: 10px;
+    font-family: 'Sensei', sans-serif;
+    font-size: 14pt;
+}
 
 [class *="container"] {
     background-color: #f1f1f1;
