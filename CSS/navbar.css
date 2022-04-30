@@ -1,5 +1,29 @@
 /* Navbar CSS */
 
+#navbarToggleExternalContent a:link {
+    color: var(--primary-color-dark);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#navbarToggleExternalContent a:visited {
+    color: var(--primary-color-dark);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#navbarToggleExternalContent a:hover {
+    color: var(--primary-color-dark);
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+#navbarToggleExternalContent a:active {
+    color: var(--primary-color-dark);
+    font-size: 20px;
+    text-decoration: underline;
+}
+
 .navbar {
     background-color: #97d199;
     padding: 0 12%;
