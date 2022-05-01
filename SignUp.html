@@ -75,10 +75,9 @@
     </section>
 
     <hr class="big-hr m-0">
-    <br>
 
-    <section id="main-section">
-        <form action="" id="sign-up-form">
+    <section class="main-section" >
+        <form action="" class="main-container">
             <div class="container-fluid d-flex justify-content-center text-center" >
                 <div class="solid-border col-6 big-container">
 
@@ -103,9 +102,12 @@
                         <br>
                     </div>
 
-                    <button class="sign-btn solid-border dark-green extra-spacing" type="submit" onclick="visitPage('index.html'); UpdateDropdown(1)">Sign Up</button>
+                    <button class="sign-btn solid-border dark-green extra-spacing" type="submit">Sign Up</button>
 
-                    <h5 class="dark-green header-text pt-5">With your Socials</h5>
+                    <h5 class="dark-green header-text m-1 py-2">Or</h5>
+                    <button id="sign-up-admin" class="sign-btn solid-border dark-green" type="submit">Sign Up as Administrator</button>
+
+                    <h5 class="dark-green header-text pt-3">With your Socials</h5>
 
                     <div class="social-icons my-1">
                         <a href="https://facebook.com" style="color: #1f5014;"><i class="fa-brands fa-facebook fa-2x social"></i></a>
@@ -122,13 +124,15 @@
                     </div>
                     <h2 class="dark-green header-text my-5">Already have an account?</h2>
                     <h6 class="fill-text">You can sign in with the button below</h6>
-                    <a href="SignIn.html" class="sign-btn solid-border dark-green extra-spacing my-5 px-4 py-1" >Sign In</a>
+                    <div class="mt-5">
+                        <a href="SignIn.html" class="sign-btn2 dark-green extra-spacing solid-border" >Sign In</a>
+                    </div>
                 </div>
             </div>
         </form>
 
     </section>
-
+    <br>
     <section id="footer" class="mt-auto">
         <div class="row" style="--bs-gutter-x: 0">
             <div class="col col-sm-3" style="padding-left: 0">

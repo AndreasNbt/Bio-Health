@@ -59,27 +59,35 @@
 
 /* Sign up - Sign in */
 
-.container-fluid {
-    margin-top: 30px;
-    margin-bottom: 60px;
+.main-section {
+    flex: 1;
+    display: flex;
 }
+
+.main-container {
+    flex: 1;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
 
 .big-container {
     background-color: #f6f6e9;
     border-radius: 25px;
     min-width: 300px;
-    min-height: 600px;
+    min-height: 700px;
     max-width: 1100px;
-    margin-top: 25px;
 }
 
 .small-container {
     background-color: #f6f6e9;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
     min-width: 175px;
-    min-height: 600px;
+    min-height: 700px;
     max-width: 350px;
-    margin-top: 25px;
 }
 
 
@@ -87,17 +95,24 @@
     margin: 4rem 0;
 }
 
-#signup {
-    margin-bottom: 80px;
-    margin-top: 5px;
+#sign-up-admin {
+    margin-bottom: 3rem;
 }
 
 .sign-btn {
     text-decoration: none;
     height: 2rem;
     width: 28%;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
     border-radius: 25px;
+}
+
+.sign-btn2 {
+    background-color: #e3eaf0;
+    text-decoration: none;
+    font-size: 17pt;
+    border-radius: 25px;
+    padding: 10px 40px;
 }
 
 .social {
@@ -113,7 +128,7 @@
     margin: 0.8rem;
 }
 
-.sign-btn:hover, .forgot-password:hover {
+.sign-btn:hover, .sign-btn2:hover, .forgot-password:hover {
     text-decoration: none;
     color: #1f5014;
 }

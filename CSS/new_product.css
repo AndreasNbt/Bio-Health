@@ -10,9 +10,9 @@
 .category-container {
     background-color: #f6f6e9;
     min-width: 175px;
-    min-height: 600px;
+    min-height: 750px;
     max-width: 350px;
-    margin-right: 100px;
+    margin-right: 200px;
     border-radius: 25px;
     margin-top: 25px;
 }
