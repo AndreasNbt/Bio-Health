@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="CSS/new_product.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <script src="JS/navbar.js"></script>
- 
-    
+
 </head>
 <body onload="UpdateDropdown(0)" class="d-flex flex-column min-vh-100">
     <section id="navbar">
@@ -48,7 +47,7 @@
             </div>
         </nav>
         <div class="collapse" id="navbarToggleExternalContent">
-            <div class="container-fluid" style="background-color: #97d199;padding: 0 12% 0 12%">
+            <div class="container-fluid" style="background-color: #97d199;padding: 0 12% 0 12%;margin: 0">
                 <ul id="categories" class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="searchpage.html" style="padding-left: 0">Dairy</a>
@@ -126,32 +125,32 @@
                         <div>
                             <div class="field d-flex flex-column">
                                 <label for="product_name" class="product_label text-start">Product Name</label>
-                                <input type="text" id="product_name" class="product-input-field" name="product_info" required>
+                                <input type="text" id="product_name" class="product-input-field" name="product_name" required>
                             </div>
 
                             <div class="field d-flex flex-column">
                                 <label for="product_description" class="product_label text-start">Description</label>
-                                <textarea type="text" id="product_description" class="product-input-area" name="product_info" required></textarea>
+                                <textarea type="text" id="product_description" class="product-input-area" name="product_description" required></textarea>
                             </div>
                             
                             <div class="field d-flex flex-column">
-                                <label for="product_name" class="product_label text-start">Category</label>
-                                <input type="text" id="product_name" class="product-input-field small" name="product_info" required>
+                                <label for="product_category" class="product_label text-start">Category</label>
+                                <input type="text" id="product_category" class="product-input-field small" name="product_category" required>
                             </div>
 
                             <div class="field d-flex flex-column">
                                 <label for="product_price" class="product_label text-start">Price</label>
-                                <input type="number" id="product_price" class="product-input-field small" name="product_info" required>
+                                <input type="number" id="product_price" class="product-input-field small" name="product_price" required>
                             </div>
 
                             <div class="field d-flex flex-column">
-                                <label for="product_price" class="product_label text-start">Stock</label>
-                                <input type="number" id="product_price" class="product-input-field small" name="product_info" required>
+                                <label for="product_stock" class="product_label text-start">Stock</label>
+                                <input type="number" id="product_stock" class="product-input-field small" name="product_stock" required>
                             </div>
                             
                             <div class="field d-flex flex-column">
                                 <label for="product_image" class="product_label text-start">Image</label>
-                                <input type="file" id="product_image" class="product-input-field p-0" name="product_info" required>
+                                <input type="file" id="product_image" class="product-input-field p-0" name="product_images" required>
                             </div>
                             
                         </div>
@@ -186,7 +185,7 @@
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright"><a href="info.html" style="color: #212529">Terms of use</a> | <a href="info.html" style="color: #212529">Personal data</a>
+                <p class="copyright"><a href="infopage.html" style="color: #212529">Terms of use</a> | <a href="infopage.html" style="color: #212529">Personal data</a>
             </div>
         </div>
     </section>

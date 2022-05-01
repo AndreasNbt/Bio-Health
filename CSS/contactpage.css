@@ -12,6 +12,15 @@
     --font-size-xsm: 6px;
 }
 
+#form .form-select {
+    border: 1px solid #ced4da;
+}
+
+#form .form-select:focus {
+    border-color: var(--primary-color-colored);
+    box-shadow: 0 0 0 0.25rem rgba(31, 80, 20, 0);
+}
+
 #form .form-check {
     display: block;
     min-height: 1.5rem;
