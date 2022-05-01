@@ -151,6 +151,10 @@
     display: block;
 }
 
+.danger-red:hover {
+    color: #dc3545;
+}
+
 /* Media Queries */
 
 @media (max-width: 1100px) {
