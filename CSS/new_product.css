@@ -7,14 +7,8 @@
     text-align: center;
 }
 
-.category-container {
-    background-color: #f6f6e9;
-    min-width: 175px;
-    min-height: 750px;
-    max-width: 350px;
+.right-margin {
     margin-right: 200px;
-    border-radius: 25px;
-    margin-top: 25px;
 }
 
 .category {
