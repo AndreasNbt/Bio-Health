@@ -27,27 +27,64 @@
 
 <body class="d-flex flex-column min-vh-100 grey-background" onload="updateShippingAddress()">
     <section id="navbar">
-        <nav class="navbar d-flex justify-content-between">
+        <nav class="navbar d-flex justify-content-between py-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
             <a href="index.html" class="navbar-logo dark-gray">
                 <h1 class="navbar-logo-1">Bio &</h1>
                 <h1 class="position-relative navbar-logo-2">Health</h1>
             </a>
             <form class="form-inline d-flex flex-row search">
                 <input class="form-control search-bar" type="text" placeholder="Search for a product">
-                <button type="submit" class="search-button position-relative"><i
-                        class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
+                <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
             </form>
             <div class="navbar-nav d-flex flex-row justify-content-between">
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i
-                        class="fa-solid fa-user-gear fa-2x"></i></a>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i
-                        class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i
-                        class="fa-solid fa-heart fa-2x"></i></a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                    <div class="dropdown-content">
+                        <a class="signedout" href="SignIn.html">Sign in</a>
+                        <a class="signedout" href="SignUp.html">Create an account</a>
+                        <a class="signedin" href="AccountInfo.html">Account Information</a>
+                        <a class="signedin" href="#">My Orders</a>
+                        <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
+                    </div>
+                </div>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="cartpage.html"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="favorites.html"><i class="fa-solid fa-heart fa-2x"></i></a>
             </div>
         </nav>
-        <hr class="big-hr m-0">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="container-fluid" style="background-color: #97d199;padding: 0 12% 0 12%">
+                <ul id="categories" class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html" style="padding-left: 0">Dairy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Vegan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Fruits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Vegetables</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Sugar free</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Gluctose free</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Miscellaneous</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
+
+    <hr class="big-hr m-0">
+    <br>
 
     <div id="form" class="container-fluid left-right-pad">
         <form method="post" action="contactCompletionPage.html">
@@ -77,19 +114,19 @@
                 </div>
         </form>
     </div>
-    </div>
-    <div id="footer" class="mt-auto">
+    
+    <section id="footer" class="mt-auto">
         <div class="row" style="--bs-gutter-x: 0">
             <div class="col col-sm-3" style="padding-left: 0">
-                <b><u>Contact:</u></b> <br>
-                Telephone: +30 2310 123456 <br>
-                Email: info@bioandhealth.gr <br>
-                <a href="contactForm.html"  style="text-decoration:none; color:#212529; font-size: 1rem"><b><u>Contact Form</u></b></a>
+                <h4><b><u>Contact:</u></b></h4>
+                <p>Telephone: +30 2310 123456</p>
+                <p>Email: info@bioandhealth.gr</p>
+                <a href="contactForm.html" style="text-decoration:none; color:#212529; font-size: 1rem">Contact Form</a>
             </div>
             <div class="col col-sm-3">
-                <b><u>Location:</u></b> <br>
-                Eth. Antistasis 16, Kalamaria, Greece <br>
-                <a href="infopage.html" style="text-decoration:none; color:#212529; font-size: 1rem"><b><u>More Info</u></b></a>
+                <h4><b><u>Location:</u></b></h4>
+                <p>Eth. Antistasis 16, Kalamaria, Greece</p>
+                <h5 ><a href="infopage.html" style="text-decoration:none; color:#212529; font-size: 1rem">More Info</a></h5>
             </div>
             <div class="col col-sm-3">
             </div>
@@ -102,10 +139,10 @@
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright"><a href="about:blank" style="color: #212529">Terms of use</a> | <a href="about:blank" style="color: #212529">Personal data</a>
+                <p class="copyright"><a href="info.html" style="color: #212529">Terms of use</a> | <a href="info.html" style="color: #212529">Personal data</a>
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 

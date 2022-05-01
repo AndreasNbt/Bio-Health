@@ -19,7 +19,10 @@
 </head>
 <body onload="UpdateDropdown(0)" class="d-flex flex-column min-vh-100">
     <section id="navbar">
-        <nav class="navbar d-flex justify-content-between">
+        <nav class="navbar d-flex justify-content-between py-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
             <a href="index.html" class="navbar-logo dark-gray">
                 <h1 class="navbar-logo-1">Bio &</h1>
                 <h1 class="position-relative navbar-logo-2">Health</h1>
@@ -39,15 +42,41 @@
                         <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
                     </div>
                 </div>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-heart fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="cartpage.html"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="favorites.html"><i class="fa-solid fa-heart fa-2x"></i></a>
             </div>
         </nav>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="container-fluid" style="background-color: #97d199;padding: 0 12% 0 12%">
+                <ul id="categories" class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html" style="padding-left: 0">Dairy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Vegan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Fruits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Vegetables</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Sugar free</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Gluctose free</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchpage.html">Miscellaneous</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <hr class="big-hr m-0">
     <br>
-
     <section id="main-section">
         <form action="" id="sign-up-form">
             <div class="container-fluid d-flex flex-row justify-content-center text-center" >
@@ -98,35 +127,34 @@
 
     </section>
 
-    <div id="footer" class="mt-auto">
-        <div class="row">
-            <div class="col col-sm-3">
+    <section id="footer" class="mt-auto">
+        <div class="row" style="--bs-gutter-x: 0">
+            <div class="col col-sm-3" style="padding-left: 0">
                 <h4><b><u>Contact:</u></b></h4>
                 <p>Telephone: +30 2310 123456</p>
                 <p>Email: info@bioandhealth.gr</p>
+                <a href="contactForm.html" style="text-decoration:none; color:#212529; font-size: 1rem">Contact Form</a>
             </div>
             <div class="col col-sm-3">
                 <h4><b><u>Location:</u></b></h4>
                 <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-                <h5 ><a href="" style="text-decoration:none; color:black">More Info</a></h5>
-
+                <h5 ><a href="infopage.html" style="text-decoration:none; color:#212529; font-size: 1rem">More Info</a></h5>
             </div>
             <div class="col col-sm-3">
-                
             </div>
-            <div class="col col-sm-3 text-end">
+            <div class="col col-sm-3 text-end" style="padding-right: calc(var(--bs-gutter-x) * .5);">
                 <h4>Get in touch with us</h4>
-                <a href="http://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon"></i></a>
-                <a href="http://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon"></i></a>
-                <a href="http://google.com"><i class="fa-brands fa-google fa-2x social-icon"></i></a>
-                <a href="http://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon"></i></a>
+                <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon" style="color: #212529"></i></a>
+                <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon" style="color: #212529"></i></a>
+                <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon" style="color: #212529"></i></a>
+                <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon" style="color: #212529"></i></a>
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright">Terms of use | Personal data</p>
+                <p class="copyright"><a href="info.html" style="color: #212529">Terms of use</a> | <a href="info.html" style="color: #212529">Personal data</a>
             </div>
         </div>
-    </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
