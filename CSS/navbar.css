@@ -1,5 +1,10 @@
 /* Navbar CSS */
 
+#navbar .form-control:focus {
+    border-color: var(--primary-color-colored);
+    box-shadow: 0 0 0 0.25rem rgba(151, 209, 153, 0.25);
+}
+
 #navbarToggleExternalContent a:link {
     color: var(--primary-color-dark);
     font-size: 20px;
