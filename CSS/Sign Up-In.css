@@ -152,3 +152,8 @@
     text-decoration: none;
     color: #1f5014;
 }
+
+.favorite-product {
+    text-align: center;
+    padding: 5%;
+}
