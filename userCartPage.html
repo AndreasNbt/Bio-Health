@@ -28,7 +28,7 @@
                 <h1 class="navbar-logo-1">Bio &</h1>
                 <h1 class="position-relative navbar-logo-2">Health</h1>
             </a>
-            <form class="form-inline d-flex flex-row search" action="searchpage.html">
+            <form class="form-inline d-flex flex-row search" action="userSearch.html">
                 <input class="form-control search-bar" type="text" placeholder="Search for a product">
                 <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
             </form>
@@ -36,39 +36,39 @@
                 <div class="dropdown">
                     <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
                     <div class="dropdown-content">
-                        <a class="signedout" href="SignIn.html">Sign in</a>
-                        <a class="signedout" href="SignUp.html">Create an account</a>
-                        <a class="signedin" href="AccountInfo.html">Account Information</a>
+                        <a class="signedout" href="userSignIn.html">Sign in</a>
+                        <a class="signedout" href="userSignUp.html">Create an account</a>
+                        <a class="signedin" href="userAccountInfo.html">Account Information</a>
                         <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="index.html">Log out</a>
                     </div>
                 </div>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="cartpage.html"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="favorites.html"><i class="fa-solid fa-heart fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="userCartPage.html"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray" href="userFavorites.html"><i class="fa-solid fa-heart fa-2x"></i></a>
             </div>
         </nav>
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="container-fluid left-right-only-pad light-green m-0">
                 <ul id="categories" class="nav">
                     <li class="nav-item">
-                        <a class="nav-link ps-0" href="searchpage.html">Dairy</a>
+                        <a class="nav-link ps-0" href="userSearch.html">Dairy</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html">Vegan</a>
+                        <a class="nav-link" href="userSearch.html">Vegan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html">Fruits</a>
+                        <a class="nav-link" href="userSearch.html">Fruits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html">Vegetables</a>
+                        <a class="nav-link" href="userSearch.html">Vegetables</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html">Sugar free</a>
+                        <a class="nav-link" href="userSearch.html">Sugar free</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html">Gluten free</a>
+                        <a class="nav-link" href="userSearch.html">Gluten free</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html">Miscellaneous</a>
+                        <a class="nav-link" href="userSearch.html">Miscellaneous</a>
                     </li>
                 </ul>
             </div>
@@ -89,7 +89,7 @@
                 <div id="item1">
                     <div class="d-flex justify-content-between align-items-center">
                         <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart1')">
-                        <a href="info.html">Product Name<br/>(<span id="stock1">1000</span> left in stock)</a>
+                        <a href="userProductInfo.html">Product Name<br/>(<span id="stock1">1000</span> left in stock)</a>
                         <input type="number" id="amountAddedToCart1" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart1').value, 1, 1000, 1); updateSubtotal(); updateTotal()"/>
                         <div class="d-flex" style="width: 50px"><span id="costAddedToCart1">1.00</span>€</div>
                         <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('1'); updateSubtotal(); updateTotal()"></button>
@@ -100,7 +100,7 @@
                 <div id="item2">
                     <div class="d-flex justify-content-between align-items-center">
                         <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart2')">
-                        <a href="info.html">Product Name<br/>(<span id="stock2">1000</span> left in stock)</a>
+                        <a href="userProductInfo.html">Product Name<br/>(<span id="stock2">1000</span> left in stock)</a>
                         <input type="number" id="amountAddedToCart2" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart2').value, 2, 1000, 2); updateSubtotal(); updateTotal()"/>
                         <div class="d-flex" style="width: 50px"><span id="costAddedToCart2">2.00</span>€</div>
                         <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('2'); updateSubtotal(); updateTotal()"></button>
@@ -111,7 +111,7 @@
                 <div id="item3">
                     <div class="d-flex justify-content-between align-items-center">
                         <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart3')">
-                        <a href="info.html">Product Name<br/>(<span id="stock3">1000</span> left in stock)</a>
+                        <a href="userProductInfo.html">Product Name<br/>(<span id="stock3">1000</span> left in stock)</a>
                         <input type="number" id="amountAddedToCart3" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart3').value, 3, 1000, 3); updateSubtotal(); updateTotal()"/>
                         <div class="d-flex" style="width: 50px"><span id="costAddedToCart3">3.00</span>€</div>
                         <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('3'); updateSubtotal(); updateTotal()"></button>
@@ -122,7 +122,7 @@
                 <div id="item4">
                     <div class="d-flex justify-content-between align-items-center">
                         <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart4')">
-                        <a href="info.html">Product Name<br/>(<span id="stock4">1000</span> left in stock)</a>
+                        <a href="userProductInfo.html">Product Name<br/>(<span id="stock4">1000</span> left in stock)</a>
                         <input type="number" id="amountAddedToCart4" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart4').value, 4, 1000, 4); updateSubtotal(); updateTotal()"/>
                         <div class="d-flex" style="width: 50px"><span id="costAddedToCart4">4.00</span>€</div>
                         <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('4'); updateSubtotal(); updateTotal()"></button>
@@ -133,7 +133,7 @@
                 <div id="item5">
                     <div class="d-flex justify-content-between align-items-center">
                         <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart5');">
-                        <a href="info.html">Product Name<br/>(<span id="stock5">1000</span> left in stock)</a>
+                        <a href="userProductInfo.html">Product Name<br/>(<span id="stock5">1000</span> left in stock)</a>
                         <input type="number" id="amountAddedToCart5" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart5').value, 5, 1000, 5); updateSubtotal(); updateTotal()"/>
                         <div class="d-flex" style="width: 50px"><span id="costAddedToCart5">5.00</span>€</div>
                         <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('5'); updateSubtotal(); updateTotal()"></button>
@@ -184,7 +184,7 @@
                 </div>
                 <hr class="border-2 border-top border-primary">
                 <div class="d-flex justify-content-center align-items-center py-4">
-                    <a href="checkoutpage.html">
+                    <a href="userCheckoutpPage.html">
                         <button type="button" id="checkout_button" class="btn btn-outline-primary" style="padding: 10px 100px 10px 100px">Proceed to checkout</button>
                     </a>
                 </div>
@@ -199,12 +199,12 @@
                 <h4><b><u>Contact:</u></b></h4>
                 <p>Telephone: +30 2310 123456</p>
                 <p>Email: info@bioandhealth.gr</p>
-                <a href="contactForm.html" class="footer-link black">Contact Form</a>
+                <a href="userContactForm.html" class="footer-link black">Contact Form</a>
             </div>
             <div class="col col-sm-3">
                 <h4><b><u>Location:</u></b></h4>
                 <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-                <h5 ><a href="infopage.html" class="footer-link black">More Info</a></h5>
+                <h5 ><a href="userMoreInfo.html" class="footer-link black">More Info</a></h5>
             </div>
             <div class="col col-sm-3">
             </div>
@@ -217,7 +217,7 @@
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright"><a class="black" href="info.html">Terms of use</a> | <a href="info.html" class="black">Personal data</a>
+                <p class="copyright"><a class="black" href="userProductInfo.html">Terms of use</a> | <a href="userProductInfo.html" class="black">Personal data</a>
             </div>
         </div>
     </section>
