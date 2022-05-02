@@ -3,6 +3,17 @@
     padding: 0 4%;
 }
 
+#form .form-control {
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+#form .form-control:focus {
+    border-color: var(--primary-color-colored);
+    box-shadow: 0 0 0 0.25rem rgba(151, 209, 153, 0.25);
+}
+
 .header {
     text-align: center;
 }

@@ -35,7 +35,7 @@
                 <h1 class="navbar-logo-1">Bio &</h1>
                 <h1 class="position-relative navbar-logo-2">Health</h1>
             </a>
-            <form class="form-inline d-flex flex-row search">
+            <form class="form-inline d-flex flex-row search" action="searchpage.html">
                 <input class="form-control search-bar" type="text" placeholder="Search for a product">
                 <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
             </form>
@@ -85,28 +85,28 @@
     <hr class="big-hr m-0">
     <br>
     <section class="main-section">
-        <div class="main-container row text-center">
+        <div class="main-container row text-center" style="margin-right: 0">
             <div class="solid-border col-8 mb-5 container big-container">
                 <div class="d-flex justify-content-center py-3">
                     <h1 class="dark-green extra-spacing header-text m-0">Contact Us</h1>
                 </div>
                 <hr class="hr-border m-0">
 
-                <form action="contactCompletionPage.html">
+                <form id="form" action="contactCompletionPage.html">
                     <div>
                         <div class="field d-flex flex-column">
                             <label for="name" class="product_label text-start">Your Name</label>
-                            <input type="text" id="name" class="product-input-field" name="account_info" required>
+                            <input type="text" id="name" class="product-input-field form-control" name="account_info" required>
                         </div>
 
                         <div class="field d-flex flex-column">
                             <label for="email" class="product_label text-start">Email</label>
-                            <input type="email" id="email" class="product-input-field" name="account_info" required>
+                            <input type="email" id="email" class="product-input-field form-control" name="account_info" required>
                         </div>
 
                         <div class="field d-flex flex-column">
                             <label for="topic" style="--bs-gutter-x: 0">Topic:</label>
-                            <select class="form-select text-start" id="topic" name="topic">
+                            <select class="form-control form-select text-start" id="topic" name="topic">
                                 <option value="transactionProblem">Problem with a transaction</option>
                                 <option value="missingOrder">Order is missing</option>
                                 <option value="questionAboutStock">Question about a product's stock</option>
@@ -116,7 +116,7 @@
 
                         <div class="field d-flex flex-column">
                             <label for="message" class="product_label text-start">Enter your message below:</label>
-                            <textarea  id="message" class="product-input-area" name="account_info" required></textarea>
+                            <textarea  id="message" class="product-input-area form-control" name="account_info" required></textarea>
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@
     <br>
 
     <section id="footer" class="mt-auto">
-        <div class="row">
+        <div class="row" style="--bs-gutter-x: 0">
             <div class="col col-sm-3 ps-0">
                 <h4><b><u>Contact:</u></b></h4>
                 <p>Telephone: +30 2310 123456</p>
@@ -142,7 +142,7 @@
             </div>
             <div class="col col-sm-3">
             </div>
-            <div class="col col-sm-3 text-end">
+            <div class="col col-sm-3 text-end pe-0">
                 <h4>Get in touch with us</h4>
                 <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon black"></i></a>
                 <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon black"></i></a>
@@ -151,11 +151,10 @@
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright black"><a href="info.html">Terms of use</a> | <a href="info.html" class="black">Personal data</a>
+                <p class="copyright"><a class="black" href="info.html">Terms of use</a> | <a href="info.html" class="black">Personal data</a>
             </div>
         </div>
     </section>
-
 
 </body>
 
