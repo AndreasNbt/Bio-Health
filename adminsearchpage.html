@@ -19,9 +19,8 @@
   <script src="JS/navbar.js"></script>
 </head>
 <body onload="UpdateDropdown(0)"class="grey-background d-flex flex-column min-vh-100">
-
   <section id="navbar">
-    <nav class="navbar d-flex justify-content-between py-0">
+    <nav class="navbar d-flex justify-content-between left-right-pad light-green ">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars fa-2x"></i>
         </button>
@@ -40,7 +39,6 @@
                     <a class="signedout" href="SignIn.html">Sign in</a>
                     <a class="signedout" href="SignUp.html">Create an account</a>
                     <a class="signedin" href="AccountInfo.html">Account Information</a>
-                    <a class="signedin" href="#">My Orders</a>
                     <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
                 </div>
             </div>
@@ -49,21 +47,21 @@
         </div>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">
-        <div class="container-fluid" style="background-color: #97d199;padding: 0 12% 0 12%">
-          <ul id="categories" class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="completedorderspage.html" style="padding-left: 0">Pending orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="new_product.html">Add products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="edit_product.html">Edit products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Received contact forms</a>
-            </li>
-          </ul>
+        <div class="container-fluid left-right-pad light-green">
+            <ul id="categories" class="nav">
+                <li class="nav-item">
+                    <a class="nav-link ps-0" href="completedorderspage.html">Pending orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="new_product.html">Add products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="edit_product.html">Edit products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Received contact forms</a>
+                </li>
+            </ul>
         </div>
     </div>
   </section>
@@ -759,33 +757,34 @@
   </div>
 
   <section id="footer" class="mt-auto">
-    <div class="row" style="--bs-gutter-x: 0">
-        <div class="col col-sm-3" style="padding-left: 0">
+    <div class="row">
+        <div class="col col-sm-3 ps-0" style="padding-left: 0">
             <h4><b><u>Contact:</u></b></h4>
             <p>Telephone: +30 2310 123456</p>
             <p>Email: info@bioandhealth.gr</p>
-            <a href="contactForm.html" style="text-decoration:none; color:#212529; font-size: 1rem">Contact Form</a>
+            <a href="contactForm.html" class="footer-link black">Contact Form</a>
         </div>
         <div class="col col-sm-3">
             <h4><b><u>Location:</u></b></h4>
             <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-            <h5 ><a href="infopage.html" style="text-decoration:none; color:#212529; font-size: 1rem">More Info</a></h5>
+            <h5 ><a href="infopage.html" class="footer-link black">More Info</a></h5>
         </div>
         <div class="col col-sm-3">
         </div>
-        <div class="col col-sm-3 text-end" style="padding-right: calc(var(--bs-gutter-x) * .5);">
+        <div class="col col-sm-3 text-end">
             <h4>Get in touch with us</h4>
-            <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon" style="color: #212529"></i></a>
-            <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon" style="color: #212529"></i></a>
-            <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon" style="color: #212529"></i></a>
-            <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon" style="color: #212529"></i></a>
+            <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon black"></i></a>
+            <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon black"></i></a>
+            <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon black"></i></a>
+            <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon black"></i></a>
             <br>
             <br>
             <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-            <p class="copyright"><a href="infopage.html" style="color: #212529">Terms of use</a> | <a href="infopage.html" style="color: #212529">Personal data</a>
+            <p class="copyright black"><a href="info.html">Terms of use</a> | <a href="info.html" class="black">Personal data</a>
         </div>
     </div>
-  </section>
+</section>
+
 
 </body>
 </html>

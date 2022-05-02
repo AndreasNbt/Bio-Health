@@ -19,7 +19,7 @@
 </head>
 <body onload="UpdateDropdown(0)" class="d-flex flex-column min-vh-100">
     <section id="navbar">
-        <nav class="navbar d-flex justify-content-between py-0">
+        <nav class="navbar d-flex justify-content-between left-right-pad light-green">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
@@ -46,10 +46,10 @@
             </div>
         </nav>
         <div class="collapse" id="navbarToggleExternalContent">
-            <div class="container-fluid" style="background-color: #97d199;padding: 0 12% 0 12%;margin: 0">
+            <div class="container-fluid left-right-pad light-green m-0">
                 <ul id="categories" class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="searchpage.html" style="padding-left: 0">Dairy</a>
+                        <a class="nav-link ps-0" href="searchpage.html">Dairy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="searchpage.html">Vegan</a>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="solid-border col-3 container small-container p-3">
                     <div class="logo mt-3">
-                        <a href="#"><img src="bioandhealthlogo.png" width="128" height="128" alt="Logo"></a>
+                        <a href="#"><img src="sources/images/bioandhealthlogo.png" width="128" height="128" alt="Logo"></a>
                     </div>
                     <h2 class="dark-green header-text my-5">Don't have an account?</h2>
                     <h6 class="fill-text mx-0">Don't worry, you can sign up with the button below</h6>
@@ -132,33 +132,34 @@
     <br>
     
     <section id="footer" class="mt-auto">
-        <div class="row" style="--bs-gutter-x: 0">
-            <div class="col col-sm-3" style="padding-left: 0">
+        <div class="row">
+            <div class="col col-sm-3 ps-0" style="padding-left: 0">
                 <h4><b><u>Contact:</u></b></h4>
                 <p>Telephone: +30 2310 123456</p>
                 <p>Email: info@bioandhealth.gr</p>
-                <a href="contactForm.html" style="text-decoration:none; color:#212529; font-size: 1rem">Contact Form</a>
+                <a href="contactForm.html" class="footer-link black">Contact Form</a>
             </div>
             <div class="col col-sm-3">
                 <h4><b><u>Location:</u></b></h4>
                 <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-                <h5 ><a href="infopage.html" style="text-decoration:none; color:#212529; font-size: 1rem">More Info</a></h5>
+                <h5 ><a href="infopage.html" class="footer-link black">More Info</a></h5>
             </div>
             <div class="col col-sm-3">
             </div>
-            <div class="col col-sm-3 text-end" style="padding-right: calc(var(--bs-gutter-x) * .5);">
+            <div class="col col-sm-3 text-end">
                 <h4>Get in touch with us</h4>
-                <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon" style="color: #212529"></i></a>
-                <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon" style="color: #212529"></i></a>
-                <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon" style="color: #212529"></i></a>
-                <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon" style="color: #212529"></i></a>
+                <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon black"></i></a>
+                <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon black"></i></a>
+                <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon black"></i></a>
+                <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon black"></i></a>
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright"><a href="infopage.html" style="color: #212529">Terms of use</a> | <a href="infopage.html" style="color: #212529">Personal data</a>
+                <p class="copyright black"><a href="info.html">Terms of use</a> | <a href="info.html" class="black">Personal data</a>
             </div>
         </div>
     </section>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

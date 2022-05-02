@@ -29,11 +29,6 @@
     text-decoration: underline;
 }
 
-.navbar {
-    background-color: #97d199;
-    padding: 0 12%;
-}
-
 .navbar-logo, .navbar-logo:hover {
     text-decoration: none;
     color: #272727;
@@ -54,6 +49,18 @@
 
 .dark-gray, .nav-icon:hover, .nav-icon:visited {
     color: #272727;
+}
+
+.black {
+    color: #212529;
+}
+
+.left-right-pad {
+    padding: 0 12%;
+}
+
+.light-green {
+    background-color: #97d199;
 }
 
 .dark-green {
@@ -99,6 +106,8 @@
     opacity: 100%;
 }
 
+/* Footer */
+
 #footer {
     background-color: #97d199;
     padding: 2% 12%;
@@ -107,6 +116,11 @@
 
 #footer .col {
     padding: 0 2%;
+}
+
+.footer-link {
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 .social-icon {
