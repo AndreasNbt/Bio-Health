@@ -18,7 +18,7 @@
     <script src="JS/cartpage.js"></script>
     <script src="JS/navbar.js"></script>
 </head>
-<body onload="UpdateDropdown(0);updateCosts();updateSubtotal();updateTotal();" class="d-flex flex-column grey-background min-vh-100">
+<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'));updateCosts();updateSubtotal();updateTotal();" class="d-flex flex-column grey-background min-vh-100">
     <section id="navbar">
         <nav class="navbar d-flex justify-content-between left-right-only-pad light-green">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
                         <a class="signedout" href="SignIn.html">Sign in</a>
                         <a class="signedout" href="SignUp.html">Create an account</a>
                         <a class="signedin" href="AccountInfo.html">Account Information</a>
-                        <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
+                        <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="index.html">Log out</a>
                     </div>
                 </div>
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="cartpage.html"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>

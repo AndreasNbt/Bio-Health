@@ -24,13 +24,13 @@
   <script src="JS/navbar.js"></script>
 </head>
 
-<body onload="UpdateDropdown(0)" class="d-flex flex-column min-vh-100">
+<body onload="UpdateDropdown('1')" class="d-flex flex-column min-vh-100">
 <section id="navbar">
   <nav class="navbar d-flex justify-content-between left-right-only-pad light-green">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars fa-2x"></i>
     </button>
-    <a href="#" class="navbar-logo dark-gray">
+    <a href="adminindex.html" class="navbar-logo dark-gray">
       <h1 class="navbar-logo-1">Bio &</h1>
       <h1 class="position-relative navbar-logo-2">Health</h1>
     </a>
@@ -40,12 +40,12 @@
     </form>
     <div class="navbar-nav d-flex flex-row justify-content-between">
       <div class="dropdown">
-        <a class="nav-item nav-link nav-icon text-center dark-gray" href="#" style="margin-right: 0"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+        <a class="nav-item nav-link nav-icon text-center dark-gray" style="margin-right: 0" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
         <div class="dropdown-content">
           <a class="signedout" href="SignIn.html">Sign in</a>
           <a class="signedout" href="SignUp.html">Create an account</a>
           <a class="signedin" href="AccountInfo.html">Account Information</a>
-          <a class="signedin" onclick="UpdateDropdown(0)" href="index.html">Log out</a>
+          <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="index.html">Log out</a>
         </div>
       </div>
     </div>
@@ -60,10 +60,7 @@
           <a class="nav-link" href="new_product.html">Add products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="edit_product.html">Edit products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Received contact forms</a>
+          <a class="nav-link" href="adminsearchpage.html">Edit products</a>
         </li>
       </ul>
     </div>
@@ -246,12 +243,10 @@
       <h4><b><u>Contact:</u></b></h4>
       <p>Telephone: +30 2310 123456</p>
       <p>Email: info@bioandhealth.gr</p>
-      <a href="contactForm.html" class="footer-link black">Contact Form</a>
     </div>
     <div class="col col-sm-3">
       <h4><b><u>Location:</u></b></h4>
       <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-      <h5 ><a href="infopage.html" class="footer-link black">More Info</a></h5>
     </div>
     <div class="col col-sm-3">
     </div>
@@ -264,7 +259,6 @@
       <br>
       <br>
       <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-      <p class="copyright"><a class="black" href="info.html">Terms of use</a> | <a href="info.html" class="black">Personal data</a>
     </div>
   </div>
 </section>
