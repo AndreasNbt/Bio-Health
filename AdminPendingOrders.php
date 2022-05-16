@@ -19,49 +19,8 @@
     <script src="JS/navbar.js"></script>
 </head>
 <body onload="UpdateDropdown('1')" class="grey-background d-flex flex-column min-vh-100">
-<section id="navbar">
-    <nav class="navbar d-flex justify-content-between left-right-only-pad light-green">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars fa-2x"></i>
-        </button>
-        <a href="AdminIndex.html" class="navbar-logo dark-gray">
-            <h1 class="navbar-logo-1">Bio &</h1>
-            <h1 class="position-relative navbar-logo-2">Health</h1>
-        </a>
-        <form class="form-inline d-flex flex-row search" action="UserSearch.html">
-            <input class="form-control search-bar" type="text" placeholder="Search for a product">
-            <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
-        </form>
-        <div class="navbar-nav d-flex flex-row justify-content-between">
-            <div class="dropdown">
-                <a class="nav-item nav-link nav-icon text-center dark-gray" style="margin-right: 0" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
-                <div class="dropdown-content">
-                    <a class="signedout" href="UserSignIn.html">Sign in</a>
-                    <a class="signedout" href="UserSignUp.html">Create an account</a>
-                    <a class="signedin" href="UserAccountInfo.html">Account Information</a>
-                    <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="Index.html">Log out</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="container-fluid left-right-only-pad light-green m-0">
-            <ul id="categories" class="nav">
-                <li class="nav-item">
-                    <a class="nav-link ps-0" href="AdminPendingOrders.html">Pending orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="AdminNewProduct.html">Add products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="AdminSearch.html">Edit products</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
 
-    <hr class="big-hr m-0">
+    <?php include "AdminNavbar.php;" ?>
     <br>
 
     <div class="container-fluid left-right-pad" style="padding-top: 2rem">
@@ -85,7 +44,7 @@
                     <td style="vertical-align: middle">30/4/2022</td>
                     <td style="vertical-align: middle">15/5/2022</td>
                     <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.html"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
+                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
                     <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(1)">Complete</button></td>
                 </tr>
                 <tr id="order2">
@@ -94,7 +53,7 @@
                     <td style="vertical-align: middle">30/4/2022</td>
                     <td style="vertical-align: middle">15/5/2022</td>
                     <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.html"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
+                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
                     <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(2)">Complete</button></td>
                 </tr>
                 <tr id="order3">
@@ -103,7 +62,7 @@
                     <td style="vertical-align: middle">30/4/2022</td>
                     <td style="vertical-align: middle">15/5/2022</td>
                     <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.html"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
+                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
                     <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(3)">Complete</button></td>
                 </tr>
                 <tr id="order4">
@@ -112,7 +71,7 @@
                     <td style="vertical-align: middle">30/4/2022</td>
                     <td style="vertical-align: middle">15/5/2022</td>
                     <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.html"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
+                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
                     <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(4)">Complete</button></td>
                 </tr>
                 <tr id="order5">
@@ -121,7 +80,7 @@
                     <td style="vertical-align: middle">30/4/2022</td>
                     <td style="vertical-align: middle">15/5/2022</td>
                     <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.html"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
+                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
                     <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(5)">Complete</button></td>
                 </tr>
                 </tbody>
@@ -129,30 +88,7 @@
         </div>
     </div>
 
-<section id="footer" class="mt-auto">
-    <div class="row" style="--bs-gutter-x: 0">
-        <div class="col col-sm-3 ps-0">
-            <h4><b><u>Contact:</u></b></h4>
-            <p>Telephone: +30 2310 123456</p>
-            <p>Email: info@bioandhealth.gr</p>
-        </div>
-        <div class="col col-sm-3">
-            <h4><b><u>Location:</u></b></h4>
-            <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-        </div>
-        <div class="col col-sm-3">
-        </div>
-        <div class="col col-sm-3 text-end pe-0">
-            <h4>Get in touch with us</h4>
-            <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon black"></i></a>
-            <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon black"></i></a>
-            <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon black"></i></a>
-            <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon black"></i></a>
-            <br>
-            <br>
-            <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-        </div>
-    </div>
-</section>
+    <?php include "AdminFooter.php"; ?>
+    
 </body>
 </html>

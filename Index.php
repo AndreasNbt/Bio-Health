@@ -25,63 +25,8 @@
 </head>
 
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
-    <section id="navbar">
-        <nav class="navbar d-flex justify-content-between left-right-only-pad light-green">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <a href="Index.html" class="navbar-logo dark-gray">
-                <h1 class="navbar-logo-1">Bio &</h1>
-                <h1 class="position-relative navbar-logo-2">Health</h1>
-            </a>
-            <form class="form-inline d-flex flex-row search" action="UserSearch.html">
-                <input class="form-control search-bar" type="text" placeholder="Search for a product">
-                <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
-            </form>
-            <div class="navbar-nav d-flex flex-row justify-content-between">
-                <div class="dropdown">
-                    <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
-                    <div class="dropdown-content">
-                        <a class="signedout" href="UserSignIn.html">Sign in</a>
-                        <a class="signedout" href="UserSignUp.html">Create an account</a>
-                        <a class="signedin" href="UserAccountInfo.html">Account Information</a>
-                        <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="Index.html">Log out</a>
-                    </div>
-                </div>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserCart.html"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserFavorites.html"><i class="fa-solid fa-heart fa-2x"></i></a>
-            </div>
-        </nav>
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="container-fluid left-right-only-pad light-green m-0">
-                <ul id="categories" class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link ps-0" href="UserSearch.html">Dairy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UserSearch.html">Vegan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UserSearch.html">Fruits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UserSearch.html">Vegetables</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UserSearch.html">Sugar free</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UserSearch.html">Gluten free</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UserSearch.html">Miscellaneous</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <hr class="big-hr m-0">
+    
+<?php include "UserNavbar.php"; ?>
 
 
 <div class="container-fluid border main text-center">
@@ -169,19 +114,19 @@
                     <div>
                         <div class="d-flex justify-content-around">
                             <div>
-                                <a href="UserSearch.html">
+                                <a href="UserSearch.php">
                                     <img class="img-responsive rounded" src="sources/images/dairy_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Dairy</h5>
                                 </a>
                             </div>
                             <div>
-                                <a href="UserSearch.html">
+                                <a href="UserSearch.php">
                                     <img class="img-responsive rounded" src="sources/images/vegan_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Vegan</h5>
                                 </a>
                             </div>
                             <div>
-                                <a href="UserSearch.html">
+                                <a href="UserSearch.php">
                                     <img class="img-responsive rounded" src="sources/images/fruits_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Fruits</h5>
                                 </a>
@@ -190,19 +135,19 @@
                         <div class="mt-5">
                             <div class="d-flex justify-content-around">
                                 <div>
-                                    <a href="UserSearch.html">
+                                    <a href="UserSearch.php">
                                         <img class="img-responsive rounded" src="sources/images/vegetables_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                         <h5 class="caption black">Vegetables</h5>
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="UserSearch.html">
+                                    <a href="UserSearch.php">
                                         <img class="img-responsive rounded" src="sources/images/sugar_free_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                         <h5 class="caption black">Sugar free</h5>
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="UserSearch.html">
+                                    <a href="UserSearch.php">
                                         <img class="img-responsive rounded" src="sources/images/gluten_free_free_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                         <h5 class="caption black">Gluten free</h5>
                                     </a>
@@ -217,7 +162,7 @@
 
         <div class="row justify-content-center" id="firstRowAfterCarousel">
             <div class="col-4">
-                <a href="UserSearch.html">
+                <a href="UserSearch.php">
                     <figure class="figure">
                         <img src="https://picsum.photos/3000/2500" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -228,7 +173,7 @@
                 </a>
             </div>
             <div class="col-4">
-                <a href="UserSearch.html">
+                <a href="UserSearch.php">
                     <figure class="figure">
                         <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -237,7 +182,7 @@
                         </figcaption>
                     </figure>
                 </a>
-                <a href="UserMoreInfo.html">
+                <a href="UserMoreInfo.php">
                     <figure class="figure">
                         <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -251,34 +196,7 @@
     </div>
 </div>
 
-    <section id="footer" class="mt-auto">
-        <div class="row" style="--bs-gutter-x: 0">
-            <div class="col col-sm-3 ps-0">
-                <h4><b><u>Contact:</u></b></h4>
-                <p>Telephone: +30 2310 123456</p>
-                <p>Email: info@bioandhealth.gr</p>
-                <a href="UserContactForm.html" class="footer-link black">Contact Form</a>
-            </div>
-            <div class="col col-sm-3">
-                <h4><b><u>Location:</u></b></h4>
-                <p>Eth. Antistasis 16, Kalamaria, Greece</p>
-                <h5 ><a href="UserMoreInfo.html" class="footer-link black">More Info</a></h5>
-            </div>
-            <div class="col col-sm-3">
-            </div>
-            <div class="col col-sm-3 text-end pe-0">
-                <h4>Get in touch with us</h4>
-                <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-2x social-icon black"></i></a>
-                <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-2x social-icon black"></i></a>
-                <a href="https://google.com"><i class="fa-brands fa-google fa-2x social-icon black"></i></a>
-                <a href="https://twitter.com"><i class="fa-brands fa-twitter fa-2x social-icon black"></i></a>
-                <br>
-                <br>
-                <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright"><a class="black" href="UserProductInfo.html">Terms of use</a> | <a href="UserProductInfo.html" class="black">Personal data</a>
-            </div>
-        </div>
-    </section>
+    <?php include "UserFooter.php"; ?>
 
     <script>
         $('.carousel').carousel({
