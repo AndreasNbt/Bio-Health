@@ -19,7 +19,7 @@
 </head>
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
 
-  <?php include "AdminNavbar.php;" ?>
+  <?php include "AdminNavbar.php"; ?>
   <br>
 
   <?php include "AdminFooter.php"; ?>

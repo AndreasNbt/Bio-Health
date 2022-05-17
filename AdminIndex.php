@@ -26,7 +26,7 @@
 
 <body onload="UpdateDropdown('1')" class="d-flex flex-column min-vh-100">
 
-<?php include "AdminNavbar.php;" ?>
+<?php include "AdminNavbar.php"; ?>
 
 
 <div class="container-fluid border main text-center">
