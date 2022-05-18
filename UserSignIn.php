@@ -23,7 +23,7 @@
     <br>
 
     <section class="main-section">
-        <form action="Index.php" onsubmit="localStorage.setItem('signed_in_status', '1');" class="main-container">
+        <div action="sign_in.php" onsubmit="localStorage.setItem('signed_in_status', '1');" class="main-container">
             <div class="container-fluid d-flex flex-row justify-content-center text-center" >
                 <div class="solid-border col-6 container big-container">
 
@@ -36,17 +36,19 @@
 
 
                     <h5 class="dark-green header-text m-0 py-2">With your account</h5>
-                    <div class="input-icons text-center">
-                        <i class="fa-solid fa-lg fa-envelope icon big-icon"></i>
-                        <input type="text" class="input-field" placeholder="Email or username" name="email" required>
+                    <form action="PHP_Back_End/sign_in.php" method="post">
+                        <div class="input-icons text-center">
+                            <i class="fa-solid fa-lg fa-envelope icon big-icon"></i>
+                            <input type="text" class="input-field" placeholder="Email or username" name="email_or_username" required>
+                            <br>
+                            <i class="fa-solid fa-lg fa-lock icon big-icon"></i>
+                            <input type="password" class="input-field" placeholder="Password" name="password" required>
+                            <br>
+                            <a href="#" class="forgot-password text-decoration-none dark-green">Forgot your password?</a>
+                        </div>
                         <br>
-                        <i class="fa-solid fa-lg fa-lock icon big-icon"></i>
-                        <input type="password" class="input-field" placeholder="Password" name="username" required>
-                        <br>
-                        <a href="#" class="forgot-password text-decoration-none dark-green">Forgot your password?</a>
-                    </div>
-                    <br>
-                    <button class="button sign-btn solid-border bot-margin dark-green" type="submit">Sign in</button>
+                        <button class="button sign-btn solid-border bot-margin dark-green" type="submit">Sign in</button>
+                    </form>
                     <h5 class="dark-green header-text pt-3">With your Socials</h5>
 
                     <div class="social-icons mx-0 my-1">
@@ -74,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+</div>
 
     </section>
     <br>

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="CSS/Sign Up-In.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
+    <script src="JS/general.js"></script>
     <script src="JS/navbar.js"></script>
     
 </head>
@@ -23,7 +24,7 @@
     <br>
 
     <section class="main-section" >
-        <form action="Index.php" onsubmit="localStorage.setItem('signed_in_status', '1');" class="main-container">
+        <div class="main-container">
             <div class="container-fluid d-flex justify-content-center text-center" >
                 <div class="solid-border col-6 container big-container">
                     <div class="text-center py-1">
@@ -32,22 +33,24 @@
                     <hr class="hr-border m-0">
 
                     <h5 class="dark-green header-text pt-4">With your Email</h5>
-                    <div class="input-icons text-center">
-                        <i class="fa-solid fa-envelope icon"></i>
-                        <input type="text" class="input-field" placeholder="Email" name="email" required>
-                        <br>
-                        <i class="fa-solid fa-user icon"></i>
-                        <input type="text" class="input-field" placeholder="Username" name="username" required>
-                        <br>
-                        <i class="fa-solid fa-lock icon"></i>
-                        <input type="password" class="input-field" placeholder="Password" name="password" required>
-                        <br>
-                        <i class="fa-solid fa-lock icon"></i>
-                        <input type="password" class="input-field" placeholder="Confirm Password" name="confirm-password" required>
-                        <br>
-                    </div>
+                    <form action="PHP_Back_End/sign_up.php" method="post" onsubmit="localStorage.setItem('signed_in_status', '1');">
+                        <div class="input-icons text-center">
+                            <i class="fa-solid fa-envelope icon"></i>
+                            <input type="text" class="input-field" placeholder="Email" name="email" required>
+                            <br>
+                            <i class="fa-solid fa-user icon"></i>
+                            <input type="text" class="input-field" placeholder="Username" name="username" required>
+                            <br>
+                            <i class="fa-solid fa-lock icon"></i>
+                            <input type="password" class="input-field" placeholder="Password" name="password" required>
+                            <br>
+                            <i class="fa-solid fa-lock icon"></i>
+                            <input type="password" class="input-field" placeholder="Confirm Password" name="confirm-password" required>
+                            <br>
+                        </div>
 
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" type="submit">Sign Up</button>
+                        <button class="button sign-btn solid-border dark-green extra-spacing mt-3" type="submit" name="sign-up-submit">Sign Up</button>
+                    </form>
 
                     <h5 class="dark-green header-text pt-2 mt-5">With your Socials</h5>
 
@@ -71,7 +74,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
 
     </section>
     <br>
@@ -83,3 +86,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+

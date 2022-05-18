@@ -33,36 +33,36 @@
                 </div>
                 <hr class="hr-border m-0">
 
-                <form action="Index.php">
+                <form action="PHP_Back_End/account_info.php" method="post">
                     <div>
                         <div class="field d-flex flex-column">
                             <label for="product_name" class="product_label">Full Name</label>
-                            <input type="text" id="product_name" class="account-input" name="account_info" required>
+                            <input type="text" id="product_name" class="account-input" name="full_name" required>
                         </div>
 
                         <div class="field d-flex flex-column">
                             <label for="city" class="product_label">City</label>
-                            <input type="text" id="city" class="account-input" name="account_info" required>
+                            <input type="text" id="city" class="account-input" name="city" required>
                         </div>
                                 
                         <div class="field d-flex flex-column">
                             <label for="address" class="product_label">Address</label>
-                            <input type="text" id="address" class="account-input" name="account_info" required>
+                            <input type="text" id="address" class="account-input" name="address" required>
                         </div>
 
                         <div class="field d-flex flex-column">
                             <label for="state" class="product_label">State</label>
-                            <input type="text" id="state" class="account-input" name="account_info" required>
+                            <input type="text" id="state" class="account-input" name="state" required>
                         </div>
 
                         <div class="field d-flex flex-column">
                             <label for="zip_code" class="product_label">Zip Code</label>
-                            <input type="number" id="zip_code" class="account-input" name="account_info" required>
+                            <input type="number" id="zip_code" class="account-input" name="zip_code" required>
                         </div>
                                 
                         <div class="field d-flex flex-column">
                             <label for="phone_number" class="product_label">Phone Number</label>
-                            <input type="number" id="phone_number" class="account-input" name="account_info" required>
+                            <input type="number" id="phone_number" class="account-input" name="phone_number" required>
                         </div>          
                     </div>
 
