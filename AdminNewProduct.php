@@ -95,7 +95,7 @@
                             
                             <div class="field d-flex flex-column">
                                 <label for="product_image" class="product_label text-start">Image</label>
-                                <input type="file" id="product_image" class="product-input-field p-0" name="product_images" required>
+                                <input type="file" id="product_image" class="product-input-field p-0" name="product_image" required>
                             </div>
                             
                         </div>
@@ -109,6 +109,7 @@
         </div>
     </section>
 
+    <br>
     <?php include "AdminFooter.php"; ?>
 
 

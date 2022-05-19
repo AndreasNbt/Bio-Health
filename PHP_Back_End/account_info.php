@@ -21,7 +21,7 @@
 
     $id = $_SESSION['ID'];
 
-    $sql = "UPDATE user_information  
+    $sql = "UPDATE userinfo 
             SET Full_Name = '$full_name', City = '$city', Address = '$address', State = '$state',
                 Zip_Code = '$zip_code', Phone_Number = '$phone_number'
             WHERE User_ID = $id";   

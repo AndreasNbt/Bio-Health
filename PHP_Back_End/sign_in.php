@@ -28,10 +28,10 @@
         else {
 
             $sql = "SELECT * 
-                    FROM user_credentials
-                    WHERE (user_credentials.Email = '$email_or_username' 
-                        OR user_credentials.Username = '$email_or_username')
-                        AND user_credentials.Password = '$password' ";
+                    FROM users
+                    WHERE (users.email = '$email_or_username' 
+                        OR users.username = '$email_or_username')
+                        AND users.password = '$password' ";
 
             $res = $con->query($sql);
 
@@ -40,7 +40,7 @@
                 $row = mysqli_fetch_row($res);
 
                 $_SESSION['ID'] = $row[0];
-                $_SESSION['Username'] = $row[2];
+                $_SESSION['Username'] = $row[1];
                 
                 $con -> close();
                 header("Location: ../Index.php");

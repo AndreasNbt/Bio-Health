@@ -4,7 +4,7 @@
 $sname = "localhost";
 $uname = "root";
 $password = "";
-$db_name = "bio_health";
+$db_name = "biohealth";
 
 $con = mysqli_connect($sname, $uname, $password, $db_name);
 

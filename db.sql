@@ -5,14 +5,19 @@ CREATE TABLE users(
   user_id INT AUTO_INCREMENT,
   username VARCHAR(20) NOT NULL,
   email VARCHAR(50) NOT NULL,
-  name VARCHAR(50) NOT NULL,
   role enum('Administrator', 'Customer') NOT NULL,
-  address VARCHAR(50),
-  city VARCHAR(30),
-  state VARCHAR(30),
-  zip VARCHAR(10),
-  phone VARCHAR(30),
   PRIMARY KEY(user_id)
+);
+
+CREATE TABLE userinfo (
+  User_ID INT,
+  Full_Name VARCHAR(30),
+  City VARCHAR(30),
+  Address VARCHAR(30),
+  State VARCHAR(30),
+  Zip_Code VARCHAR(10),
+  Phone_Number VARCHAR(15),
+  FOREIGN KEY (User_ID) REFERENCES users(user_id)
 );
 
 CREATE TABLE creditcard (
