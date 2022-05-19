@@ -41,9 +41,17 @@
 
                 $_SESSION['ID'] = $row[0];
                 $_SESSION['Username'] = $row[1];
+                $_SESSION['role'] = $row[4];
+
+                echo "$_SESSION[role]";
                 
                 $con -> close();
-                header("Location: ../Index.php");
+                if ($_SESSION['role'] === 'Administrator') {
+                    header("Location: ../AdminIndex.php");
+                }
+                else {
+                    header("Location: ../Index.php");
+                }
             }
             else {
                 header("Location: ../UserSignIn.php?error=User not found");

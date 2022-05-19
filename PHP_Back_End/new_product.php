@@ -11,8 +11,6 @@
         return $data;
     }
 
-        
-
     $productName = validate($_POST['product_name']);
     $productDescription = validate($_POST['product_description']);
     $productCategory = validate($_POST['product_category']);
@@ -29,28 +27,20 @@
         exit();
     }
     else {
-        $sql = "SELECT * 
-                FROM user_credentials
-                WHERE (user_credentials.Email = '$email_or_username' 
-                    OR user_credentials.Username = '$email_or_username')
-                    AND user_credentials.Password = '$password' ";
+        $getCategoryId = "SELECT id
+                          FROM category
+                          WHERE name = '$productCategory'";
 
-        $res = $con->query($sql);
+        $res = $con->query($getCategoryId);
+        
+        $productCategoryID = mysqli_fetch_row($res);
+        print_r($productCategoryID);
 
-        if (mysqli_num_rows($res) === 1 ){
+        $sql = "INSERT INTO product(name, description, price, stock, image, category_id)
+                VALUES ('$productName', '$productDescription', $productPrice, $productStock, '$productImage', $productCategoryID[0])";
 
-            $row = mysqli_fetch_row($res);
-
-            $_SESSION['ID'] = $row[0];
-            $_SESSION['Username'] = $row[2];
-                
-            $con -> close();
-            header("Location: ../Index.php");
-        }
-        else {
-            header("Location: ../UserSignIn.php?error=User not found");
-            exit();
-        }
+        $con->query($sql);
+        $con -> close();
+        header("Location: ../AdminIndex.php");
     }
-    
 ?>

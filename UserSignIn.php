@@ -47,9 +47,9 @@
                             <a href="#" class="forgot-password text-decoration-none dark-green">Forgot your password?</a>
                         </div>
                         <br>
-                        <button class="button sign-btn solid-border bot-margin dark-green" type="submit">Sign in</button>
+                        <button class="button sign-btn solid-border bot-margin dark-green my-3" type="submit">Sign in</button>
                     </form>
-                    <h5 class="dark-green header-text pt-3">With your Socials</h5>
+                    <h5 class="dark-green header-text pt-5" style="margin-top: 50px";>With your Socials</h5>
 
                     <div class="social-icons mx-0 my-1">
                         <a href="https://facebook.com" class="dark-green"><i class="fa-brands fa-facebook fa-2x social"></i></a>
@@ -58,11 +58,7 @@
                         <a href="https://twitter.com" class="dark-green"><i class="fa-brands fa-twitter fa-2x social"></i></a>
                     </div>
 
-                    <h5 class="dark-green header-text m-1 pt-3 pb-2">Are you an administrator?</h5>
-                    <a href="AdminSignIn.php">
-                       <button class="button sign-btn admin-btn solid-border dark-green" type="button">Administrator</button>
-                    </a>
-
+                    
                     <br>
                 </div>
                 <div class="solid-border col-3 container small-container">
@@ -76,7 +72,7 @@
                     </div>
                 </div>
             </div>
-</div>
+        </div>
 
     </section>
     <br>
