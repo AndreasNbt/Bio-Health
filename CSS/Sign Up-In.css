@@ -34,6 +34,10 @@
     letter-spacing: 0.1rem;
 }
 
+.bot-margin {
+    margin-bottom: 3rem;
+}
+
 /* Inputs-Icons */
 
 .input-icons {
@@ -44,15 +48,19 @@
     padding: 10px;
     color: gray;
     position: absolute;
-    margin-left: 12px;
-    margin-top: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.big-icon {
+    padding: 16px;
 }
 
 .input-field {
-    padding: 12px;
+    padding: 10px;
     text-align: center;
-    width: 55%;
-    height: 40px;
+    width: 80%;
+    height: 50px;
     margin: 0.8rem;
 }
 
@@ -87,10 +95,14 @@
 }
 
 .small-container {
-    min-width: 175px;
-    max-width: 350px;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 40px;
 }
 
+.admin .container {
+    min-height: 630px;
+}
 
 .small-container .fill-text {
     margin: 4rem 0;
@@ -104,10 +116,10 @@
 }
 
 .sign-btn {
-    height: 2rem;
-    width: 28%;
+    height: 3rem;
+    width: 40%;
+    font-size: 17pt;
     align-self: center;
-    margin-bottom: 2rem;
 }
 
 .sign-btn2 {
@@ -117,11 +129,14 @@
 }
 
 .admin-btn {
-    margin-bottom: 3rem;
+    font-size: 14pt;
+    margin-top: 20px;
+    width: 20%;
+    height: 2.2rem;
 }
 
 .social {
-    padding: 1.25rem;
+    padding: 2rem;
 }
 
 .forgot-password {
@@ -136,4 +151,9 @@
 .sign-btn:hover, .sign-btn2:hover, .admin-btn:hover, .forgot-password:hover {
     text-decoration: none;
     color: #1f5014;
+}
+
+.favorite-product {
+    text-align: center;
+    padding: 5%;
 }

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Bio & Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/sensei" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/searchpage.css">
+    <script src="JS/searchpage.js"></script>
+    <script src="JS/navbar.js"></script>
+</head>
+<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="grey-background d-flex flex-column min-vh-100">
+    
+    <?php include "UserNavbar.php"; ?>
+    <br>
+
+    <div class="container-fluid left-right-pad">
+        <!-- row with "Showing results for" message -->
+        <div class="row pb-3 pt-2">
+            <div class="col-auto d-flex align-items-end">
+                <h5>Showing results for "Search keyword":</h5>
+            </div>
+
+            <div class="col">
+                <div class="row float-end">
+                    <div class="col-auto">
+                        <label class="filter-sort-label">Show only:</label>
+                        <select class="form-select">
+                            <option value="/">Show all</option>
+                            <option value="/">Dairy</option>
+                            <option value="/">Vegan</option>
+                            <option value="/">No salt</option>
+                        </select>
+                    </div>
+
+                    <div class="col-auto">
+                        <label class="filter-sort-label">Sort by:</label>
+                        <select class="form-select">
+                            <option value="/">Featured</option>
+                            <option value="/">Popular</option>
+                            <option value="/">Price ascending</option>
+                            <option value="/">Price descending</option>
+                            <option value="/">Stock ascending</option>
+                            <option value="/">Stock descending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- container with all the products' images -->
+        <div id="products" class="grid-justify-content-evenly">
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal1">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal1">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart1">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart1">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart1" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart1').value, 5, 5, 1)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton1" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal2">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal2">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart2">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart2">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart2" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart2').value, 5, 5, 2)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton2" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal3">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal3">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart3">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart3">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart3" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart3').value, 5, 5, 3)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton3" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal4">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal4">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart4">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart4">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart4" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart4').value, 5, 5, 4)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton4" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal5">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal5">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart5">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart5">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart5" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart5').value, 5, 5, 5)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton5" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal6">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal6">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart6">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart6">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart6" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart6').value, 5, 5, 6)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton6" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal7">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal7">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart7">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart7">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart7" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart7').value, 5, 5, 7)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton7" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal8">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal8">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart8">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart8">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart8" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart8').value, 5, 5, 8)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton8" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 0">
+
+                <!-- link and image -->
+                <a href="UserProductInfo.php">
+                    <img class="img-responsive rounded" src="https://picsum.photos/250" style="width: 200px;height: 250px" alt="Product Name">
+                </a>
+
+                <!-- description and price -->
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="UserProductInfo.php" style="font-size: 14px">Product Name<br/>(5 left in stock)</a>
+                    </div>
+                    <div class="col text-end pt-3">
+                        <p class="product-info" style="font-size: 14px">5.00€</p>
+                    </div>
+                </div>
+
+                <!-- categories and cart button -->
+                <div class="row" style="padding-left: 0.75rem; padding-right: 0">
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1f5014" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col-auto" style="padding-left: 0;padding-right: 0.25rem">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                    </div>
+
+                    <div class="col float-end">
+                        <button type="button" class="btn btn-outline-primary btn-lg float-end" data-bs-toggle="modal" data-bs-target="#addToCartModal9">Add to cart</button>
+                        <div class="modal fade" id="addToCartModal9">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" style="padding-left: 1.5rem">Add "Product Name" to your cart</h3>
+                                        <button type="button" style="padding-right: 1.5rem" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="text-lg">Product name: <a href="UserProductInfo.php">Product Name</a></p>
+                                                    <p class="text-lg">Available stock: 5</p>
+                                                    <p class="text-lg" style="font-weight: bold">Cost: <span id="costAddedToCart9">5.00€</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label float-end text-lg" for="amountAddedToCart9">Amount to be added to cart:</label>
+                                                    <input type="number" id="amountAddedToCart9" class="form-control float-end text-lg" min="1" max="5" style="width: 12.5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart9').value, 5, 5, 9)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-success text-lg" id="finishCartButton9" data-bs-dismiss="modal">Finish</button>
+                                        <button type="button" class="btn btn-outline-danger text-lg" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php include "UserFooter.php"; ?>
+
+</body>
+</html>

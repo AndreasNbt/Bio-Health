@@ -159,3 +159,15 @@
 .grey-background {
     background-color: var(--primary-color-light);
 }
+
+
+
+.add-btn {
+    border: 2px solid #1f5014;
+    border-radius: 25px;
+    font-size: 16pt;
+    font-weight: 500;
+    margin-left: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
