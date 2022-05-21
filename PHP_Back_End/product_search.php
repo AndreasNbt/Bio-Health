@@ -4,14 +4,45 @@ include("db_connection.php");
 
 ############## Make the mysql connection ###########
 
-if (isset($_POST['value'])) {
-    updateSearchResults($_POST['value']);
+if (isset($_POST['key']) and isset($_POST['category']) and isset($_POST['order'])) {
+    $a = $_POST['key'];
+    $b = $_POST['category'];
+    $c = $_POST['order'];
+    updateSearchResults($_POST['key'], $_POST['category'], $_POST['order']);
 }
 
-function updateSearchResults($search_key) {
+function getCategoryQuery($category_id) {
+    if ($category_id == 0) {
+        return "";
+    }
+    else {
+        return " AND category_id=".$category_id;
+    }
+}
+
+function getOrderQuery($order_id) {
+    if ($order_id == 0) {
+        return "";
+    }
+    if ($order_id == 1 or $order_id == 2) {
+        $cat = "price";
+    }
+    else {
+        $cat = "stock";
+    }
+    if ($order_id == 1 or $order_id == 3) {
+        $order = "ASC";
+    }
+    else {
+        $order = "DESC";
+    }
+    return " ORDER BY ".$cat." ".$order;
+}
+
+function updateSearchResults($search_key, $category_id, $order_id) {
 
     include("db_connection.php");
-    $sql = "SELECT id, name FROM `product` WHERE name LIKE '%$search_key%';";
+    $sql = "SELECT id FROM `product` WHERE name LIKE '%$search_key%'".getCategoryQuery($category_id).getOrderQuery($order_id).";";
     $res = $con->query($sql);
     while ($row = mysqli_fetch_array($res)) {
         echoProduct($row[0]);

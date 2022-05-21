@@ -23,8 +23,10 @@
     <script type="text/javascript">
         $(function() {
             $("#search_bar").bind('submit',function() {
-                var value = $('#search_key').val();
-                $.post('PHP_Back_End/product_search.php', {value:value}, function(data){
+                var key = $('#search_key').val().toString();
+                var category = $('#category').val().toString();
+                var order = $('#order').val().toString();
+                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
@@ -32,8 +34,32 @@
         });
         $(function() {
             $("#search_key").bind('keyup',function() {
-                var value = $('#search_key').val();
-                $.post('PHP_Back_End/product_search.php', {value:value}, function(data){
+                var key = $('#search_key').val().toString();
+                var category = $('#category').val().toString();
+                var order = $('#order').val().toString();
+                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
+                    $("#products").html(data);
+                });
+                return false;
+            });
+        });
+        $(function() {
+            $("#category").bind('change',function() {
+                var key = $('#search_key').val().toString();
+                var category = $('#category').val().toString();
+                var order = $('#order').val().toString();
+                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
+                    $("#products").html(data);
+                });
+                return false;
+            });
+        });
+        $(function() {
+            $("#order").bind('change',function() {
+                var key = $('#search_key').val().toString();
+                var category = $('#category').val().toString();
+                var order = $('#order').val().toString();
+                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
@@ -59,7 +85,7 @@
             <div class="row float-end">
                 <div class="col-auto">
                     <label class="filter-sort-label">Show only:</label>
-                    <select class="form-select">
+                    <select id="category" class="form-select">
                         <option value="0">Show all</option>
                         <option value="1">Vegan</option>
                         <option value="2">Gluten Free</option>
@@ -72,11 +98,12 @@
 
                 <div class="col-auto">
                     <label class="filter-sort-label">Sort by:</label>
-                    <select class="form-select">
-                        <option value="0">Price ascending</option>
-                        <option value="1">Price descending</option>
-                        <option value="2">Stock ascending</option>
-                        <option value="3">Stock descending</option>
+                    <select id="order" class="form-select">
+                        <option value="0">Unordered</option>
+                        <option value="1">Price ascending</option>
+                        <option value="2">Price descending</option>
+                        <option value="3">Stock ascending</option>
+                        <option value="4">Stock descending</option>
                     </select>
                 </div>
             </div>
@@ -88,7 +115,7 @@
         <?php if (isset($_POST['search_key'])) {
             include "PHP_Back_End/product_search.php";
             $search_key = validate($_POST['search_key']);
-            updateSearchResults($search_key);
+            updateSearchResults($search_key, 0, 0);
         }?>
     </div>
 </div>
