@@ -1,13 +1,21 @@
 <?php
 
-if (isset($_POST['search'])) {
-    echo "hello";
+include("db_connection.php");
+
+############## Make the mysql connection ###########
+
+$search_key = $_POST['value'];
+$sql = "SELECT * FROM product WHERE name LIKE '%$search_key%'";
+$res = $con->query($sql);
+
+while ($row = mysqli_fetch_row($res)) {
+    echoProduct($row[0]);
 }
 
 function updateSearchResults($search_key) {
     echo "<script>clearSearchResults()</script>";
 
-    include ("db_connection.php");
+    include("db_connection.php");
 
     $sql = "SELECT id, name FROM `product` WHERE name LIKE '%$search_key%';";
     $res = $con->query($sql);
@@ -22,7 +30,7 @@ function updateSearchResults($search_key) {
 
 function echoProduct($id) {
 
-    include ("db_connection.php");
+    include("db_connection.php");
 
     $sql = "SELECT name, price, stock, image, category_id FROM `product` WHERE id=$id;";
     $res = $con->query($sql);
@@ -42,14 +50,14 @@ function echoProduct($id) {
     echo "<div class='container-fluid' style='padding: 0'>
 
                 <!-- link and image -->
-                <a href='UserProductInfo.php'>
+                <a href='../UserProductInfo.php'>
                     <img class='img-responsive rounded' src='$img' style='width: 250px;height: 250px' alt='Product Name'>
                 </a>
 
                 <!-- description and price -->
                 <div class='row'>
                     <div class='col-auto'>
-                        <a href='UserProductInfo.php' style='font-size: 14px'>$name<br/>(<span id='stock$id'>$stock</span> left in stock)</a>
+                        <a href='../UserProductInfo.php' style='font-size: 14px'>$name<br/>(<span id='stock$id'>$stock</span> left in stock)</a>
                     </div>
                     <div class='col text-end pt-3'>
                         <p class='product-info' style='font-size: 14px'><span id='price$id'>$price</span>€</p>
@@ -77,7 +85,7 @@ function echoProduct($id) {
                                         <div class='container-fluid'>
                                             <div class='row'>
                                                 <div class='col-6'>
-                                                    <p class='text-lg'>Product name: <a href='UserProductInfo.php'>$name</a></p>
+                                                    <p class='text-lg'>Product name: <a href='../UserProductInfo.php'>$name</a></p>
                                                     <p class='text-lg'>Available stock: $stock</p>
                                                     <p class='text-lg' style='font-weight: bold'>Cost: <span id='costAddedToCart$id'>{$price}€</span></p>
                                                 </div>
@@ -101,6 +109,6 @@ function echoProduct($id) {
                     </div>
                 </div>
             </div>";
-    }
+}
 ?>
 </body>
