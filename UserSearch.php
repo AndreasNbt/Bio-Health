@@ -26,7 +26,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
-                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
+                $.get('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
@@ -37,7 +37,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
-                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
+                $.get('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
@@ -48,7 +48,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
-                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
+                $.get('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
@@ -59,7 +59,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
-                $.post('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
+                $.get('PHP_Back_End/product_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
@@ -112,9 +112,9 @@
 
     <!-- container with all the products' images -->
     <div id="products" class="grid-justify-content-evenly">
-        <?php if (isset($_POST['search_key'])) {
+        <?php if (isset($_GET['search_key'])) {
             include "PHP_Back_End/product_search.php";
-            $search_key = validate($_POST['search_key']);
+            $search_key = validate($_GET['search_key']);
             updateSearchResults($search_key, 0, 0);
         }?>
     </div>

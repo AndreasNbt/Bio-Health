@@ -4,11 +4,11 @@ include("db_connection.php");
 
 ############## Make the mysql connection ###########
 
-if (isset($_POST['key']) and isset($_POST['category']) and isset($_POST['order'])) {
-    $a = $_POST['key'];
-    $b = $_POST['category'];
-    $c = $_POST['order'];
-    updateSearchResults($_POST['key'], $_POST['category'], $_POST['order']);
+if (isset($_GET['key']) and isset($_GET['category']) and isset($_GET['order'])) {
+    $a = $_GET['key'];
+    $b = $_GET['category'];
+    $c = $_GET['order'];
+    updateSearchResults($_GET['key'], $_GET['category'], $_GET['order']);
 }
 
 function getCategoryQuery($category_id) {

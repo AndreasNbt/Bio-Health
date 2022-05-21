@@ -12,16 +12,16 @@
             echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
         }
         else {
-            echo "<form id='search_bar' action='UserSearch.php' method='post' class='form-inline d-flex flex-row search'>";
+            echo "<form id='search_bar' action='UserSearch.php' method='get' class='form-inline d-flex flex-row search'>";
         }
-        if (isset($_POST['search_key'])) {
+        if (isset($_GET['search_key'])) {
             function validate($data) {
                 $data = trim($data);
                 $data = stripslashes($data);
                 $data = htmlspecialchars($data);
                 return $data;
             }
-            $search_key = validate($_POST['search_key']);
+            $search_key = validate($_GET['search_key']);
             echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' value='$search_key' onkeyup='updateShownKey()'>";
         }
         else {
