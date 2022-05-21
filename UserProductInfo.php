@@ -23,30 +23,55 @@
         <?php include "UserNavbar.php"; ?>
         <br>
 
+        <?php
+            if (isset($_GET['productID'])) {
+                $id = $_GET['productID'];
+
+                include("PHP_Back_End/db_connection.php");
+
+                $sql = "SELECT name, price, stock, description, image, category_id FROM `product` WHERE id=$id;";
+                $res = $con->query($sql);
+                $product = mysqli_fetch_row($res);
+                $name = $product[0];
+                $price = $product[1];
+                $stock = $product[2];
+                $desc = $product[3];
+                $img = $product[4];
+                $cat = $product[5];
+
+                $sql = "SELECT icon FROM `category` WHERE id=$cat;";
+                $res = $con->query($sql);
+                $icon = mysqli_fetch_row($res)[0];
+
+                mysqli_close($con);
+            }
+        ?>
         <section id="product-info">
             <div class="container-fluid d-flex flex-row justify-content-between left-right-only-pad" style="height:100%">
 
                 <div class="col col-sm-5">
-                    <img src="sources/images/pic1.png" alt="Εικόνα προϊόντος"
-                         title="Βιολογικό μέλι κουμπαριάς" style="width:100%">
-                    <div>
-                        <img src="sources/images/v.png" style="width:10%">
-                    </div>
+                    <?php
+                        echo "<img src='$img' alt='Product Picture' title='$name' style='height: 500px'>
+                              <div class='pb-5'>
+                                  <img src='$icon' style='width:50px'>
+                              </div>";
+                    ?>
                 </div>
                 
                 <div class="col col-sm-6 d-flex flex-column justify-content-center">
                     <div class="d-flex flex-column" >
-                        <h5> Green Village - Βιολογικό μέλι κουμπαριάς </h5>
-                        <p>Weight: <span id="weight">420gr</span><br>
-                        Price: <span id="price">5.00</span> &euro; <br>
-                        Stock: <span id="stock" style="color:green">Available</span>
+                        <?php
+                          echo "<h5 style='font-weight: bold'>$name</h5>
+                                Price: {$price}€ </br>
+                                Stock: $stock";
+                        ?>
                     </div>
 
                     <div class="d-flex justify-content-between light-green p-2">
-                        <button class="add-btn light-green">Add to Cart</button>
+                        <button id="addToCartBtn" class="add-btn light-green">Add to Cart</button>
                         <div class="d-flex">
-                            <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                            <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-heart fa-2x"></i></a>
+                            <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserCart.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                            <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserFavorites.php"><i class="fa-solid fa-heart fa-2x"></i></a>
                         </div> 
                     </div>
 
@@ -66,22 +91,9 @@
                         </ul>
                         <div class="tab-content" style="border-top:2px solid green">
                             <div class="tab-pane fade show active" id="description">
-                                    
-                                <p style="text-align:justify">Η κουμαριά είναι από τα ελάχιστα φυτά τα οποία έχουν ταυτόχρονα άνθη, 
-                                        μπουμπούκια, άγουρους και ώριμους καρπούς.
-                                </p>
-                                <p style="text-align:justify">
-                                        Το μέλι κουμαριάς λόγω του χαμηλού ποσοστού γλυκόζης και φρουκτόζης, 
-                                        περιέχει τις λιγότερες θερμίδες και έτσι μπορεί να καταναλωθεί 
-                                        από άτομα που έχουν διαβήτη τύπου Β. Επίσης, μπορεί να 
-                                        χρησιμοποιηθεί και σε περιπτώσεις δίαιτας αλλά πάντα χρειάζεται 
-                                        η συμβουλή του γιατρού.
-                                        Το μέλι κουμαριάς περιέχει την ουσία Arbutin, η οποία καθαρίζει 
-                                        το αίμα και ρυθμίζει το επίπεδο της χοληστερίνης.
-                                        Είναι πλούσιο σε ιχνοστοιχεία και βιταμίνες, αποτελώντας 
-                                        έτσι μία από τις καλύτερες επιλογές για την τόνωση του οργανισμού 
-                                        καθώς οι φυσικές αντιβιοτικές ουσίες που περιέχει το καθιστούν 
-                                        ασπίδα προστασίας από διάφορες ασθένειες.</p>
+                                 <?php
+                                    echo "$desc";
+                                 ?>
                             </div>
                         </div>
                     </div>

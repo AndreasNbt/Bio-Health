@@ -68,18 +68,19 @@ function echoProduct($id) {
     $icon = mysqli_fetch_row($res)[0];
 
     mysqli_close($con);
+    $linkToProductInfo = "UserProductInfo.php"."?productID=$id";
 
     echo "<div class='container-fluid' style='padding: 0'>
 
                 <!-- link and image -->
-                <a href='../UserProductInfo.php'>
+                <a href='$linkToProductInfo'>
                     <img class='img-responsive rounded' src='$img' style='width: 250px;height: 250px' alt='Product Name'>
                 </a>
 
                 <!-- description and price -->
                 <div class='row'>
                     <div class='col-auto'>
-                        <a href='../UserProductInfo.php' style='font-size: 14px'>$name<br/>(<span id='stock$id'>$stock</span> left in stock)</a>
+                        <a href='$linkToProductInfo' style='font-size: 14px'>$name<br/>(<span id='stock$id'>$stock</span> left in stock)</a>
                     </div>
                     <div class='col text-end pt-3'>
                         <p class='product-info' style='font-size: 14px'><span id='price$id'>$price</span>€</p>
@@ -107,7 +108,7 @@ function echoProduct($id) {
                                         <div class='container-fluid'>
                                             <div class='row'>
                                                 <div class='col-6'>
-                                                    <p class='text-lg'>Product name: <a href='../UserProductInfo.php'>$name</a></p>
+                                                    <p class='text-lg'>Product name: <a href='$linkToProductInfo'>$name</a></p>
                                                     <p class='text-lg'>Available stock: $stock</p>
                                                     <p class='text-lg' style='font-weight: bold'>Cost: <span id='costAddedToCart$id'>{$price}€</span></p>
                                                 </div>
