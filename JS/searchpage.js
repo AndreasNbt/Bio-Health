@@ -27,6 +27,6 @@ function updateCost(id) {
     }
 }
 
-function clearSearchResults() {
-    document.getElementById("products").innerHTML = "";
+function updateShownKey() {
+    document.getElementById('shown_key').innerHTML = document.getElementById('search_key').value;
 }

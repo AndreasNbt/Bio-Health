@@ -4,27 +4,18 @@ include("db_connection.php");
 
 ############## Make the mysql connection ###########
 
-$search_key = $_POST['value'];
-$sql = "SELECT * FROM product WHERE name LIKE '%$search_key%'";
-$res = $con->query($sql);
-
-while ($row = mysqli_fetch_row($res)) {
-    echoProduct($row[0]);
+if (isset($_POST['value'])) {
+    updateSearchResults($_POST['value']);
 }
 
 function updateSearchResults($search_key) {
-    echo "<script>clearSearchResults()</script>";
 
     include("db_connection.php");
-
     $sql = "SELECT id, name FROM `product` WHERE name LIKE '%$search_key%';";
     $res = $con->query($sql);
-
-    while ($row = mysqli_fetch_array($res))
-    {
+    while ($row = mysqli_fetch_array($res)) {
         echoProduct($row[0]);
     }
-
     mysqli_close($con);
 }
 
