@@ -7,8 +7,8 @@
                 <h1 class="navbar-logo-1">Bio &</h1>
                 <h1 class="position-relative navbar-logo-2">Health</h1>
             </a>
-            <form class="form-inline d-flex flex-row search" action="UserSearch.php">
-                <input class="form-control search-bar" type="text" placeholder="Search for a product">
+            <form class="form-inline d-flex flex-row search" action="UserSearch.php" method="post">
+                <input name="search_key" class="form-control search-bar" type="text" placeholder="Search for a product">
                 <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
             </form>
             <div class="navbar-nav d-flex flex-row justify-content-between">
