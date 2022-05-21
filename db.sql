@@ -37,6 +37,7 @@ CREATE TABLE creditcard (
 CREATE TABLE category (
   id INT AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
+  icon VARCHAR(40) NOT NULL,
   PRIMARY KEY(id)
 );
 
@@ -105,14 +106,14 @@ CREATE TABLE shippingaddress (
 INSERT INTO users(username, password, email, role)
 VALUES ('admin', 'admin', '', 1);
 
-INSERT INTO category(name)
+INSERT INTO category(name, icon)
 VALUES 
-  ('Vegan'),
-  ('Gluten Free'),
-  ('Snacks'),
-  ('Personal Care'),
-  ('Pastries & Confectionery'),
-  ('Spreads');
+  ('Vegan', 'sources/images/vegan_icon.png'),
+  ('Gluten Free', 'sources/images/gluten_free_icon.png'),
+  ('Snacks', 'sources/images/snacks_icon.png'),
+  ('Personal Care', 'sources/images/personal_care_icon.png'),
+  ('Pastries & Confectionery', 'sources/images/confectionery_icon.png'),
+  ('Spreads', 'sources/images/spreads_icon.png');
 
 
 INSERT INTO product (name, price, stock, description, image, category_id)
