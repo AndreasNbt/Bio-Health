@@ -7,10 +7,29 @@
             <h1 class="navbar-logo-1">Bio &</h1>
             <h1 class="position-relative navbar-logo-2">Health</h1>
         </a>
-        <form class="form-inline d-flex flex-row search" action="AdminSearch.php">
-            <input class="form-control search-bar" type="text" placeholder="Search for a product">
-            <button type="submit" class="search-button position-relative"><i class="fa-solid fa-magnifying-glass fa-lg dark-green"></i></button>
-        </form>
+        <?php
+        if (basename($_SERVER["SCRIPT_FILENAME"]) == 'AdminSearch.php') {
+            echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
+        }
+        else {
+            echo "<form id='search_bar' action='AdminSearch.php' method='get' class='form-inline d-flex flex-row search'>";
+        }
+        if (isset($_GET['search_key'])) {
+            function validate($data) {
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+            $search_key = validate($_GET['search_key']);
+            echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' value='$search_key'>";
+        }
+        else {
+            echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' onkeyup='updateShownKey()'>";
+        }
+        echo "<button type='submit' class='search-button position-relative'><i class='fa-solid fa-magnifying-glass fa-lg dark-green'></i></button>";
+        echo "</form>";
+        ?>
         <div class="navbar-nav d-flex flex-row justify-content-between">
             <div class="dropdown">
                 <a class="nav-item nav-link nav-icon text-center dark-gray" style="margin-right: 0" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>

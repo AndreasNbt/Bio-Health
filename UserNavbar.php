@@ -27,9 +27,9 @@
         else {
             echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' onkeyup='updateShownKey()'>";
         }
-        echo "<button type='submit' class='search-button position-relative'><i class='fa-solid fa-magnifying-glass fa-lg dark-green'></i></button>"
+        echo "<button type='submit' class='search-button position-relative'><i class='fa-solid fa-magnifying-glass fa-lg dark-green'></i></button>";
+        echo "</form>";
         ?>
-        </form>
         <div class="navbar-nav d-flex flex-row justify-content-between">
             <div class="dropdown">
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
