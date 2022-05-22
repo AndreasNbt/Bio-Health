@@ -26,6 +26,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
+                updateURL(key, category, order);
                 $.get('PHP_Back_End/user_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
@@ -37,6 +38,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
+                updateURL(key, category, order);
                 $.get('PHP_Back_End/user_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
@@ -48,6 +50,7 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
+                updateURL(key, category, order);
                 $.get('PHP_Back_End/user_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
@@ -59,11 +62,17 @@
                 var key = $('#search_key').val().toString();
                 var category = $('#category').val().toString();
                 var order = $('#order').val().toString();
+                updateURL(key, category, order);
                 $.get('PHP_Back_End/user_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
                 });
                 return false;
             });
+        });
+        window.addEventListener("beforeunload", function(evt) {
+            console.log("pls no reload");
+            evt.returnValue = '';
+            return null;
         });
     </script>
 </head>
@@ -86,24 +95,50 @@
                 <div class="col-auto">
                     <label class="filter-sort-label">Show only:</label>
                     <select id="category" class="form-select">
-                        <option value="0">Show all</option>
-                        <option value="1">Vegan</option>
-                        <option value="2">Gluten Free</option>
-                        <option value="3">Snacks</option>
-                        <option value="4">Personal Care</option>
-                        <option value="5">Pastries & Confectionery</option>
-                        <option value="6">Spreads</option>
+                        <?php
+                            include "PHP_Back_End/db_connection.php";
+
+                            $category_value = 0;
+                            if (isset($_GET['search_key']) and isset($_GET['category'])) {
+                                $category_value = $_GET['category'];
+                                echo "<option value='0'>Show All</option>";
+                            } else {
+                                echo "<option value='0' 'selected'>Show All</option>";
+                            }
+
+                            $sql = "SELECT id, name FROM `category`;";
+                            $res = $con->query($sql);
+                            while ($category = mysqli_fetch_array($res)) {
+                                $value = $category[0];
+                                $name = $category[1];
+                                $selected_option = "";
+                                if ($value === $category_value) {
+                                    $selected_option = " selected";
+                                }
+                                echo "<option value='$value'$selected_option>$name</option>";
+                            }
+                            mysqli_close($con);
+                        ?>
                     </select>
                 </div>
 
                 <div class="col-auto">
                     <label class="filter-sort-label">Sort by:</label>
                     <select id="order" class="form-select">
-                        <option value="0">Unordered</option>
-                        <option value="1">Price ascending</option>
-                        <option value="2">Price descending</option>
-                        <option value="3">Stock ascending</option>
-                        <option value="4">Stock descending</option>
+                        <?php
+                            $order_value = 0;
+                            if (isset($_GET['search_key']) and isset($_GET['order'])) {
+                                $order_value = $_GET['order'];
+                            }
+                            function echoOrderOption($value, $name, $selected_option) {
+                                echo "<option value='$value'$selected_option>$name</option>";
+                            }
+                            ($order_value == 0)?echoOrderOption(0, "Unordered", " selected"):echoOrderOption(0, "Unordered", "");
+                            ($order_value == 1)?echoOrderOption(1, "Price ascending", " selected"):echoOrderOption(1, "Price ascending", "");
+                            ($order_value == 2)?echoOrderOption(2, "Price descending", " selected"):echoOrderOption(2, "Price descending", "");
+                            ($order_value == 3)?echoOrderOption(3, "Stock ascending", " selected"):echoOrderOption(3, "Stock ascending", "");
+                            ($order_value == 4)?echoOrderOption(4, "Stock descending", " selected"):echoOrderOption(4, "Stock descending", "");
+                        ?>
                     </select>
                 </div>
             </div>
@@ -112,11 +147,21 @@
 
     <!-- container with all the products' images -->
     <div id="products" class="grid-justify-content-evenly">
-        <?php if (isset($_GET['search_key'])) {
+        <?php
             include "PHP_Back_End/search_functions.php";
-            $search_key = validate($_GET['search_key']);
-            updateSearchResults($search_key, 0, 0, 'user');
-        }?>
+            if (isset($_GET['search_key'])) {
+                $search_key = validate($_GET['search_key']);
+                $category = 0;
+                if (isset($_GET['category'])) {
+                    $category = $_GET['category'];
+                }
+                $order = 0;
+                if (isset($_GET['order'])) {
+                    $order = $_GET['order'];
+                }
+                updateSearchResults($search_key, $category, $order, 'user');
+            }
+        ?>
     </div>
 </div>
 

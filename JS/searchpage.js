@@ -30,3 +30,10 @@ function updateCost(id) {
 function updateShownKey() {
     document.getElementById('shown_key').innerHTML = document.getElementById('search_key').value;
 }
+
+function updateURL(search_key, category_id, order_id){
+    var searchUrl = "UserSearch.php?search_key=" + search_key;
+    var categoryUrl = (category_id > 0)?("&category=" + category_id):("");
+    var orderUrl = (order_id > 0)?("&order=" + order_id):("");
+    window.history.pushState("", "", searchUrl + categoryUrl + orderUrl);
+}
