@@ -28,7 +28,6 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
-                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -40,7 +39,6 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
-                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -52,7 +50,6 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
-                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -64,7 +61,6 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
-                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -113,15 +109,11 @@
 
         <!-- container with all the products' images -->
         <div id="products" class="grid-justify-content-evenly">
-
             <?php
-                include "PHP_Back_End/delete_product.php";
-            ?>
-
-            <?php if (isset($_GET['search_key'])) {
                 include "PHP_Back_End/search_functions.php";
-                $search_key = validate($_GET['search_key']);
-                updateSearchResults($search_key, 0, 0, 'admin');
+                if (isset($_GET['search_key'])) {
+                    $search_key = validate($_GET['search_key']);
+                    updateSearchResults($search_key, 0, 0, 'admin');
             }?>
         </div>
     </div>
