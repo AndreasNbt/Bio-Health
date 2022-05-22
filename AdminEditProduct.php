@@ -19,8 +19,37 @@
 </head>
 
 <body onload="UpdateDropdown('1')" class="d-flex flex-column min-vh-100">
+    
+    
+    <?php 
+     include "PHP_Back_End/db_connection.php";
+     session_start();
 
-    <?php include "AdminNavbar.php"; ?>
+     $pID = $_GET['productID'];
+
+     $sql = "SELECT name, price, stock, description, image, category_id
+             FROM product
+             WHERE id = '$pID'";
+     
+     $res = $con->query($sql);
+     $row = mysqli_fetch_row($res);
+
+     if ($row) {
+        $name = $row[0];
+        $price = $row[1];
+        $stock = $row[2];
+        $description = $row[3];
+        $image = $row[4];
+        $cID = $row[5];
+
+        $res = $con->query("SELECT name FROM category WHERE id=$cID");
+        $category = mysqli_fetch_row($res)[0];
+     }
+
+     $con->close();
+     include "AdminNavbar.php";
+    ?>
+
     <br>
 
     <section class="main-section">
@@ -32,45 +61,45 @@
                 </div>
                 <hr class="hr-border m-0">
 
-                <form id="form" action="AdminSearch.php">
-                    <div>
-                        <div class="field d-flex flex-column">
-                            <label for="product_name" class="product_label text-start">Product Name</label>
-                            <input type="text" id="product_name" class="product-input-field form-control" name="product_name" required>
-                        </div>
+                <?php echo'<form id="form" action="AdminSearch.php">
+                                <div>
+                                    <div class="field d-flex flex-column">
+                                        <label for="product_name" class="product_label text-start">Product Name</label>
+                                        <input type="text" id="product_name" class="product-input-field form-control" name="product_name" value="'.$name.'" required>
+                                    </div>
 
-                        <div class="field d-flex flex-column">
-                            <label for="product_description" class="product_label text-start">Description</label>
-                            <textarea type="text" id="product_description" class="product-input-area form-control" name="product_description" required></textarea>
-                        </div>
+                                    <div class="field d-flex flex-column">
+                                        <label for="product_description" class="product_label text-start">Description</label>
+                                        <textarea type="text" id="product_description" class="product-input-area form-control" name="product_description" required>'.$description.'</textarea>
+                                    </div>
 
-                        <div class="field d-flex flex-column">
-                            <label for="product_category" class="product_label text-start">Category</label>
-                            <input type="text" id="product_category" class="product-input-field small form-control" name="product_category" required>
-                        </div>
+                                    <div class="field d-flex flex-column">
+                                        <label for="product_category" class="product_label text-start">Category</label>
+                                        <input type="text" id="product_category" class="product-input-field small form-control" name="product_category" value="'.$category.'" required>
+                                    </div>
 
-                        <div class="field d-flex flex-column">
-                            <label for="product_price" class="product_label text-start">Price</label>
-                            <input type="number" id="product_price" class="product-input-field small form-control" name="product_price" required>
-                        </div>
+                                    <div class="field d-flex flex-column">
+                                        <label for="product_price" class="product_label text-start">Price</label>
+                                        <input type="number" id="product_price" class="product-input-field small form-control" name="product_price" value="'.$price.'" required>
+                                    </div>
 
-                        <div class="field d-flex flex-column">
-                            <label for="product_stock" class="product_label text-start">Stock</label>
-                            <input type="number" id="product_stock" class="product-input-field small form-control" name="product_stock" required>
-                        </div>
-                            
-                        <div class="field d-flex flex-column">
-                            <label for="product_image" class="product_label text-start">Image</label>
-                            <input type="file" id="product_image" class="product-input-field p-0" name="product_image" required>
-                        </div>
-                            
-                    </div>
+                                    <div class="field d-flex flex-column">
+                                        <label for="product_stock" class="product_label text-start">Stock</label>
+                                        <input type="number" id="product_stock" class="product-input-field small form-control" name="product_stock" value="'.$stock.'" required>
+                                    </div>
+                                        
+                                    <div class="field d-flex flex-column">
+                                        <label for="product_image" class="product_label text-start">Image</label>
+                                        <input type="file" id="product_image" class="product-input-field p-0" name="product_image" value="'.$image.'" required>
+                                    </div>
+                                        
+                                </div>' ?>
 
-                    <div class="d-flex justify-content-evenly">
-                        <button class="button sign-btn submit solid-border dark-green extra-spacing my-3" type="submit">Submit</button>
-                        <button class="button sign-btn submit red-solid-border danger-red extra-spacing my-3" type="button" onclick="document.getElementById('form').reset();location.href='adminsearchpage.php'">Cancel</button>
-                    </div>
-                </form>
+                                <div class="d-flex justify-content-evenly">
+                                    <button class="button sign-btn submit solid-border dark-green extra-spacing my-3" type="submit">Submit</button>
+                                    <button class="button sign-btn submit red-solid-border danger-red extra-spacing my-3" type="button" onclick="document.getElementById('form').reset();location.href='adminsearchpage.php'">Cancel</button>
+                                </div>
+                            </form>
             </div>
         </div>
     </section>

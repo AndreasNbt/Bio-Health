@@ -34,9 +34,9 @@
             <div class="dropdown">
                 <a class="nav-item nav-link nav-icon text-center dark-gray" style="margin-right: 0" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
                 <div class="dropdown-content">
-                    <a class="signedout" href="UserSignIn.html">Sign in</a>
-                    <a class="signedout" href="UserSignUp.html">Create an account</a>
-                    <a class="signedin" href="UserAccountInfo.html">Account Information</a>
+                    <a class="signedout" href="UserSignIn.php">Sign in</a>
+                    <a class="signedout" href="UserSignUp.php">Create an account</a>
+                    <a class="signedin" href="UserAccountInfo.php">Account Information</a>
                     <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="Index.php">Log out</a>
                 </div>
             </div>
