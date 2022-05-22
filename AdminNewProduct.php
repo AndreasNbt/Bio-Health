@@ -66,7 +66,7 @@
                     </div>
                     <hr class="hr-border m-0">
 
-                    <form id="form" action="AdminIndex.php">
+                    <form action="PHP_Back_End/new_product.php" method="post">
                         <div>
                             <div class="field d-flex flex-column">
                                 <label for="product_name" class="product_label text-start">Product Name</label>

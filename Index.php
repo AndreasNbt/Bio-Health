@@ -115,20 +115,20 @@
                         <div class="d-flex justify-content-around">
                             <div>
                                 <a href="UserSearch.php">
-                                    <img class="img-responsive rounded" src="sources/images/dairy_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
-                                    <h5 class="caption black">Dairy</h5>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="UserSearch.php">
                                     <img class="img-responsive rounded" src="sources/images/vegan_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Vegan</h5>
                                 </a>
                             </div>
                             <div>
                                 <a href="UserSearch.php">
-                                    <img class="img-responsive rounded" src="sources/images/fruits_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
-                                    <h5 class="caption black">Fruits</h5>
+                                    <img class="img-responsive rounded" src="sources/images/gluten_free_free_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
+                                    <h5 class="caption black">Gluten Free</h5>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="UserSearch.php">
+                                    <img class="img-responsive rounded" src="sources/images/snacks.png" style="width: 250px;height: 250px" alt="Product Name">
+                                    <h5 class="caption black">Snacks</h5>
                                 </a>
                             </div>
                         </div>
@@ -136,20 +136,20 @@
                             <div class="d-flex justify-content-around">
                                 <div>
                                     <a href="UserSearch.php">
-                                        <img class="img-responsive rounded" src="sources/images/vegetables_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
-                                        <h5 class="caption black">Vegetables</h5>
+                                        <img class="img-responsive rounded" src="sources/images/personal_care.png" style="width: 250px;height: 250px" alt="Product Name">
+                                        <h5 class="caption black">Personal Care</h5>
                                     </a>
                                 </div>
                                 <div>
                                     <a href="UserSearch.php">
-                                        <img class="img-responsive rounded" src="sources/images/sugar_free_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
-                                        <h5 class="caption black">Sugar free</h5>
+                                        <img class="img-responsive rounded" src="sources/images/pastries.png" style="width: 250px;height: 250px" alt="Product Name">
+                                        <h5 class="caption black">Pastries & Confectionery</h5>
                                     </a>
                                 </div>
                                 <div>
                                     <a href="UserSearch.php">
-                                        <img class="img-responsive rounded" src="sources/images/gluten_free_free_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
-                                        <h5 class="caption black">Gluten free</h5>
+                                        <img class="img-responsive rounded" src="sources/images/spreads.png" style="width: 250px;height: 250px" alt="Product Name">
+                                        <h5 class="caption black">Spreads</h5>
                                     </a>
                                 </div>
                             </div>
