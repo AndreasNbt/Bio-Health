@@ -54,6 +54,14 @@ CREATE TABLE product (
   FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
+CREATE TABLE offers(
+  id INT AUTO_INCREMENT,
+  product_id INT NOT NULL,
+  offer_percentage INT NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY (product_id) REFERENCES product(id)
+);
+
 CREATE TABLE cart (
   id INT AUTO_INCREMENT,
   user_id INT NOT NULL,
@@ -166,3 +174,14 @@ VALUES
 ('Ghee butter', 10.97, 100, 'Keep in a cool and dry place. Ideal for cooking', 'sources/images/Ghee_butter.png', 6),
 ('Vegalina hazelnut praline', 7.16, 100, 'Keep in a cool and dry place.', 'sources/images/Vegalina_praline.png', 6),
 ('Tahini with honey', 4.41, 100, 'Keep in a cool and dry place.', 'sources/images/Tahini_honey.png', 6);
+
+INSERT INTO offers (product_id, offer_percentage)
+VALUES 
+(4,20),
+(5,70),
+(2,20),
+(6,35),
+(11,20),
+(12,45),
+(9,20),
+(14,25);
