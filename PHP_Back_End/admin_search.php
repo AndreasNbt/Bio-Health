@@ -6,4 +6,3 @@ if (isset($_GET['key']) and isset($_GET['category']) and isset($_GET['order'])) 
 }
 mysqli_close($con);
 ?>
-</body>

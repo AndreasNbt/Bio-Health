@@ -1,8 +1,10 @@
 <?php
-
-if (isset($_POST['deleteID'])) {
-    $id = $_POST['deleteID'];
+if (isset($_GET['deleteID']) and isset($_GET['hidden_search_key'])) {
+    $id = $_GET['deleteID'];
+    $search_key = $_GET['hidden_search_key'];
     deleteProduct($id);
+    header("Location: ../AdminSearch.php?search_key=$search_key");
+    exit();
 }
 
 function deleteProduct($id) {

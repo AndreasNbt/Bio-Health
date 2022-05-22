@@ -28,6 +28,7 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
+                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -39,6 +40,7 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
+                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -50,6 +52,7 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
+                    updateSearchKeys(key);
                 });
                 return false;
             });
@@ -61,6 +64,7 @@
                 var order = $('#order').val().toString();
                 $.get('PHP_Back_End/admin_search.php', {key:key, category:category, order:order}, function(data){
                     $("#products").html(data);
+                    updateSearchKeys(key);
                 });
                 return false;
             });

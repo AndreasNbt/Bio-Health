@@ -108,8 +108,9 @@ function echoAdminProduct($id) {
                                             </div>
 
                                             <div class='modal-footer'>
-                                                <form action='' method='post'>
-                                                    <button id='deleteBtn' name='deleteID' value='$id' type='submit' class='btn btn-outline-success text-lg' data-bs-dismiss='modal'>Delete</button>
+                                                <form action='PHP_Back_End/delete_product.php' method='get''>
+                                                    <input hidden name='hidden_search_key'>
+                                                    <button name='deleteID' value='$id' type='submit' class='btn btn-outline-success text-lg' data-bs-dismiss='modal'>Delete</button>
                                                 </form>
                                                 <button type='button' class='btn btn-outline-danger text-lg' data-bs-dismiss='modal'>Cancel</button>
                                             </div>
