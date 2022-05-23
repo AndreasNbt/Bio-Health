@@ -29,7 +29,9 @@ function getOrderQuery($order_id) {
 
 function updateSearchResults($search_key, $category_id, $order_id, $user_type) {
     include("db_connection.php");
-    $sql = "SELECT id FROM `product` WHERE name LIKE '%$search_key%'".getCategoryQuery($category_id).getOrderQuery($order_id).";";
+    $sql_product = "SELECT product.id, product.price, product.stock FROM product WHERE name LIKE '%$search_key%'".getCategoryQuery($category_id);
+    $sql_category = "SELECT product.id, product.price, product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%'".getCategoryQuery($category_id);
+    $sql = $sql_product."\nUNION\n".$sql_category.getOrderQuery($order_id).";";
     $res = $con->query($sql);
     while ($row = mysqli_fetch_array($res)) {
         if ($user_type === 'user') {
@@ -140,12 +142,18 @@ function echoUserProduct($id) {
     $icon = mysqli_fetch_row($res)[0];
     $linkToProductInfo = "UserProductInfo.php"."?productID=$id";
 
-    $user_id = $_SESSION['ID'];
-    $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
-    $res = $con->query($sql);
     $amount = 0;
-    if (mysqli_num_rows($res) > 0) {
-        $amount = mysqli_fetch_row($res)[0];
+    $hidden = "";
+    if (isset($_SESSION['ID'])) {
+        $user_id = $_SESSION['ID'];
+        $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
+        $res = $con->query($sql);
+        if (mysqli_num_rows($res) > 0) {
+            $amount = mysqli_fetch_row($res)[0];
+        }
+    }
+    else {
+        $hidden = "hidden ";
     }
     $totalCost = $amount * $price;
 
@@ -175,7 +183,7 @@ function echoUserProduct($id) {
                     </div>
 
                     <div class='col float-end'>
-                        <button type='button' class='btn btn-outline-primary btn-lg float-end' data-bs-toggle='modal' data-bs-target='#addToCartModal$id' onclick='saveValues(\"$id\")'>Add to cart</button>
+                        <button {$hidden}type='button' class='btn btn-outline-primary btn-lg float-end' data-bs-toggle='modal' data-bs-target='#addToCartModal$id' onclick='saveValues(\"$id\")'>Add to cart</button>
                         <div class='modal fade' id='addToCartModal$id'>
                             <div class='modal-dialog modal-lg'>
                                 <div class='modal-content'>
