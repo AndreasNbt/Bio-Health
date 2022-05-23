@@ -107,6 +107,11 @@ VALUES
     ('admin', 'admin', '', 1),
     ('user', 'user', '', 2);
 
+INSERT INTO userinfo(User_ID)
+VALUES
+    (1),
+    (2);
+
 INSERT INTO category(name, icon)
 VALUES 
   ('Vegan', 'sources/images/vegan_icon.png'),
