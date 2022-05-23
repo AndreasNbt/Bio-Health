@@ -1,9 +1,20 @@
-let items = []
+let item_ids = []
+
+function updateAmount(item_id, amount) {
+    $.get('PHP_Back_End/user_cart.php', {item_id:item_id, amount:amount}, function(data){
+        return false;
+    });
+}
+
+function removeFromCart(item_id) {
+    $.get('PHP_Back_End/user_cart.php', {item_id:item_id}, function(data){
+        return false;
+    });
+}
 
 function updateCosts() {
-    for (let i = 0 ; i < items.length ; i++) {
-        let index = items[i].charAt(items[i].length - 1)
-        updateCost(parseFloat(document.getElementById('amountAddedToCart' + index.toString()).value), parseFloat(document.getElementById("costAddedToCart" + index.toString()).innerHTML), parseFloat(document.getElementById("stock" + index.toString()).innerHTML), index)
+    for (let i = 0 ; i < item_ids.length ; i++) {
+        updateCost(parseFloat(document.getElementById('amountAddedToCart' + item_ids[i].toString()).value), parseFloat(document.getElementById("costAddedToCart" + item_ids[i].toString()).innerHTML), parseFloat(document.getElementById("stock" + item_ids[i].toString()).innerHTML), item_ids[i])
     }
 }
 
@@ -12,7 +23,7 @@ function updateTotal() {
 }
 
 function updateSubtotal() {
-    if (items.length === 0) {
+    if (item_ids.length === 0) {
         document.getElementById("empty_message").style.display = "inline"
         document.getElementById("checkout_button").disabled = true;
     }
@@ -20,15 +31,17 @@ function updateSubtotal() {
         document.getElementById("checkout_button").disabled = false;
     }
     let subtotal = 0
-    for (let i = 0 ; i < items.length ; i++) {
-        subtotal += parseFloat(document.getElementById(items[i]).innerHTML)
+    for (let i = 0 ; i < item_ids.length ; i++) {
+        subtotal += parseFloat(document.getElementById("costAddedToCart" + item_ids[i]).innerHTML)
     }
     document.getElementById("subtotal").innerHTML = subtotal.toFixed(2)
 }
 
 function removeItem(elementIndex) {
-    let i = items.indexOf("costAddedToCart" + elementIndex)
-    items.splice(i, 1)
+    var index = item_ids.indexOf(elementIndex);
+    if (index !== -1) {
+        item_ids.splice(index, 1);
+    }
     document.getElementById("item" + elementIndex).remove()
 }
 
@@ -47,7 +60,6 @@ function updateCost(amount, price, stock, element_index) {
         document.getElementById("costAddedToCart" + element_index).innerHTML = (Math.ceil(amount) * price).toFixed(2);
     }
     else {
-        console.log("costAddedToCart" + element_index)
         document.getElementById("costAddedToCart" + element_index).innerHTML = (amount * price).toFixed(2);
     }
 }

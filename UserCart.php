@@ -8,15 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/cartpage.css">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/sensei" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/navbar.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/cartpage.css">
     <script src="JS/cartpage.js"></script>
     <script src="JS/navbar.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'));updateCosts();updateSubtotal();updateTotal();" class="d-flex flex-column grey-background min-vh-100">
 
@@ -31,60 +32,9 @@
                 <h4 class="text-center pt-2" style="font-weight: bold">Shopping cart</h4>
                 <hr class="border-2 border-top border-primary mb-4">
 
-                <div id="item1">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart1')">
-                        <a href="UserProductInfo.php">Product Name<br/>(<span id="stock1">1000</span> left in stock)</a>
-                        <input type="number" id="amountAddedToCart1" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart1').value, 1, 1000, 1); updateSubtotal(); updateTotal()"/>
-                        <div class="d-flex" style="width: 50px"><span id="costAddedToCart1">1.00</span>€</div>
-                        <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('1'); updateSubtotal(); updateTotal()"></button>
-                    </div>
-                    <hr class="border-2 border-top border-primary mb-4">
-                </div>
-
-                <div id="item2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart2')">
-                        <a href="UserProductInfo.php">Product Name<br/>(<span id="stock2">1000</span> left in stock)</a>
-                        <input type="number" id="amountAddedToCart2" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart2').value, 2, 1000, 2); updateSubtotal(); updateTotal()"/>
-                        <div class="d-flex" style="width: 50px"><span id="costAddedToCart2">2.00</span>€</div>
-                        <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('2'); updateSubtotal(); updateTotal()"></button>
-                    </div>
-                    <hr class="border-2 border-top border-primary mb-4">
-                </div>
-
-                <div id="item3">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart3')">
-                        <a href="UserProductInfo.php">Product Name<br/>(<span id="stock3">1000</span> left in stock)</a>
-                        <input type="number" id="amountAddedToCart3" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart3').value, 3, 1000, 3); updateSubtotal(); updateTotal()"/>
-                        <div class="d-flex" style="width: 50px"><span id="costAddedToCart3">3.00</span>€</div>
-                        <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('3'); updateSubtotal(); updateTotal()"></button>
-                    </div>
-                    <hr class="border-2 border-top border-primary mb-4">
-                </div>
-
-                <div id="item4">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart4')">
-                        <a href="UserProductInfo.php">Product Name<br/>(<span id="stock4">1000</span> left in stock)</a>
-                        <input type="number" id="amountAddedToCart4" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart4').value, 4, 1000, 4); updateSubtotal(); updateTotal()"/>
-                        <div class="d-flex" style="width: 50px"><span id="costAddedToCart4">4.00</span>€</div>
-                        <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('4'); updateSubtotal(); updateTotal()"></button>
-                    </div>
-                    <hr class="border-2 border-top border-primary mb-4">
-                </div>
-
-                <div id="item5">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img class="img-responsive rounded" src="https://picsum.photos/200" style="width: 100px;height: 125px" alt="Product Name" onload="items.push('costAddedToCart5');">
-                        <a href="UserProductInfo.php">Product Name<br/>(<span id="stock5">1000</span> left in stock)</a>
-                        <input type="number" id="amountAddedToCart5" class="form-control form-control-sm" min="1" max="1000" style="width: 5rem" value="1" onchange="updateCost(document.getElementById('amountAddedToCart5').value, 5, 1000, 5); updateSubtotal(); updateTotal()"/>
-                        <div class="d-flex" style="width: 50px"><span id="costAddedToCart5">5.00</span>€</div>
-                        <button type="button" style="padding-right: 1.5rem;scale: 75%" class="btn-close" data-bs-dismiss="modal" onclick="removeItem('5'); updateSubtotal(); updateTotal()"></button>
-                    </div>
-                    <hr class="border-2 border-top border-primary mb-4">
-                </div>
+                <?php
+                    include "PHP_Back_End/user_cart.php";
+                ?>
 
                 <div id="empty_message" style="display: none">
                     <div class="d-flex justify-content-center align-items-center">

@@ -62,22 +62,13 @@ CREATE TABLE offers(
   FOREIGN KEY (product_id) REFERENCES product(id)
 );
 
-CREATE TABLE cart (
-  id INT AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  creation_date DATE,
-  PRIMARY KEY(id),
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-
-
 CREATE TABLE cartitem (
   id INT AUTO_INCREMENT,
-  cart_id INT NOT NULL,
+  user_id INT NOT NULL,
   product_id INT NOT NULL,
   amount INT NOT NULL,
   PRIMARY KEY(id),
-  FOREIGN KEY (cart_id) REFERENCES cart(id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
   FOREIGN KEY (product_id) REFERENCES product(id)
 );
 
@@ -112,7 +103,9 @@ CREATE TABLE shippingaddress (
 );
 
 INSERT INTO users(username, password, email, role)
-VALUES ('admin', 'admin', '', 1);
+VALUES
+    ('admin', 'admin', '', 1),
+    ('user', 'user', '', 2);
 
 INSERT INTO category(name, icon)
 VALUES 
@@ -122,7 +115,6 @@ VALUES
   ('Personal Care', 'sources/images/personal_care_icon.png'),
   ('Pastries & Confectionery', 'sources/images/confectionery_icon.png'),
   ('Spreads', 'sources/images/spreads_icon.png');
-
 
 INSERT INTO product (name, price, stock, description, image, category_id)
 VALUES 
@@ -177,11 +169,21 @@ VALUES
 
 INSERT INTO offers (product_id, offer_percentage)
 VALUES 
-(4,20),
-(5,70),
-(2,20),
-(6,35),
-(11,20),
-(12,45),
-(9,20),
-(14,25);
+    (4,20),
+    (5,70),
+    (2,20),
+    (6,35),
+    (11,20),
+    (12,45),
+    (9,20),
+    (14,25);
+
+INSERT INTO cartitem(user_id, product_id, amount)
+VALUES
+    (2, 5, 3),
+    (2, 7, 9),
+    (2, 1, 14),
+    (2, 13, 56),
+    (2, 18, 34),
+    (2, 4, 5),
+    (2, 28, 12);
