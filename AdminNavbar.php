@@ -52,7 +52,7 @@
                     <a class="nav-link" href="AdminNewProduct.php">Add products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="AdminSearch.php">Edit products</a>
+                    <a class="nav-link" href="AdminSearch.php?search_key=">Edit products</a>
                 </li>
             </ul>
         </div>
