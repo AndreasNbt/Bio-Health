@@ -41,6 +41,6 @@
 
         $con->query($sql);
         $con -> close();
-        header("Location: ../AdminIndex.php");
+        header("Location: ../Index.php");
     }
 ?>

@@ -46,12 +46,9 @@
                 echo "$_SESSION[role]";
                 
                 $con -> close();
-                if ($_SESSION['role'] === 'Administrator') {
-                    header("Location: ../AdminIndex.php");
-                }
-                else {
-                    header("Location: ../Index.php");
-                }
+                
+                header("Location: ../Index.php");
+               
             }
             else {
                 header("Location: ../UserSignIn.php?error=User not found");
