@@ -37,21 +37,21 @@
         else {
 
             $sql = "SELECT * 
-                    FROM users
-                    WHERE users.email = '$email'
-                        OR users.username = '$username' ";
+                    FROM user
+                    WHERE user.email = '$email'
+                        OR user.username = '$username' ";
 
             $res = $con->query($sql);
 
             if (mysqli_num_rows($res) === 0 ){
-                $sql = "INSERT INTO users(email, username, password, role)
+                $sql = "INSERT INTO user(email, username, password, role)
                         VALUES ('$email', '$username', '$password', 2)";
                 
                 $con->query($sql);
 
                 $get_last_row = "SELECT *  
-                                 FROM users
-                                 WHERE user_id = (SELECT max(user_id) FROM users)";
+                                 FROM user
+                                 WHERE user_id = (SELECT max(user_id) FROM user)";
 
                 $res = $con -> query($get_last_row);
                 $row = mysqli_fetch_row($res);
@@ -63,7 +63,7 @@
 
                 
                 $id = $_SESSION['ID'];
-                $sql2 = "INSERT INTO userinfo(User_ID)
+                $sql2 = "INSERT INTO user_info(User_ID)
                             VALUES ('$id')";
 
                 $con->query($sql2);

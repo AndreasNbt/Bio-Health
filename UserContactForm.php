@@ -36,14 +36,14 @@
         $userId = $_SESSION['ID'];
 
         $sql = "SELECT Full_Name
-                FROM userinfo
+                FROM user_info
                 WHERE User_ID = '$userId'";
         
         $res = $con->query($sql);
         $fullName = mysqli_fetch_row($res)[0];
 
         $sql = "SELECT email
-                FROM users
+                FROM user
                 WHERE user_id = '$userId'";
         
         $res = $con->query($sql);

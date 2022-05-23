@@ -3,9 +3,9 @@
         include("db_connection.php");
         $item_id = $_GET['item_id'];
         $amount = $_GET['amount'];
-        $sql = "SELECT id FROM cartitem WHERE id=$item_id;";
+        $sql = "SELECT id FROM cart_item WHERE id=$item_id;";
         if (mysqli_num_rows(mysqli_query($con,$sql)) > 0) {
-            $sql = "UPDATE cartitem SET amount=$amount WHERE id=$item_id;";
+            $sql = "UPDATE cart_item SET amount=$amount WHERE id=$item_id;";
             $res = $con->query($sql);
         }
         mysqli_close($con);
@@ -13,9 +13,9 @@
     else if (isset($_GET['item_id'])) {
         include("db_connection.php");
         $item_id = $_GET['item_id'];
-        $sql = "SELECT id FROM `cartitem` WHERE id=$item_id;";
+        $sql = "SELECT id FROM `cart_item` WHERE id=$item_id;";
         if (mysqli_num_rows(mysqli_query($con,$sql)) > 0) {
-            $sql = "DELETE FROM cartitem WHERE id=$item_id;";
+            $sql = "DELETE FROM cart_item WHERE id=$item_id;";
             $res = $con->query($sql);
         }
         mysqli_close($con);
@@ -25,7 +25,7 @@
     }
     else {
         include("db_connection.php");
-        $sql = "SELECT id, product_id, amount FROM `cartitem` WHERE user_id=".$_SESSION['ID'].";";
+        $sql = "SELECT id, product_id, amount FROM `cart_item` WHERE user_id=".$_SESSION['ID'].";";
         $res = $con->query($sql);
         mysqli_close($con);
 
@@ -34,7 +34,7 @@
                 <hr class='border-2 border-top border-primary mb-4'>";
 
         while ($item = mysqli_fetch_row($res)) {
-            echoCartItem($item[0], $item[1], $item[2]);
+            echocart_item($item[0], $item[1], $item[2]);
         }
 
         echoBackMessage("Looks like your cart is empty", "display: none");
@@ -79,7 +79,7 @@
               </div>";
     }
 
-    function echoCartItem($item_id, $product_id, $amount) {
+    function echocart_item($item_id, $product_id, $amount) {
         include("db_connection.php");
 
         $sql = "SELECT name, price, stock, image FROM `product` WHERE id=$product_id;";

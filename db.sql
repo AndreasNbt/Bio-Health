@@ -1,125 +1,140 @@
 CREATE DATABASE BioHealth DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE BioHealth;
 
-CREATE TABLE users(
-  user_id INT AUTO_INCREMENT,
-  username VARCHAR(20) NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  password VARCHAR(20) NOT NULL,
-  role enum('Administrator', 'Customer') NOT NULL,
-  PRIMARY KEY(user_id)
+CREATE TABLE user (
+    user_id INT AUTO_INCREMENT,
+    username VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    role enum('Administrator', 'Customer') NOT NULL,
+    PRIMARY KEY(user_id)
 );
 
-CREATE TABLE userinfo (
-  User_ID INT,
-  Full_Name VARCHAR(30),
-  City VARCHAR(30),
-  Address VARCHAR(30),
-  State VARCHAR(30),
-  Zip_Code VARCHAR(10),
-  Phone_Number VARCHAR(15),
-  FOREIGN KEY (User_ID) REFERENCES users(user_id)
+CREATE TABLE user_info (
+    User_ID INT,
+    Full_Name VARCHAR(30),
+    City VARCHAR(30),
+    Address VARCHAR(30),
+    State VARCHAR(30),
+    Zip_Code VARCHAR(10),
+    Phone_Number VARCHAR(15),
+    FOREIGN KEY (User_ID) REFERENCES user(user_id)
 );
-
-CREATE TABLE creditcard (
-  id INT AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  name VARCHAR(100) NOT NULL,
-  number VARCHAR(15) NOT NULL,
-  exp_month INT NOT NULL,
-  exp_year INT NOT NULL,
-  cvv INT NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-
 
 CREATE TABLE category (
-  id INT AUTO_INCREMENT,
-  name VARCHAR(50) NOT NULL,
-  icon VARCHAR(40) NOT NULL,
-  PRIMARY KEY(id)
+    id INT AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    icon VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id)
 );
-
 
 CREATE TABLE product (
-  id INT AUTO_INCREMENT,
-  name VARCHAR(50) NOT NULL,
-  price FLOAT NOT NULL,
-  stock INT NOT NULL,
-  description VARCHAR(250) NOT NULL,
-  image VARCHAR(40) NOT NULL,
-  category_id INT,
-  PRIMARY KEY(id),
-  FOREIGN KEY (category_id) REFERENCES category(id)
+    id INT AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    price FLOAT NOT NULL,
+    stock INT NOT NULL,
+    description VARCHAR(250) NOT NULL,
+    image VARCHAR(40) NOT NULL,
+    category_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE TABLE offers(
-  id INT AUTO_INCREMENT,
-  product_id INT NOT NULL,
-  offer_percentage INT NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+CREATE TABLE offers (
+    id INT AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    offer_percentage INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
-CREATE TABLE cartitem (
-  id INT AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  product_id INT NOT NULL,
-  amount INT NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+CREATE TABLE cart_item (
+    id INT AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
-CREATE TABLE orders (
-  id INT AUTO_INCREMENT,
-  customer_id INT NOT NULL,
-  order_date DATE,
-  completed BOOLEAN NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (customer_id) REFERENCES users(user_id)
+CREATE TABLE `order` (
+    id INT AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    completed BOOLEAN NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
-CREATE TABLE orderitem (
-  id INT AUTO_INCREMENT,
-  order_id INT NOT NULL,
-  product_id INT NOT NULL,
-  amount INT NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (order_id) REFERENCES orders(id),
-  FOREIGN KEY (product_id) REFERENCES product(id)
+CREATE TABLE billing_address (
+    order_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(50),
+    city VARCHAR(30),
+    state VARCHAR(30),
+    zip VARCHAR(10),
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE
 );
 
-CREATE TABLE shippingaddress (
-  id INT AUTO_INCREMENT,
-  order_id INT NOT NULL,
-  address VARCHAR(50),
-  city VARCHAR(30),
-  state VARCHAR(30),
-  zip VARCHAR(10),
-  PRIMARY KEY(id),
-  FOREIGN KEY (order_id) REFERENCES orders(id)
+CREATE TABLE payment_method (
+    order_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    number VARCHAR(15) NOT NULL,
+    exp_month VARCHAR(9) NOT NULL,
+    exp_year INT NOT NULL,
+    cvv INT NOT NULL,
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE
 );
 
-INSERT INTO users(username, password, email, role)
+CREATE TABLE shipping_address (
+    order_id INT NOT NULL,
+    address VARCHAR(50),
+    city VARCHAR(30),
+    state VARCHAR(30),
+    zip VARCHAR(10),
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE
+);
+
+CREATE TABLE order_item (
+    id INT AUTO_INCREMENT,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+);
+
+CREATE TABLE pricing (
+    order_id INT NOT NULL,
+    shipping_type INT NOT NULL,
+    total_cost INT NOT NULL,
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE
+);
+
+INSERT INTO user (username, password, email, role)
 VALUES
-    ('admin', 'admin', '', 1),
-    ('user', 'user', '', 2);
+        ('admin', 'admin', '', 1),
+        ('user', 'user', '', 2);
 
-INSERT INTO userinfo(User_ID)
+INSERT INTO user_info (User_ID)
 VALUES
-    (1),
-    (2);
+        (1),
+        (2);
 
-INSERT INTO category(name, icon)
+INSERT INTO category (name, icon)
 VALUES 
-  ('Vegan', 'sources/images/vegan_icon.png'),
-  ('Gluten Free', 'sources/images/gluten_free_icon.png'),
-  ('Snacks', 'sources/images/snacks_icon.png'),
-  ('Personal Care', 'sources/images/personal_care_icon.png'),
-  ('Pastries & Confectionery', 'sources/images/confectionery_icon.png'),
-  ('Spreads', 'sources/images/spreads_icon.png');
+    ('Vegan', 'sources/images/vegan_icon.png'),
+    ('Gluten Free', 'sources/images/gluten_free_icon.png'),
+    ('Snacks', 'sources/images/snacks_icon.png'),
+    ('Personal Care', 'sources/images/personal_care_icon.png'),
+    ('Pastries & Confectionery', 'sources/images/confectionery_icon.png'),
+    ('Spreads', 'sources/images/spreads_icon.png');
 
 INSERT INTO product (name, price, stock, description, image, category_id)
 VALUES 
@@ -174,21 +189,11 @@ VALUES
 
 INSERT INTO offers (product_id, offer_percentage)
 VALUES 
-    (4,20),
-    (5,70),
-    (2,20),
-    (6,35),
-    (11,20),
-    (12,45),
-    (9,20),
-    (14,25);
-
-INSERT INTO cartitem(user_id, product_id, amount)
-VALUES
-    (2, 5, 3),
-    (2, 7, 9),
-    (2, 1, 14),
-    (2, 13, 56),
-    (2, 18, 34),
-    (2, 4, 5),
-    (2, 28, 12);
+        (4,20),
+        (5,70),
+        (2,20),
+        (6,35),
+        (11,20),
+        (12,45),
+        (9,20),
+        (14,25);

@@ -28,10 +28,10 @@
         else {
 
             $sql = "SELECT * 
-                    FROM users
-                    WHERE (users.email = '$email_or_username' 
-                        OR users.username = '$email_or_username')
-                        AND users.password = '$password' ";
+                    FROM user
+                    WHERE (user.email = '$email_or_username' 
+                        OR user.username = '$email_or_username')
+                        AND user.password = '$password' ";
 
             $res = $con->query($sql);
 
@@ -44,18 +44,18 @@
                 $_SESSION['role'] = $row[4];
 
                 echo "$_SESSION[role]";
-                
+
                 $con -> close();
-                
+
                 header("Location: ../Index.php");
-               
+
             }
             else {
                 header("Location: ../UserSignIn.php?error=User not found");
                 exit();
             }
         }
-    } 
+    }
     else {
         header("Location: ../UserSignIn.php");
         exit();

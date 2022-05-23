@@ -32,7 +32,7 @@
      $userId = $_SESSION['ID'];
 
      $sql = "SELECT Full_Name, City, Address, State, Zip_Code, Phone_Number
-             FROM userinfo
+             FROM user_info
              WHERE User_ID = '$userId'";
      
      $res = $con->query($sql);
