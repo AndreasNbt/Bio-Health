@@ -3,9 +3,9 @@
         include("db_connection.php");
         $item_id = $_GET['item_id'];
         $amount = $_GET['amount'];
-        $sql = "SELECT id FROM `cartitem` WHERE id=$item_id;";
+        $sql = "SELECT id FROM cartitem WHERE id=$item_id;";
         if (mysqli_num_rows(mysqli_query($con,$sql)) > 0) {
-            $sql = "UPDATE `cartitem` SET amount=$amount WHERE id=$item_id;";
+            $sql = "UPDATE cartitem SET amount=$amount WHERE id=$item_id;";
             $res = $con->query($sql);
         }
         mysqli_close($con);

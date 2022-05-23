@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,11 +69,6 @@
                 });
                 return false;
             });
-        });
-        window.addEventListener("beforeunload", function(evt) {
-            console.log("pls no reload");
-            evt.returnValue = '';
-            return null;
         });
     </script>
 </head>

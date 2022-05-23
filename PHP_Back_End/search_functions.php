@@ -138,9 +138,18 @@ function echoUserProduct($id) {
     $sql = "SELECT icon FROM `category` WHERE id=$cat;";
     $res = $con->query($sql);
     $icon = mysqli_fetch_row($res)[0];
+    $linkToProductInfo = "UserProductInfo.php"."?productID=$id";
+
+    $user_id = $_SESSION['ID'];
+    $sql = "SELECT amount FROM cartitem WHERE product_id=$id AND user_id=$user_id;";
+    $res = $con->query($sql);
+    $amount = 0;
+    if (mysqli_num_rows($res) > 0) {
+        $amount = mysqli_fetch_row($res)[0];
+    }
+    $totalCost = $amount * $price;
 
     mysqli_close($con);
-    $linkToProductInfo = "UserProductInfo.php"."?productID=$id";
 
     echo "<div class='container-fluid' style='padding: 0'>
 
@@ -166,7 +175,7 @@ function echoUserProduct($id) {
                     </div>
 
                     <div class='col float-end'>
-                        <button type='button' class='btn btn-outline-primary btn-lg float-end' data-bs-toggle='modal' data-bs-target='#addToCartModal$id'>Add to cart</button>
+                        <button type='button' class='btn btn-outline-primary btn-lg float-end' data-bs-toggle='modal' data-bs-target='#addToCartModal$id' onclick='saveValues(\"$id\")'>Add to cart</button>
                         <div class='modal fade' id='addToCartModal$id'>
                             <div class='modal-dialog modal-lg'>
                                 <div class='modal-content'>
@@ -182,20 +191,20 @@ function echoUserProduct($id) {
                                                 <div class='col-6'>
                                                     <p class='text-lg'>Product name: <a href='$linkToProductInfo'>$name</a></p>
                                                     <p class='text-lg'>Available stock: $stock</p>
-                                                    <p class='text-lg' style='font-weight: bold'>Cost: <span id='costAddedToCart$id'>{$price}€</span></p>
+                                                    <p class='text-lg' style='font-weight: bold'>Cost: <span id='costAddedToCart$id'>{$totalCost}€</span></p>
                                                 </div>
 
                                                 <div class='col-6'>
                                                     <label class='form-label float-end text-lg' for='amountAddedToCart$id'>Amount to be added to cart:</label>
-                                                    <input type='number' id='amountAddedToCart$id' class='form-control float-end text-lg' min='1' max='$stock' style='width: 12.5rem' value='1' onchange='updateCost($id)'/>
+                                                    <input type='number' id='amountAddedToCart$id' class='form-control float-end text-lg' min='0' max='$stock' style='width: 12.5rem' value='$amount' onchange='updateCost($id)'/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class='modal-footer'>
-                                        <button type='button' class='btn btn-outline-success text-lg' id='finishCartButton$id' data-bs-dismiss='modal'>Finish</button>
-                                        <button type='button' class='btn btn-outline-danger text-lg' data-bs-dismiss='modal'>Cancel</button>
+                                        <button type='button' class='btn btn-outline-success text-lg' id='finishCartButton$id' data-bs-dismiss='modal' onclick='addToCart(\"$id\")'>Finish</button>
+                                        <button type='button' class='btn btn-outline-danger text-lg' data-bs-dismiss='modal' onclick='restoreValues(\"$id\")'>Cancel</button>
                                     </div>
 
                                 </div>

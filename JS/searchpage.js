@@ -1,3 +1,23 @@
+var previous_amount;
+var previous_cost;
+
+function saveValues(product_id) {
+    previous_amount = document.getElementById("amountAddedToCart" + product_id).value;
+    previous_cost = document.getElementById("costAddedToCart" + product_id).innerHTML;
+}
+
+function restoreValues(product_id) {
+    document.getElementById("amountAddedToCart" + product_id).value = previous_amount;
+    document.getElementById("costAddedToCart" + product_id).innerHTML = previous_cost;
+}
+
+function addToCart(product_id) {
+    var amount = document.getElementById("amountAddedToCart" + product_id).value;
+    $.get('PHP_Back_End/user_search.php', {product_id:product_id, amount:amount}, function(data){
+        return false;
+    });
+}
+
 function updateCost(id) {
     amount = parseFloat(document.getElementById("amountAddedToCart" + id).value);
     price = parseFloat(document.getElementById("price" + id).innerHTML);
@@ -11,9 +31,9 @@ function updateCost(id) {
         document.getElementById("costAddedToCart" + id).innerHTML = (stock * price).toFixed(2).toString() + "€";
         document.getElementById("finishCartButton" + id).disabled = false
     }
-    else if (amount < 1) {
-        document.getElementById("amountAddedToCart" + id).value = 1
-        document.getElementById("costAddedToCart" + id).innerHTML = price.toFixed(2).toString() + "€";
+    else if (amount < 0) {
+        document.getElementById("amountAddedToCart" + id).value = 0
+        document.getElementById("costAddedToCart" + id).innerHTML = "0.00€";
         document.getElementById("finishCartButton" + id).disabled = false
     }
     else if (!Number.isInteger(amount) && (Math.ceil(amount) < stock)) {
