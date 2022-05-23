@@ -48,22 +48,22 @@
         <div class="container-fluid left-right-only-pad light-green m-0">
             <ul id="categories" class="nav">
                 <li class="nav-item">
-                    <a class="nav-link ps-0" href="UserSearch.php">Vegan</a>
+                    <a class="nav-link ps-0" href="UserSearch.php?search_key=&category=1">Vegan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php">Gluten Free</a>
+                    <a class="nav-link" href="UserSearch.php?search_key=&category=2">Gluten Free</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php">Snacks</a>
+                    <a class="nav-link" href="UserSearch.php?search_key=&category=3">Snacks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php">Personal Care</a>
+                    <a class="nav-link" href="UserSearch.php?search_key=&category=4">Personal Care</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php">Pastries & Confectionery</a>
+                    <a class="nav-link" href="UserSearch.php?search_key=&category=5">Pastries & Confectionery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php">Spreads</a>
+                    <a class="nav-link" href="UserSearch.php?search_key=&category=6">Spreads</a>
                 </li>
             </ul>
         </div>

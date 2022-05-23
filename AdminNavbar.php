@@ -37,7 +37,7 @@
                     <a class="signedout" href="UserSignIn.php">Sign in</a>
                     <a class="signedout" href="UserSignUp.php">Create an account</a>
                     <a class="signedin" href="UserAccountInfo.php">Account Information</a>
-                    <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="Index.php">Log out</a>
+                    <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="PHP_Back_End/sign_out.php">Log out</a>
                 </div>
             </div>
         </div>

@@ -70,7 +70,7 @@
 
                                     <div class="field d-flex flex-column">
                                         <label for="product_description" class="product_label text-start">Description</label>
-                                        <textarea type="text" id="product_description" class="product-input-area form-control" name="product_description" required>'.$description.'</textarea>
+                                        <textarea type="text" id="product_description" class="product-input-area form-control" name="product_description">'.$description.'</textarea>
                                     </div>
 
                                     <div class="field d-flex flex-column">
@@ -90,14 +90,14 @@
                                         
                                     <div class="field d-flex flex-column">
                                         <label for="product_image" class="product_label text-start">Image</label>
-                                        <input type="file" id="product_image" class="product-input-field p-0" name="product_image" value="'.$image.'" required>
+                                        <input type="file" id="product_image" class="product-input-field p-0" name="product_image" value="'.$image.'">
                                     </div>
                                         
                                 </div>' ?>
 
                                 <div class="d-flex justify-content-evenly">
                                     <button class="button sign-btn submit solid-border dark-green extra-spacing my-3" type="submit">Submit</button>
-                                    <button class="button sign-btn submit red-solid-border danger-red extra-spacing my-3" type="button" onclick="document.getElementById('form').reset();location.href='adminsearchpage.php'">Cancel</button>
+                                    <button class="button sign-btn submit red-solid-border danger-red extra-spacing my-3" type="button" onclick="document.getElementById('form').reset();location.href='AdminSearch.php?search_key='">Cancel</button>
                                 </div>
                             </form>
             </div>
