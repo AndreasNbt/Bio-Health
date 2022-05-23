@@ -23,10 +23,31 @@
     <?php include "UserNavbar.php"; ?>
     <br>
 
+    <?php  
+        $mailto = "BioAndHealthOfficial@gmail.com";  
+            
+        $name = $_POST['name']; 
+        $email = $_POST['email']; 
+        $topic = $_POST['topic']; 
+        $message = $_POST['message']; 
+            
+        $header = "From: " . $email; 
+       
+        $result = mail($mailto, $topic, $message, $header); // This email sent to My address
+        
+        if ($result) {
+            $reply1 = "Your message has been sent.";
+            $reply2 = "We will get back to you as soon as we can!";
+        }
+        else {
+            $reply1 = "There was a problem submitting your message.";
+            $reply2 = "Please try again later.";
+        }
+    ?>
     <div class="container-fluid left-right-pad text-center">
-        <div class="d-flex" style="flex-direction: column;padding: 0 20% 0 20%">
-            <h5 class="pt-5 py-1">Your message has been sent.</h5>
-            <h5 class="pb-3">We will get back to you as soon as we can!</h5>
+            <div class="d-flex" style="flex-direction: column;padding: 0 20% 0 20%">
+            <h5 class="pt-5 py-1"><?php echo $reply1 ?></h5>
+            <h5 class="pb-3"><?php echo $reply2 ?></h5>
             <hr class="border-2 border-top border-primary">
             <a href="Index.php" class="text-center pt-3">
                 <button type="button" class="btn btn-outline-primary">Back to shop</button>
@@ -35,7 +56,7 @@
     </div>
 
     <?php 
-        include "Footer.php";
+       include "Footer.php"; 
     ?>
 
 </body>

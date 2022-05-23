@@ -72,32 +72,32 @@
                         <div>
                             <div class="field d-flex flex-column">
                                 <label for="product_name" class="product_label">Full Name</label>
-                                <input type="text" id="product_name" class="account-input text-center" name="full_name" value="'.$fullName.'" required>
+                                <input type="text" id="product_name" class="account-input text-center" name="full_name" value="'.$fullName.'">
                             </div>
 
                             <div class="field d-flex flex-column">
                                 <label for="city" class="product_label">City</label>
-                                <input type="text" id="city" class="account-input text-center" name="city" value="'.$city.'" required>
+                                <input type="text" id="city" class="account-input text-center" name="city" value="'.$city.'">
                             </div>
                                     
                             <div class="field d-flex flex-column">
                                 <label for="address" class="product_label">Address</label>
-                                <input type="text" id="address" class="account-input text-center" name="address" value="'.$address.'" required>
+                                <input type="text" id="address" class="account-input text-center" name="address" value="'.$address.'">
                             </div>
 
                             <div class="field d-flex flex-column">
                                 <label for="state" class="product_label">State</label>
-                                <input type="text" id="state" class="account-input text-center" name="state" value="'.$state.'" required>
+                                <input type="text" id="state" class="account-input text-center" name="state" value="'.$state.'">
                             </div>
 
                             <div class="field d-flex flex-column">
                                 <label for="zip_code" class="product_label">Zip Code</label>
-                                <input type="number" id="zip_code" class="account-input text-center" name="zip_code" value="'.$zipCode.'" required>
+                                <input type="number" id="zip_code" class="account-input text-center" name="zip_code" value="'.$zipCode.'">
                             </div>
                                     
                             <div class="field d-flex flex-column">
                                 <label for="phone_number" class="product_label">Phone Number</label>
-                                <input type="number" id="phone_number" class="account-input text-center" name="phone_number" value="'.$phoneNumber.'" required>
+                                <input type="number" id="phone_number" class="account-input text-center" name="phone_number" value="'.$phoneNumber.'">
                             </div>          
                         </div>'
                 ?>

@@ -26,9 +26,31 @@
 
 
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100 grey-background">
-    
-    <?php include "UserNavbar.php"; ?>
-    <br>
+
+    <?php 
+        include "PHP_Back_End/db_connection.php";
+        session_start();
+
+        include "UserNavbar.php"; 
+
+        $userId = $_SESSION['ID'];
+
+        $sql = "SELECT Full_Name
+                FROM userinfo
+                WHERE User_ID = '$userId'";
+        
+        $res = $con->query($sql);
+        $fullName = mysqli_fetch_row($res)[0];
+
+        $sql = "SELECT email
+                FROM users
+                WHERE user_id = '$userId'";
+        
+        $res = $con->query($sql);
+        $email = mysqli_fetch_row($res)[0];
+
+        $con->close();
+   ?>
 
     <section class="main-section">
         <div class="main-container row text-center" style="margin-right: 0">
@@ -38,16 +60,16 @@
                 </div>
                 <hr class="hr-border m-0">
 
-                <form id="form" action="UserContactFormCompletion.php">
+                <form id="form" action="UserContactFormCompletion.php" method="post">
                     <div>
                         <div class="field d-flex flex-column">
                             <label for="name" class="product_label text-start">Your Name</label>
-                            <input type="text" id="name" class="product-input-field form-control" name="account_info" required>
+                            <input type="text" id="name" class="product-input-field form-control" name="name" value="<?php echo $fullName ?>" required>
                         </div>
 
                         <div class="field d-flex flex-column">
                             <label for="email" class="product_label text-start">Email</label>
-                            <input type="email" id="email" class="product-input-field form-control" name="account_info" required>
+                            <input type="email" id="email" class="product-input-field form-control" name="email" value="<?php echo $email ?>" required>
                         </div>
 
                         <div class="field d-flex flex-column">
@@ -62,11 +84,11 @@
 
                         <div class="field d-flex flex-column">
                             <label for="message" class="product_label text-start">Enter your message below:</label>
-                            <textarea  id="message" class="product-input-area form-control" name="account_info" required></textarea>
+                            <textarea  id="message" class="product-input-area form-control" name="message" required></textarea>
                         </div>
                     </div>
 
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-4" style="margin-bottom: 1.5rem" type="submit" onclick="visitPage('index.php')" >Submit</button>
+                    <button class="button sign-btn solid-border dark-green extra-spacing mt-4" style="margin-bottom: 1.5rem" type="submit" name="submit">Submit</button>
                 </form>
             </div>
         </div>
