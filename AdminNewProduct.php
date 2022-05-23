@@ -110,7 +110,9 @@
     </section>
 
     <br>
-    <?php include "AdminFooter.php"; ?>
+    <?php 
+        include "Footer.php";
+    ?>
 
 
     <!-- Bootstrap Script -->

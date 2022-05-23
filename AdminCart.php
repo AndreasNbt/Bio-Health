@@ -229,7 +229,9 @@
     </div>
   </div>
 
-  <?php include "AdminFooter.php"; ?>
+  <?php 
+    include "Footer.php";
+  ?>
 
 
 </body>

@@ -142,7 +142,9 @@
         </form>
     </div>
 
-    <?php include "UserFooter.php"; ?>
+    <?php 
+        include "Footer.php";
+    ?>
 
     
 </body>

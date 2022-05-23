@@ -26,7 +26,15 @@
 
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
     
-<?php include "UserNavbar.php"; ?>
+<?php 
+    session_start();
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'Administrator') {
+        include "AdminNavbar.php";
+    }
+    else {
+        include "UserNavbar.php";
+    }   
+?>
 
 
 <div class="container-fluid border main text-center">
@@ -196,7 +204,10 @@
     </div>
 </div>
 
-    <?php include "UserFooter.php"; ?>
+    
+<?php 
+    include "Footer.php";
+?>
 
     <script>
         $('.carousel').carousel({
