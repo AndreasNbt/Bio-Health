@@ -1,6 +1,7 @@
 let item_ids = []
 
-function updateAmount(item_id, amount) {
+function updateAmount(item_id) {
+    amount = document.getElementById('amountAddedToCart' + item_id).value;
     $.get('PHP_Back_End/user_cart.php', {item_id:item_id, amount:amount}, function(data){
         return false;
     });
