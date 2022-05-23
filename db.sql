@@ -59,7 +59,7 @@ CREATE TABLE offers(
   product_id INT NOT NULL,
   offer_percentage INT NOT NULL,
   PRIMARY KEY(id),
-  FOREIGN KEY (product_id) REFERENCES product(id)
+  FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
 CREATE TABLE cartitem (
@@ -69,7 +69,7 @@ CREATE TABLE cartitem (
   amount INT NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (product_id) REFERENCES product(id)
+  FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
 CREATE TABLE orders (
