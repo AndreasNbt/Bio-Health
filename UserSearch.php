@@ -74,7 +74,7 @@
 </head>
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="grey-background d-flex flex-column min-vh-100">
 
-<?php include "UserNavbar.php"; ?>
+<?php include "Navbar.php"; ?>
 
 <br>
 

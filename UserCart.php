@@ -22,7 +22,7 @@
 </head>
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'));updateCosts();updateSubtotal();updateTotal();" class="d-flex flex-column grey-background min-vh-100">
 
-    <?php include "UserNavbar.php"; ?>
+    <?php include "Navbar.php"; ?>
     <br>
 
 <div id="products" class="container-fluid left-right-pad">

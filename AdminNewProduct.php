@@ -21,7 +21,7 @@
 <body onload="UpdateDropdown('1')" class="d-flex flex-column min-vh-100">
 
     <?php 
-        include "AdminNavbar.php"; 
+        include "Navbar.php"; 
 
         function echoCategory($row) {
             echo '<div class="category px-1 py-1">';

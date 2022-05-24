@@ -27,7 +27,7 @@
 
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
     
-    <?php include "UserNavbar.php"; ?>
+    <?php include "Navbar.php"; ?>
     <br>
 
     <div class="container-fluid left-right-pad justify-content-center">

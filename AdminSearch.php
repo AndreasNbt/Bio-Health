@@ -73,7 +73,7 @@
 </head>
 <body onload="UpdateDropdown('1')" class="grey-background d-flex flex-column min-vh-100">
 
-    <?php include "AdminNavbar.php"; ?>
+    <?php include "Navbar.php"; ?>
     <br>
 
     <div class="container-fluid left-right-pad">

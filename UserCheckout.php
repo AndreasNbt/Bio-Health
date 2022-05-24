@@ -22,7 +22,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100 grey-background" onload="UpdateDropdown(localStorage.getItem('signed_in_status'));updateShippingAddress()">
    
-    <?php include "UserNavbar.php"; ?>
+    <?php include "Navbar.php"; ?>
     <br>
 
     <div id="form" class="container-fluid left-right-pad">

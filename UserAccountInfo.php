@@ -27,7 +27,7 @@
      include "PHP_Back_End/db_connection.php";
      session_start();
 
-     include "UserNavbar.php"; 
+     include "Navbar.php"; 
 
      $userId = $_SESSION['ID'];
 

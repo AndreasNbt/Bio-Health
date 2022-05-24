@@ -47,7 +47,7 @@
      }
 
      $con->close();
-     include "AdminNavbar.php";
+     include "Navbar.php";
     ?>
 
     <br>

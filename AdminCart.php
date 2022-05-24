@@ -21,7 +21,7 @@
 <body onload="UpdateDropdown('1');" class="d-flex flex-column grey-background min-vh-100">
 
 
-  <?php include "AdminNavbar.php"; ?>
+  <?php include "Navbar.php"; ?>
   <br>
 
   <div id="products" class="container-fluid left-right-pad">

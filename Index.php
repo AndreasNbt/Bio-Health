@@ -27,13 +27,7 @@
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
     
 <?php 
-    session_start();
-    if (isset($_SESSION['role']) && $_SESSION['role'] === 'Administrator') {
-        include "AdminNavbar.php";
-    }
-    else {
-        include "UserNavbar.php";
-    }   
+    include "Navbar.php";
 ?>
 
 
