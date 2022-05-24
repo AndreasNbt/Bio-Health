@@ -48,6 +48,15 @@ if (!($_POST['shipping_zip'] === "")) $shipping_zip = $_POST['shipping_zip'];
 $sql = "INSERT INTO shipping_address (order_id, address, city, state, zip) VALUES ('$order_id', '$shipping_address', '$shipping_city', '$shipping_state', '$shipping_zip')";
 $res = $con->query($sql);
 
+$sql = "SELECT product_id, amount FROM cart_item WHERE user_id=$user_id";
+$res = $con->query($sql);
+while ($item = mysqli_fetch_row($res)) {
+    $product_id = $item[0];
+    $amount_bought = $item[1];
+    $sql = "UPDATE product SET stock=stock-$amount_bought WHERE id=$product_id;";
+    $con->query($sql);
+}
+
 $sql = "DELETE FROM cart_item WHERE user_id=$user_id";
 $res = $con->query($sql);
 
