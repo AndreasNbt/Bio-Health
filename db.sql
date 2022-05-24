@@ -121,14 +121,6 @@ CREATE TABLE order_item (
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
-CREATE TABLE pricing (
-    order_id VARCHAR(13) NOT NULL,
-    shipping_type enum('Standard', 'Express') NOT NULL,
-    total_cost INT NOT NULL,
-    PRIMARY KEY (order_id),
-    FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE
-);
-
 INSERT INTO user (username, password, email, role)
 VALUES
         ('admin', 'admin', '', 1),
