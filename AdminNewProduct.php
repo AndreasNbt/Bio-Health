@@ -15,12 +15,20 @@
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/new_product.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
-    <script src="JS/navbar.js"></script>
+    
 
 </head>
 <body onload="UpdateDropdown('1')" class="d-flex flex-column min-vh-100">
 
-    <?php include "AdminNavbar.php"; ?>
+    <?php 
+        include "AdminNavbar.php"; 
+
+        function echoCategory($row) {
+            echo '<div class="category px-1 py-1">';
+            echo    '<a href="#" class="category_name c-link">'.$row[0].'</a>';
+            echo '</div>';
+        }
+    ?>
     <br>
 
     <section class="main-section">
@@ -33,30 +41,44 @@
                     
                     <hr class="hr-border m-0">
 
-                    <div class="d-flex flex-column flex-grow-1 text-start px-4 py-3 my-1">
-                        <div class="category px-2">
-                            <a href="" class="c-link">Category 1</a>
-                        </div>
-                        <div class="category px-2 py-1">                           
-                            <a href="" class="c-link">Category 1</a>
-                        </div>
-                        <div class="category px-2 py-1">                            
-                            <a href="" class="c-link">Category 1</a>
-                        </div>
-                        <div class="category px-2 py-1">                
-                            <a href="" class="c-link">Category 1</a>
-                        </div>
-                        <div class="category px-2 py-1">                            
-                            <a href="" class="c-link">Category 1</a>
-                        </div>
+                    
+                    <div class="scroll d-flex flex-column flex-grow-1 text-start px-4 py-3 my-1">
+                        <?php
+                            include "PHP_Back_End/db_connection.php"; 
+                            $sql = "SELECT name FROM category";
+
+                            $res = $con->query($sql);
+
+                            while ($row = mysqli_fetch_row($res)) {
+                                echoCategory($row);
+                            }
+
+                        ?>
                     </div>
 
                     <hr class="hr-border m-0">  
 
-                    <div class="add text-start py-3 my-1">
-                        <a href=""><i class="fa-solid fa-plus category-icon"></i></a>
-                        <a href="" class="c-link add-link ">Add a new category</a>
+                    <div class="popup-form" id="category-form">
+                        <form class="form-container" action="PHP_Back_End/new_category.php" method="post">
+                            <label for="category" class="category-label">Category Name</label>
+                            <input type="text" id="category" class="product-input-field form-control" name="category" required>
+
+                            <label for="category_image" class="mt-2">Image</label>
+                            <input type="file" id="category_image" name="category_image">
+
+                            <div class="d-flex justify-content-evenly mt-1">
+                                <button type="submit" class="button category-button solid-border dark-green extra-spacing mt-3">OK</button>
+                                <button class="button category-button solid-border danger-red extra-spacing mt-3" onclick="closeForm()">Close</button>
+                            </div>
+                        </form>
                     </div>
+
+                    <div id="add" class="add text-start py-3 my-1">
+                        <a href="#" onclick="openForm();"><i class="fa-solid fa-plus category-icon"></i></a>
+                        <a href="#" onclick="openForm();" class="c-link add-link ">Add a new category</a>
+                    </div>
+
+                    
                 </div> 
 
                 <div class="solid-border col-8 container big-container">
@@ -69,32 +91,32 @@
                     <form action="PHP_Back_End/new_product.php" method="post">
                         <div>
                             <div class="field d-flex flex-column">
-                                <label for="product_name" class="product_label text-start">Product Name</label>
+                                <label for="product_name" class="text-start">Product Name</label>
                                 <input type="text" id="product_name" class="product-input-field form-control" name="product_name" required>
                             </div>
 
                             <div class="field d-flex flex-column">
-                                <label for="product_description" class="product_label text-start">Description</label>
+                                <label for="product_description" class="text-start">Description</label>
                                 <textarea type="text" id="product_description" class="product-input-area form-control" name="product_description" required></textarea>
                             </div>
                             
                             <div class="field d-flex flex-column">
-                                <label for="product_category" class="product_label text-start">Category</label>
+                                <label for="product_category" class="text-start">Category</label>
                                 <input type="text" id="product_category" class="product-input-field small form-control" name="product_category" required>
                             </div>
 
                             <div class="field d-flex flex-column">
-                                <label for="product_price" class="product_label text-start">Price</label>
+                                <label for="product_price" class="text-start">Price</label>
                                 <input type="number" id="product_price" class="product-input-field small form-control" name="product_price" required>
                             </div>
 
                             <div class="field d-flex flex-column">
-                                <label for="product_stock" class="product_label text-start">Stock</label>
+                                <label for="product_stock" class="text-start">Stock</label>
                                 <input type="number" id="product_stock" class="product-input-field small form-control" name="product_stock" required>
                             </div>
                             
                             <div class="field d-flex flex-column">
-                                <label for="product_image" class="product_label text-start">Image</label>
+                                <label for="product_image" class="text-start">Image</label>
                                 <input type="file" id="product_image" class="product-input-field p-0" name="product_image" required>
                             </div>
                             
@@ -115,7 +137,8 @@
     ?>
 
 
-    <!-- Bootstrap Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="JS/navbar.js"></script>
+    <script src="JS/new_product.js"></script>
 </body>
 </html>

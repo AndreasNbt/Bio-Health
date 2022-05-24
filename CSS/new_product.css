@@ -36,12 +36,13 @@
 .c-link {
     color: #272727;
     font-family: 'Source Serif pro', serif;
-    font-size: 16pt;
+    font-size: 17pt;
     font-weight: 800;
     text-decoration: none;
 }
 
 .add {
+    display: block;
     padding-left: 32px;
 }
 
@@ -92,4 +93,34 @@ label {
     font-size: 16pt;
     font-weight: 600;
     height: 50px;
+}
+
+.popup-form {
+    display: none;
+}
+
+.form-container {
+    min-width: 150px;
+    max-width: 350px;
+    padding: 5px 30px 15px;
+}
+
+.form-container .product-input-field {
+    height: 30px;
+}
+
+.scroll {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.category-label {
+    margin-top: 5px;
+    padding: 5px 0;
+}
+
+.category-button {
+    height: 35px;
+    font-size: 15pt;
+    width: 30%;
 }

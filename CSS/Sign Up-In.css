@@ -97,6 +97,7 @@
 .small-container {
     min-width: 200px;
     max-width: 400px;
+    max-height: 700px;
     padding: 40px;
 }
 
@@ -116,9 +117,7 @@
 }
 
 .sign-btn {
-    height: 3rem;
     width: 40%;
-    font-size: 17pt;
     align-self: center;
 }
 

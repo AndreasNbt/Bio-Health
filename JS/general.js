@@ -1,4 +1,3 @@
-
-    function visitPage(url) {
-        window.location = url
-    }
+function visitPage(url) {
+    window.location = url
+} 

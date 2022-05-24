@@ -1,3 +1,10 @@
+<?php
+    function echoCategory($row) {
+        echo  '<li class="nav-item">';
+        echo      '<a class="nav-link ps-0" href="UserSearch.php?search_key=&category=1">'.$row[0].'</a>';
+        echo  '</li>';
+    }
+?>
 <section id="navbar">
     <nav class="navbar d-flex justify-content-between left-right-only-pad light-green">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,24 +54,16 @@
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="container-fluid left-right-only-pad light-green m-0">
             <ul id="categories" class="nav">
-                <li class="nav-item">
-                    <a class="nav-link ps-0" href="UserSearch.php?search_key=&category=1">Vegan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php?search_key=&category=2">Gluten Free</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php?search_key=&category=3">Snacks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php?search_key=&category=4">Personal Care</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php?search_key=&category=5">Pastries & Confectionery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="UserSearch.php?search_key=&category=6">Spreads</a>
-                </li>
+                <?php
+                    include "PHP_Back_End/db_connection.php"; 
+                    $sql = "SELECT name FROM category";
+
+                    $res = $con->query($sql);
+
+                    while ($row = mysqli_fetch_row($res)) {
+                        echoCategory($row);
+                    }
+                ?>
             </ul>
         </div>
     </div>
