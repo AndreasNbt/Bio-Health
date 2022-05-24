@@ -52,6 +52,15 @@ $sql = "SELECT product_id, amount FROM cart_item WHERE user_id=$user_id";
 $res = $con->query($sql);
 while ($item = mysqli_fetch_row($res)) {
     $product_id = $item[0];
+    $amount = $item[1];
+    $sql = "INSERT INTO order_item (order_id, product_id, amount) VALUES ('$order_id', product_id, amount)";
+    $con->query($sql);
+}
+
+$sql = "SELECT product_id, amount FROM cart_item WHERE user_id=$user_id";
+$res = $con->query($sql);
+while ($item = mysqli_fetch_row($res)) {
+    $product_id = $item[0];
     $amount_bought = $item[1];
     $sql = "UPDATE product SET stock=stock-$amount_bought WHERE id=$product_id;";
     $con->query($sql);
