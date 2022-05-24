@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,7 +129,29 @@
             </div>
             <div class="row align-items-center" style="padding: 0 20% 0 20%;">
                 <div class="col-8">
-                    <b>Total cost: <span id="pay_val">20.00</span>€</b>
+                    <b>Total cost:
+                        <span id="pay_val">
+                            <?php
+                                include("PHP_Back_End/db_connection.php");
+
+                                $user_id = $_SESSION['ID'];
+                                $sql = "SELECT cost FROM shipping WHERE user_id=$user_id;";
+                                $res = $con->query($sql);
+                                $shipping_cost = mysqli_fetch_row($res)[0];
+
+                                $sql = "SELECT amount, price FROM cart_item, product WHERE user_id=$user_id AND cart_item.product_id=product.id;";
+                                $res = $con->query($sql);
+                                mysqli_close($con);
+
+                                $total_cost = 0;
+                                while ($item = mysqli_fetch_row($res)) {
+                                    $a = $item[0] * $item[1];
+                                    $total_cost += $item[0] * $item[1];
+                                }
+                                $total_cost += $shipping_cost;
+                                echo "$total_cost";
+                            ?></span>€
+                    </b>
                 </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-outline-primary" style="width: 100%">Place order</button>
