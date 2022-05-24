@@ -7,7 +7,6 @@ function completeOrder(order_id) {
         return false;
     });
     document.getElementById("order" + order_id).remove()
-    console.log("done");
 }
 
 function updateOrders(order_row) {

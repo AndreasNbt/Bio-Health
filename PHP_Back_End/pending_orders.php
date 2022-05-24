@@ -3,10 +3,11 @@
 include("db_connection.php");
 
 if (isset($_GET['order_id'])) {
-    $sql = "SELECT * FROM `order` WHERE id=".$_GET['order_id']." AND completed=false";
+    $order_id = $_GET['order_id'];
+    $sql = "SELECT * FROM `order` WHERE id='$order_id' AND completed=false";
     $res = $con->query($sql);
     if (mysqli_num_rows($res) > 0) {
-        $sql = "UPDATE `order` SET completed=true WHERE id=".$_GET['order_id'].";";
+        $sql = "UPDATE `order` SET completed=true WHERE id='$order_id';";
         $res = $con->query($sql);
     }
     mysqli_close($con);

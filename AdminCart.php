@@ -18,7 +18,7 @@
   <script src="JS/cartpage.js"></script>
   <script src="JS/navbar.js"></script>
 </head>
-<body onload="UpdateDropdown('1');updateCosts();updateSubtotal(); updateTotal();" class="d-flex flex-column grey-background min-vh-100">
+<body onload="UpdateDropdown('1');" class="d-flex flex-column grey-background min-vh-100">
 
 
   <?php include "AdminNavbar.php"; ?>
@@ -27,31 +27,84 @@
   <div id="products" class="container-fluid left-right-pad">
     <div class="container-fluid">
       <section id="form">
+
+        <?php
+            $full_name = "";
+            $email = "";
+            $billing_address = "";
+            $billing_city = "";
+            $billing_state = "";
+            $billing_zip = "";
+            $card_name = "";
+            $card_number = "";
+            $card_expiration_month = "";
+            $card_expiration_year = "";
+            $card_cvv = "";
+            $shipping_address = "";
+            $shipping_city = "";
+            $shipping_state = "";
+            $shipping_zip = "";
+
+            if (isset($_GET['order_id'])) {
+                include("PHP_Back_End/db_connection.php");
+                $order_id = $_GET['order_id'];
+
+                $sql = "SELECT name, email, address, city, state, zip FROM billing_address WHERE order_id='$order_id'";
+                $res = $con->query($sql);
+                $billing = mysqli_fetch_row($res);
+                $full_name = $billing[0];
+                $email = $billing[1];
+                $billing_address = $billing[2];
+                $billing_city = $billing[3];
+                $billing_state = $billing[4];
+                $billing_zip = $billing[5];
+
+                $sql = "SELECT name, number, exp_month, exp_year, cvv FROM payment_method WHERE order_id='$order_id'";
+                $res = $con->query($sql);
+                $payment_method = mysqli_fetch_row($res);
+                $card_name = $payment_method[0];
+                $card_number = $payment_method[1];
+                $card_expiration_month = $payment_method[2];
+                $card_expiration_year = $payment_method[3];
+                $card_cvv = $payment_method[4];
+
+                $sql = "SELECT address, city, state, zip FROM shipping_address WHERE order_id='$order_id'";
+                $res = $con->query($sql);
+                $shipping = mysqli_fetch_row($res);
+                $shipping_address = $shipping[0];
+                $shipping_city = $shipping[1];
+                $shipping_state = $shipping[2];
+                $shipping_zip = $shipping[3];
+
+                mysqli_close($con);
+            }
+        ?>
+
         <div class="row pt-4">
           <div class="col-6" style="padding-right: 5rem">
             <div class="d-flex" style="flex-direction: column">
               <h3>Billing address</h3>
 
               <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
-              <input readonly title="full name containing only english letters and spaces" required type="text" id="full_name" value="" class="form-control">
+              <?php echo "<input readonly title='full name containing only english letters and spaces' required type='text' id='full_name' value='$full_name' class='form-control'>" ?>
 
               <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
-              <input readonly title="valid email address" required type="text" id="email" value="" class="form-control">
+              <?php echo "<input readonly title='valid email address' required type='text' id='email' value='$email' class='form-control'>" ?>
 
               <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
-              <input readonly title="street address without special symbols" required type="text" id="billing_address" value="" class="form-control">
+              <?php echo "<input readonly title='street address without special symbols' required type='text' id='billing_address' value='$billing_address' class='form-control'>" ?>
 
               <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
-              <input readonly title="valid city name" required type="text" id="billing_city" value="" class="form-control">
+              <?php echo "<input readonly title='valid city name' required type='text' id='billing_city' value='$billing_city' class='form-control'>" ?>
 
               <div class="row">
                 <div class="col-6 d-flex" style="flex-direction: column">
                   <label for="billing_state">State</label>
-                  <input readonly title="valid state name (not necessarily US)" required type="text" id="billing_state" value="" class="form-control">
+                  <?php echo "<input readonly title='valid state name (not necessarily US)' required type='text' id='billing_state' value='$billing_state' class='form-control'>" ?>
                 </div>
                 <div class="col-6 d-flex" style="flex-direction: column">
                   <label for="billing_zip">Zip code</label>
-                  <input readonly title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="billing_zip" value="" class="form-control">
+                  <?php echo "<input readonly title='valid zip code with 5 or 9 digits with or without a dash' required type='text' id='billing_zip' value='$billing_zip' class='form-control'>" ?>
                 </div>
               </div>
             </div>
@@ -77,22 +130,22 @@
             </div>
 
             <label for="card_name">Name on card</label>
-            <input readonly title="valid card name" required type="text" id="card_name" value="" class="form-control">
+            <?php echo "<input readonly title='valid card name' required type='text' id='card_name' value='$card_name' class='form-control'>" ?>
 
             <label for="card_number">Card number</label>
-            <input readonly title="valid Visa, American Express, Master Card, Discover or Visa Master Card card number without dashes" required type="text" id="card_number" value="" class="form-control">
+            <?php echo "<input readonly title='valid Visa, American Express, Master Card, Discover or Visa Master Card card number without dashes' required type='text' id='card_number' value='$card_number' class='form-control'>" ?>
 
             <label for="card_expiration_month">Expiration month</label>
-            <input readonly title="a valid month name" required type="text" id="card_expiration_month" value="" class="form-control">
+            <?php echo "<input readonly title='a valid month name' required type='text' id='card_expiration_month' value='$card_expiration_month' class='form-control'>" ?>
 
             <div class="row">
               <div class="col-6 d-flex" style="flex-direction: column">
                 <label for="card_expiration_year">Expiration year</label>
-                <input readonly title="a valid year" required type="text" id="card_expiration_year" value="" class="form-control">
+                <?php echo "<input readonly title='a valid year' required type='text' id='card_expiration_year' value='$card_expiration_year' class='form-control'>" ?>
               </div>
               <div class="col-6 d-flex" style="flex-direction: column">
                 <label for="card_cvv">CVV</label>
-                <input readonly title="valid 3 or 4 digit CVV number" required type="text" id="card_cvv" value="" class="form-control">
+                <?php echo "<input readonly title='valid 3 or 4 digit CVV number' required type='text' id='card_cvv' value='$card_cvv' class='form-control'>" ?>
               </div>
             </div>
 
@@ -101,22 +154,22 @@
 
         <div class="d-flex pt-4" style="flex-direction: column">
           <h3>Shipping Address</h3>
-          <div id="ship_det" class="row">
+          <div class="row">
             <div class="col-4">
               <label for="shipping_address">Address</label>
-              <input readonly title="street address without special symbols" type="text" id="shipping_address" value="" class="form-control">
+              <?php echo "<input readonly title='street address without special symbols' type='text' id='shipping_address' value='$shipping_address' class='form-control'>" ?>
             </div>
             <div class="col-4">
               <label for="shipping_city">City</label>
-              <input readonly title="valid city name" type="text" id="shipping_city" value="" class="form-control">
+              <?php echo "<input readonly title='valid city name' type='text' id='shipping_city' value='$shipping_city' class='form-control'>" ?>
             </div>
             <div class="col-2">
               <label for="shipping_state">State</label>
-              <input readonly title="valid state name (not necessarily US)" type="text" id="shipping_state" value="" class="form-control">
+              <?php echo "<input readonly title='valid state name (not necessarily US)' type='text' id='shipping_state' value='$shipping_state' class='form-control'>" ?>
             </div>
             <div class="col-2">
               <label for="shipping_zip">Zip code</label>
-              <input readonly title="valid zip code with 5 or 9 digits with or without a dash" type="text" id="shipping_zip" value="" class="form-control">
+              <?php echo "<input readonly title='valid zip code with 5 or 9 digits with or without a dash' type='text' id='shipping_zip' value='$shipping_zip' class='form-control'>" ?>
             </div>
           </div>
         </div>

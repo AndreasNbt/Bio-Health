@@ -29,8 +29,12 @@ function getOrderQuery($order_id) {
 
 function updateSearchResults($search_key, $category_id, $order_id, $user_type) {
     include("db_connection.php");
-    $sql_product = "SELECT product.id, product.price, product.stock FROM product WHERE name LIKE '%$search_key%' AND stock > 0".getCategoryQuery($category_id);
-    $sql_category = "SELECT product.id, product.price, product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%' AND stock > 0".getCategoryQuery($category_id);
+    $sql_minimum_stock = "";
+    if ($user_type === 'user') {
+        $sql_minimum_stock = " AND stock > 0";
+    }
+    $sql_product = "SELECT product.id, product.price, product.stock FROM product WHERE name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
+    $sql_category = "SELECT product.id, product.price, product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
     $sql = $sql_product."\nUNION\n".$sql_category.getOrderQuery($order_id).";";
     $res = $con->query($sql);
     while ($row = mysqli_fetch_array($res)) {
