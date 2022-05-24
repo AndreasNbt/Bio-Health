@@ -79,7 +79,7 @@
     <div class="container-fluid left-right-pad">
         <div class="row pb-3 pt-2">
             <div class="col-auto d-flex align-items-end">
-                <h5>Showing projects currently in database:</h5>
+                <h5>Showing products currently in database:</h5>
             </div>
 
             <div class="col">
