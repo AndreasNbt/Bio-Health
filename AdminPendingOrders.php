@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="CSS/searchpage.css">
     <script src="JS/completedorderspage.js"></script>
     <script src="JS/navbar.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body onload="UpdateDropdown('1')" class="grey-background d-flex flex-column min-vh-100">
 
@@ -27,62 +28,64 @@
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Username</th>
-                    <th>Order Date</th>
-                    <th>Latest Delivery</th>
-                    <th>Total Cost</th>
-                    <th>More Info</th>
-                    <th>Fulfill Order</th>
-                </tr>
+                    <tr>
+                        <?php
+                            function echoHeader($headerName, $order_row) {
+                                $value = "DESC";
+                                $arrow_dir = "up";
+                                if (isset($_GET['order_row']) and isset($_GET['order_type'])) {
+                                    if ($_GET['order_row'] === "$order_row") {
+                                        if ($_GET['order_type'] === "DESC") {
+                                            $value = "ASC";
+                                            $arrow_dir = "down";
+                                        }
+                                    }
+                                }
+                                echo "$headerName"."\n";
+                                echoArrow("$order_row", $value, $arrow_dir);
+                            }
+
+                            function echoArrow($sort_row, $value, $arrow_dir) {
+                                echo "<input hidden id='$sort_row' value='$value'>";
+                                echo "<span id='{$sort_row}_sort_icon' onclick='updateOrders(\"$sort_row\")'>";
+                                if ($arrow_dir === "up") {
+                                    echo "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' style='width: 12px; vertical-align: bottom; cursor: pointer'>
+                                              <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                              <path d='M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224z'/>
+                                          </svg>";
+                                }
+                                else if ($arrow_dir === "down") {
+                                    echo "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' style='width: 12px; vertical-align: top; cursor: pointer'>
+                                              <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                              <path d='M311.9 335.1l-132.4 136.8C174.1 477.3 167.1 480 160 480c-7.055 0-14.12-2.702-19.47-8.109l-132.4-136.8C-9.229 317.8 3.055 288 27.66 288h264.7C316.9 288 329.2 317.8 311.9 335.1z'/>
+                                          </svg>";
+                                }
+                                echo "</span>";
+                            }
+                        ?>
+                        <th>
+                            <?php echoHeader("Order ID", "id"); ?>
+                        </th>
+                        <th>
+                            <?php echoHeader("User ID", "user_id"); ?>
+                        </th>
+                        <th>
+                            <?php echoHeader("Order Date", "order_date"); ?>
+                        </th>
+                        <th>
+                            <?php echoHeader("Latest Delivery", "latest_delivery"); ?>
+                        </th>
+                        <th>
+                            <?php echoHeader("Total Cost", "total_cost"); ?>
+                        </th>
+                        <th>More Info</th>
+                        <th>Fulfill Order</th>
+                    </tr>
                 </thead>
-                <tbody>
-                <tr id="order1">
-                    <td style="vertical-align: middle">AK32321</td>
-                    <td style="vertical-align: middle">Mary</td>
-                    <td style="vertical-align: middle">30/4/2022</td>
-                    <td style="vertical-align: middle">15/5/2022</td>
-                    <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
-                    <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(1)">Complete</button></td>
-                </tr>
-                <tr id="order2">
-                    <td style="vertical-align: middle">AK32321</td>
-                    <td style="vertical-align: middle">Mary</td>
-                    <td style="vertical-align: middle">30/4/2022</td>
-                    <td style="vertical-align: middle">15/5/2022</td>
-                    <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
-                    <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(2)">Complete</button></td>
-                </tr>
-                <tr id="order3">
-                    <td style="vertical-align: middle">AK32321</td>
-                    <td style="vertical-align: middle">Mary</td>
-                    <td style="vertical-align: middle">30/4/2022</td>
-                    <td style="vertical-align: middle">15/5/2022</td>
-                    <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
-                    <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(3)">Complete</button></td>
-                </tr>
-                <tr id="order4">
-                    <td style="vertical-align: middle">AK32321</td>
-                    <td style="vertical-align: middle">Mary</td>
-                    <td style="vertical-align: middle">30/4/2022</td>
-                    <td style="vertical-align: middle">15/5/2022</td>
-                    <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
-                    <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(4)">Complete</button></td>
-                </tr>
-                <tr id="order5">
-                    <td style="vertical-align: middle">AK32321</td>
-                    <td style="vertical-align: middle">Mary</td>
-                    <td style="vertical-align: middle">30/4/2022</td>
-                    <td style="vertical-align: middle">15/5/2022</td>
-                    <td style="vertical-align: middle">350.00$</td>
-                    <td style="vertical-align: middle"><a href="AdminCart.php"><button type="button" class="btn btn-outline-primary">Details</button></a></td>
-                    <td style="vertical-align: middle"><button type="button" class="btn btn-outline-primary" onclick="deleteOrder(5)">Complete</button></td>
-                </tr>
+                <tbody id="orders">
+                    <?php
+                        include "PHP_Back_End/pending_orders.php"
+                    ?>
                 </tbody>
             </table>
         </div>

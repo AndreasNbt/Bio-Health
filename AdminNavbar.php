@@ -46,7 +46,7 @@
         <div class="container-fluid left-right-only-pad light-green m-0">
             <ul id="categories" class="nav">
                 <li class="nav-item">
-                    <a class="nav-link ps-0" href="AdminPendingOrders.php">Pending orders</a>
+                    <a class="nav-link ps-0" href="AdminPendingOrders.php?order_row=latest_delivery&order_type=ASC">Pending orders</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="AdminNewProduct.php">Add products</a>

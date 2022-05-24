@@ -58,10 +58,20 @@ CREATE TABLE cart_item (
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
+CREATE TABLE shipping (
+    user_id INT NOT NULL,
+    shipping_type enum('Standard', 'Express') NOT NULL,
+    PRIMARY KEY (user_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+);
+
+
 CREATE TABLE `order` (
     id INT AUTO_INCREMENT,
     user_id INT NOT NULL,
     order_date DATE NOT NULL,
+    latest_delivery DATE NOT NULL,
+    total_cost FLOAT NOT NULL,
     completed BOOLEAN NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user(user_id)
@@ -111,7 +121,7 @@ CREATE TABLE order_item (
 
 CREATE TABLE pricing (
     order_id INT NOT NULL,
-    shipping_type INT NOT NULL,
+    shipping_type enum('Standard', 'Express') NOT NULL,
     total_cost INT NOT NULL,
     PRIMARY KEY (order_id),
     FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE
