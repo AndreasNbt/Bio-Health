@@ -20,13 +20,20 @@
 </head>
 
 <body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100 grey-background">
-   
+
     <?php include "UserNavbar.php"; ?>
     <br>
 
     <div class="container-fluid left-right-pad">
         <div class="d-flex" style="flex-direction: column;padding: 0 20% 0 20%">
-            <h5 class="pt-5 py-3">Your order has been placed successfully with an order ID of <span style="font-weight: bold">AK32321</span>. Additional information about its delivery will be sent to your email. Thank you for choosing us.</h5>
+            <?php
+                $order_id_message = "";
+                if (isset($_GET['order_id'])) {
+                    $order_id = $_GET['order_id'];
+                    $order_id_message = " with an order ID of <span style='font-weight: bold'>$order_id</span>";
+                }
+                echo "<h5 class='pt-5 py-3'>Your order has been placed successfully$order_id_message. Any additional information needed about its delivery will be sent to your email. Thank you for choosing us.</h5>";
+            ?>
             <hr class="border-2 border-top border-primary">
             <a href="Index.php" class="text-center pt-3">
                 <button type="button" class="btn btn-outline-primary">Back to shop</button>

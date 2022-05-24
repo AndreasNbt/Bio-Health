@@ -68,7 +68,7 @@ CREATE TABLE shipping (
 
 
 CREATE TABLE `order` (
-    id INT AUTO_INCREMENT,
+    id VARCHAR(13),
     user_id INT NOT NULL,
     order_date DATE NOT NULL,
     latest_delivery DATE NOT NULL,
@@ -79,8 +79,9 @@ CREATE TABLE `order` (
 );
 
 CREATE TABLE billing_address (
-    order_id INT NOT NULL,
+    order_id VARCHAR(13) NOT NULL,
     name VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     address VARCHAR(50),
     city VARCHAR(30),
     state VARCHAR(30),
@@ -90,7 +91,7 @@ CREATE TABLE billing_address (
 );
 
 CREATE TABLE payment_method (
-    order_id INT NOT NULL,
+    order_id VARCHAR(13) NOT NULL,
     name VARCHAR(100) NOT NULL,
     number VARCHAR(15) NOT NULL,
     exp_month VARCHAR(9) NOT NULL,
@@ -101,7 +102,7 @@ CREATE TABLE payment_method (
 );
 
 CREATE TABLE shipping_address (
-    order_id INT NOT NULL,
+    order_id VARCHAR(13) NOT NULL,
     address VARCHAR(50),
     city VARCHAR(30),
     state VARCHAR(30),
@@ -112,7 +113,7 @@ CREATE TABLE shipping_address (
 
 CREATE TABLE order_item (
     id INT AUTO_INCREMENT,
-    order_id INT NOT NULL,
+    order_id VARCHAR(13) NOT NULL,
     product_id INT NOT NULL,
     amount INT NOT NULL,
     PRIMARY KEY (id),
@@ -121,7 +122,7 @@ CREATE TABLE order_item (
 );
 
 CREATE TABLE pricing (
-    order_id INT NOT NULL,
+    order_id VARCHAR(13) NOT NULL,
     shipping_type enum('Standard', 'Express') NOT NULL,
     total_cost INT NOT NULL,
     PRIMARY KEY (order_id),

@@ -26,32 +26,32 @@
     <br>
 
     <div id="form" class="container-fluid left-right-pad">
-        <form method="post" action="UserOrderCompletion.php">
+        <form method="post" action="PHP_Back_End/checkout.php">
             <div class="row" style="padding: 2rem 20% 0 20%;">
                 <div class="col-6">
                     <div class="d-flex" style="flex-direction: column">
                         <h3>Billing address</h3>
 
-                        <label for="fname"><i class="fa fa-user-o"></i> Full name</label>
-                        <input pattern="[a-zA-Z ]{1,}" title="full name containing only english letters and spaces" required type="text" id="fname" name="firstname" placeholder="John M. Doe" class="form-control">
+                        <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
+                        <input pattern="[a-zA-Z ]{1,}" title="full name containing only english letters and spaces" required type="text" id="full_name" name="full_name" placeholder="John M. Doe" class="form-control">
 
                         <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
                         <input pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="valid email address" required type="text" id="email" name="email" placeholder="email@example.com" class="form-control">
 
-                        <label for="bil_adr"><i class="fa fa-address-card-o"></i> Address</label>
-                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" required type="text" id="bil_adr" name="address" placeholder="542 W. 15th Street" class="form-control">
+                        <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
+                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" required type="text" id="billing_address" name="billing_address" placeholder="542 W. 15th Street" class="form-control">
 
-                        <label for="bil_city"><i class="fa fa-building-o"></i> City</label>
-                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" required type="text" id="bil_city" name="city" placeholder="New York" class="form-control">
+                        <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
+                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" required type="text" id="billing_city" name="billing_city" placeholder="New York" class="form-control">
 
                         <div class="row">
                             <div class="col-6 d-flex" style="flex-direction: column">
-                                <label for="bil_state">State</label>
-                                <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid state name (not necessarily US)" required type="text" id="bil_state" name="state" placeholder="NY" class="form-control">
+                                <label for="billing_state">State</label>
+                                <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid state name (not necessarily US)" required type="text" id="billing_state" name="billing_state" placeholder="NY" class="form-control">
                             </div>
                             <div class="col-6 d-flex" style="flex-direction: column">
-                                <label for="bil_zip">Zip code</label>
-                                <input pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)" title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="bil_zip" name="zip" placeholder="10001" class="form-control">
+                                <label for="billing_zip">Zip code</label>
+                                <input pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)" title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="billing_zip" name="billing_zip" placeholder="10001" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="col-6">
                     <h3>Payment</h3>
 
-                    <label for="fname">Accepted Cards</label>
+                    <label>Accepted Cards</label>
                     <div class="icon-container">
                         <a href="#">
                             <i class="fa fa-cc-visa" style="color:navy;scale: 150%;padding-left: 8px;padding-right: 15px"></i>
@@ -76,25 +76,25 @@
                         </a>
                     </div>
 
-                    <label for="cname">Name on card</label>
-                    <input pattern="^((?:[A-Za-z-'.]+ ?){1,5})$" title="valid card name" required type="text" id="cname" name="cardname" placeholder="John More Doe" class="form-control">
+                    <label for="card_name">Name on card</label>
+                    <input pattern="^((?:[A-Za-z-'.]+ ?){1,5})$" title="valid card name" required type="text" id="card_name" name="card_name" placeholder="John More Doe" class="form-control">
 
-                    <label for="ccnum">Card number</label>
+                    <label for="card_number">Card number</label>
                     <input pattern="(^4[0-9]{12}(?:[0-9]{3})?$)|(^3[47][0-9]{13}$)|(^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$)|(^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$)|(^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$)"
-                           title="valid Visa, American Express, Master Card, Discover or Visa Master Card card number without dashes" required type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" class="form-control">
+                           title="valid Visa, American Express, Master Card, Discover or Visa Master Card card number without dashes" required type="text" id="card_number" name="card_number" placeholder="1111-2222-3333-4444" class="form-control">
 
-                    <label for="expmonth">Expiration month</label>
+                    <label for="card_expiration_month">Expiration month</label>
                     <input pattern="([jJ][aA][nN][uU][aA][rR][yY])|([fF][eE][bB][rR][uU][aA][rR][yY])|([mM][aA][rR][cC][hH])|([aA][pP][rR][iI][lL])|([mM][aA][yY])|([jJ][uU][nN][eE])|([jJ][uU][lL][yY])|([aA][uU][gG][uU][sS][tT])|([sS][eE][pP][tT][eE][mM][bB][eE][rR])|([oO][cC][tT][oO][bB][eE][rR])|([nN][oO][vV][eE][mM][bB][eE][rR])|([dD][eE][cC][eE][mM][bB][eE][rR])"
-                           title="a valid month name" required type="text" id="expmonth" name="expmonth" placeholder="September" class="form-control">
+                           title="a valid month name" required type="text" id="card_expiration_month" name="card_expiration_month" placeholder="September" class="form-control">
 
                     <div class="row">
                         <div class="col-6 d-flex" style="flex-direction: column">
-                            <label for="expyear">Expiration year</label>
-                            <input pattern="^[1-9]\d{3,}$" title="a valid year" required type="text" id="expyear" name="expyear" placeholder="2022" class="form-control">
+                            <label for="card_expiration_year">Expiration year</label>
+                            <input pattern="^[1-9]\d{3,}$" title="a valid year" required type="text" id="card_expiration_year" name="card_expiration_year" placeholder="2022" class="form-control">
                         </div>
                         <div class="col-6 d-flex" style="flex-direction: column">
-                            <label for="cvv">CVV</label>
-                            <input pattern="^[0-9]{3,4}$" title="valid 3 or 4 digit CVV number" required type="text" id="cvv" name="cvv" placeholder="123" class="form-control">
+                            <label for="card_cvv">CVV</label>
+                            <input pattern="^[0-9]{3,4}$" title="valid 3 or 4 digit CVV number" required type="text" id="card_cvv" name="card_cvv" placeholder="123" class="form-control">
                         </div>
                     </div>
 
@@ -104,26 +104,26 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <h3>Shipping Address</h3>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="same_adr" checked onclick="updateShippingAddress()">
+                        <input class="form-check-input" type="checkbox" id="same_address" checked onclick="updateShippingAddress()">
                         <label class="form-check-label">Same shipping address as billing</label>
                     </div>
                 </div>
-                <div id="ship_det" class="row" style="display: none">
+                <div id="shipping_details" class="row" style="display: none">
                     <div class="col-4">
-                        <label for="ship_adr">Address</label>
-                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" type="text" id="ship_adr" name="address" placeholder="542 W. 15th Street" class="form-control">
+                        <label for="shipping_address">Address</label>
+                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" type="text" id="shipping_address" name="shipping_address" placeholder="542 W. 15th Street" class="form-control">
                     </div>
                     <div class="col-4">
-                        <label for="ship_city">City</label>
-                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" type="text" id="ship_city" name="city" placeholder="New York" class="form-control">
+                        <label for="shipping_city">City</label>
+                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" type="text" id="shipping_city" name="shipping_city" placeholder="New York" class="form-control">
                     </div>
                     <div class="col-2">
-                        <label for="ship_state">State</label>
-                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid state name (not necessarily US)" type="text" id="ship_state" name="state" placeholder="NY" class="form-control">
+                        <label for="shipping_state">State</label>
+                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid state name (not necessarily US)" type="text" id="shipping_state" name="shipping_state" placeholder="NY" class="form-control">
                     </div>
                     <div class="col-2">
-                        <label for="ship_zip">Zip code</label>
-                        <input pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)" title="valid zip code with 5 or 9 digits with or without a dash" type="text" id="ship_zip" name="zip" placeholder="10001" class="form-control">
+                        <label for="shipping_zip">Zip code</label>
+                        <input pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)" title="valid zip code with 5 or 9 digits with or without a dash" type="text" id="shipping_zip" name="shipping_zip" placeholder="10001" class="form-control">
                     </div>
                 </div>
             </div>
@@ -149,6 +149,7 @@
                                     $total_cost += $item[0] * $item[1];
                                 }
                                 $total_cost += $shipping_cost;
+                                echo "<input hidden name='total_cost' value='$total_cost'/>";
                                 echo "$total_cost";
                             ?></span>€
                     </b>
