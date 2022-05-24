@@ -60,7 +60,8 @@ CREATE TABLE cart_item (
 
 CREATE TABLE shipping (
     user_id INT NOT NULL,
-    shipping_type enum('Standard', 'Express') NOT NULL,
+    cost INT NOT NULL,
+    max_delivery_time INT NOT NULL,
     PRIMARY KEY (user_id),
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
 );

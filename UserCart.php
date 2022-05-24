@@ -28,10 +28,7 @@
 <div id="products" class="container-fluid left-right-pad">
     <div class="container-fluid">
         <div class="row pt-4">
-            <?php
-            include "PHP_Back_End/user_cart.php";
-            ?>
-
+            <?php include "PHP_Back_End/user_cart.php" ?>
         </div>
     </div>
 </div>

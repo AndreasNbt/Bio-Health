@@ -1,14 +1,23 @@
 let item_ids = []
 
+function updateShippingType() {
+    var shipping_select = document.getElementById("shipping_type");
+    var cost = shipping_select.options[shipping_select.selectedIndex].value.split("|")[0];
+    var max_delivery_time = shipping_select.options[shipping_select.selectedIndex].value.split("|")[1];
+    $.post('PHP_Back_End/edit_cart.php', {cost:cost, max_delivery_time:max_delivery_time}, function(data){
+        window.location = "UserCheckout.php";
+    });
+}
+
 function updateAmount(item_id) {
     amount = document.getElementById('amountAddedToCart' + item_id).value;
-    $.get('PHP_Back_End/user_cart.php', {item_id:item_id, amount:amount}, function(data){
+    $.get('PHP_Back_End/edit_cart.php', {item_id:item_id, amount:amount}, function(data){
         return false;
     });
 }
 
 function removeFromCart(item_id) {
-    $.get('PHP_Back_End/user_cart.php', {item_id:item_id}, function(data){
+    $.get('PHP_Back_End/edit_cart.php', {item_id:item_id}, function(data){
         return false;
     });
 }
