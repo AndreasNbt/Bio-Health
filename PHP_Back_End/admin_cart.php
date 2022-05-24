@@ -4,7 +4,6 @@ $order_id = $_GET['order_id'];
 $sql = "SELECT id, product_id, amount FROM order_item WHERE order_id='$order_id';";
 $res = $con->query($sql);
 
-
 echo "<div class='col-8' style='padding-right: 5rem'>
           <h3>Shopping cart</h3>
           <hr class='border-2 border-top border-primary mb-4'>";

@@ -32,26 +32,26 @@
             <div class="d-flex" style="flex-direction: column">
               <h3>Billing address</h3>
 
-              <label for="fname"><i class="fa fa-user-o"></i> Full name</label>
-              <input readonly title="full name containing only english letters and spaces" required type="text" id="fname" name="firstname" value="John M. Doe" class="form-control">
+              <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
+              <input readonly title="full name containing only english letters and spaces" required type="text" id="full_name" value="" class="form-control">
 
               <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
-              <input readonly title="valid email address" required type="text" id="email" name="email" value="email@example.com" class="form-control">
+              <input readonly title="valid email address" required type="text" id="email" value="" class="form-control">
 
-              <label for="bil_adr"><i class="fa fa-address-card-o"></i> Address</label>
-              <input readonly title="street address without special symbols" required type="text" id="bil_adr" name="address" value="542 W. 15th Street" class="form-control">
+              <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
+              <input readonly title="street address without special symbols" required type="text" id="billing_address" value="" class="form-control">
 
-              <label for="bil_city"><i class="fa fa-building-o"></i> City</label>
-              <input readonly title="valid city name" required type="text" id="bil_city" name="city" value="New York" class="form-control">
+              <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
+              <input readonly title="valid city name" required type="text" id="billing_city" value="" class="form-control">
 
               <div class="row">
                 <div class="col-6 d-flex" style="flex-direction: column">
-                  <label for="bil_state">State</label>
-                  <input readonly title="valid state name (not necessarily US)" required type="text" id="bil_state" name="state" value="NY" class="form-control">
+                  <label for="billing_state">State</label>
+                  <input readonly title="valid state name (not necessarily US)" required type="text" id="billing_state" value="" class="form-control">
                 </div>
                 <div class="col-6 d-flex" style="flex-direction: column">
-                  <label for="bil_zip">Zip code</label>
-                  <input readonly title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="bil_zip" name="zip" value="10001" class="form-control">
+                  <label for="billing_zip">Zip code</label>
+                  <input readonly title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="billing_zip" value="" class="form-control">
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
           <div class="col-6" style="padding-left: 5rem">
             <h3>Payment</h3>
 
-            <label for="fname">Accepted Cards</label>
+            <label>Accepted Cards</label>
             <div class="icon-container">
               <a href="#">
                 <i class="fa fa-cc-visa" style="color:navy;scale: 150%;padding-left: 8px;padding-right: 15px"></i>
@@ -76,23 +76,23 @@
               </a>
             </div>
 
-            <label for="cname">Name on card</label>
-            <input readonly title="valid card name" required type="text" id="cname" name="cardname" value="John More Doe" class="form-control">
+            <label for="card_name">Name on card</label>
+            <input readonly title="valid card name" required type="text" id="card_name" value="" class="form-control">
 
-            <label for="ccnum">Card number</label>
-            <input readonly title="valid Visa, American Express, Master Card, Discover or Visa Master Card card number without dashes" required type="text" id="ccnum" name="cardnumber" value="1111-2222-3333-4444" class="form-control">
+            <label for="card_number">Card number</label>
+            <input readonly title="valid Visa, American Express, Master Card, Discover or Visa Master Card card number without dashes" required type="text" id="card_number" value="" class="form-control">
 
-            <label for="expmonth">Expiration month</label>
-            <input readonly title="a valid month name" required type="text" id="expmonth" name="expmonth" value="September" class="form-control">
+            <label for="card_expiration_month">Expiration month</label>
+            <input readonly title="a valid month name" required type="text" id="card_expiration_month" value="" class="form-control">
 
             <div class="row">
               <div class="col-6 d-flex" style="flex-direction: column">
-                <label for="expyear">Expiration year</label>
-                <input readonly title="a valid year" required type="text" id="expyear" name="expyear" value="2022" class="form-control">
+                <label for="card_expiration_year">Expiration year</label>
+                <input readonly title="a valid year" required type="text" id="card_expiration_year" value="" class="form-control">
               </div>
               <div class="col-6 d-flex" style="flex-direction: column">
-                <label for="cvv">CVV</label>
-                <input readonly title="valid 3 or 4 digit CVV number" required type="text" id="cvv" name="cvv" value="123" class="form-control">
+                <label for="card_cvv">CVV</label>
+                <input readonly title="valid 3 or 4 digit CVV number" required type="text" id="card_cvv" value="" class="form-control">
               </div>
             </div>
 
@@ -103,20 +103,20 @@
           <h3>Shipping Address</h3>
           <div id="ship_det" class="row">
             <div class="col-4">
-              <label for="ship_adr">Address</label>
-              <input readonly title="street address without special symbols" type="text" id="ship_adr" name="address" value="542 W. 15th Street" class="form-control">
+              <label for="shipping_address">Address</label>
+              <input readonly title="street address without special symbols" type="text" id="shipping_address" value="" class="form-control">
             </div>
             <div class="col-4">
-              <label for="ship_city">City</label>
-              <input readonly title="valid city name" type="text" id="ship_city" name="city" value="New York" class="form-control">
+              <label for="shipping_city">City</label>
+              <input readonly title="valid city name" type="text" id="shipping_city" value="" class="form-control">
             </div>
             <div class="col-2">
-              <label for="ship_state">State</label>
-              <input readonly title="valid state name (not necessarily US)" type="text" id="ship_state" name="state" value="NY" class="form-control">
+              <label for="shipping_state">State</label>
+              <input readonly title="valid state name (not necessarily US)" type="text" id="shipping_state" value="" class="form-control">
             </div>
             <div class="col-2">
-              <label for="ship_zip">Zip code</label>
-              <input readonly title="valid zip code with 5 or 9 digits with or without a dash" type="text" id="ship_zip" name="zip" value="10001" class="form-control">
+              <label for="shipping_zip">Zip code</label>
+              <input readonly title="valid zip code with 5 or 9 digits with or without a dash" type="text" id="shipping_zip" value="" class="form-control">
             </div>
           </div>
         </div>
