@@ -1,4 +1,5 @@
 <?php
+    session_start();
     function echoCategory($row) {
         echo  '<li class="nav-item">';
         echo      '<a class="nav-link ps-0" href="UserSearch.php?search_key=&category=1">'.$row[0].'</a>';
@@ -15,7 +16,7 @@
             <h1 class="position-relative navbar-logo-2">Health</h1>
         </a>
         <?php
-            session_start();
+            
             if (basename($_SERVER["SCRIPT_FILENAME"]) == 'UserSearch.php') {
                 echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
             }

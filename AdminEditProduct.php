@@ -22,32 +22,32 @@
     
     
     <?php 
-     include "PHP_Back_End/db_connection.php";
-     session_start();
+        include "PHP_Back_End/db_connection.php";
+        
 
-     $pID = $_GET['productID'];
+        $pID = $_GET['productID'];
 
-     $sql = "SELECT name, price, stock, description, image, category_id
-             FROM product
-             WHERE id = '$pID'";
-     
-     $res = $con->query($sql);
-     $row = mysqli_fetch_row($res);
+        $sql = "SELECT name, price, stock, description, image, category_id
+                FROM product
+                WHERE id = '$pID'";
+        
+        $res = $con->query($sql);
+        $row = mysqli_fetch_row($res);
 
-     if ($row) {
-        $name = $row[0];
-        $price = $row[1];
-        $stock = $row[2];
-        $description = $row[3];
-        $image = $row[4];
-        $cID = $row[5];
+        if ($row) {
+            $name = $row[0];
+            $price = $row[1];
+            $stock = $row[2];
+            $description = $row[3];
+            $image = $row[4];
+            $cID = $row[5];
 
-        $res = $con->query("SELECT name FROM category WHERE id=$cID");
-        $category = mysqli_fetch_row($res)[0];
-     }
+            $res = $con->query("SELECT name FROM category WHERE id=$cID");
+            $category = mysqli_fetch_row($res)[0];
+        }
 
-     $con->close();
-     include "Navbar.php";
+        $con->close();
+        include "Navbar.php";
     ?>
 
     <br>
@@ -61,7 +61,7 @@
                 </div>
                 <hr class="hr-border m-0">
 
-                <?php echo'<form id="form" action="AdminSearch.php">
+                <?php echo'<form id="form" action="PHP_Back_End/edit_product.php?productID='.$pID.'&productImage='.$image.'" method="post">
                                 <div>
                                     <div class="field d-flex flex-column">
                                         <label for="product_name" class="product_label text-start">Product Name</label>

@@ -16,7 +16,7 @@
     $productCategory = validate($_POST['product_category']);
     $productPrice = validate($_POST['product_price']);
     $productStock = validate($_POST['product_stock']);
-    $productImage = validate($_POST['product_image']);
+    $productImage = "sources/images/" . validate($_POST['product_image']);
 
     if (empty($productName)) {
         header("Location: ../AdminNewProduct.php?error=Product name is required");
@@ -34,7 +34,6 @@
         $res = $con->query($getCategoryId);
         
         $productCategoryID = mysqli_fetch_row($res);
-        print_r($productCategoryID);
 
         $sql = "INSERT INTO product(name, description, price, stock, image, category_id)
                 VALUES ('$productName', '$productDescription', $productPrice, $productStock, '$productImage', $productCategoryID[0])";
