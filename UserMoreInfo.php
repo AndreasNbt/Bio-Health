@@ -22,10 +22,9 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <script src="JS/checkoutpage.js"></script>
-    <script src="JS/navbar.js"></script>
 </head>
 
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
     
     <?php include "Navbar.php"; ?>
     <br>

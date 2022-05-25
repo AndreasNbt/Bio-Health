@@ -16,10 +16,9 @@
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/checkoutpage.css">
     <script src="JS/checkoutpage.js"></script>
-    <script src="JS/navbar.js"></script>
 </head>
 
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100 grey-background">
+<body class="d-flex flex-column min-vh-100 grey-background">
 
     <?php include "Navbar.php"; ?>
     <br>

@@ -70,15 +70,16 @@ function echocart_item($item_id, $product_id, $amount) {
     mysqli_close($con);
 
     echo "<div id='item$item_id'>
-                        <div class='row justify-content-between align-items-center'>
-                            <div class='col-1'><img class='img-responsive rounded' src='$img' style='width: 100px;height: 100px' alt='Image of $name' onload='item_ids.push(\"$item_id\");'></div>
-                            <div class='col-3'><a href='$linkToProductInfo'>$name<br/>(<span id='stock$item_id'>$stock</span> left in stock)</a></div>
-                            <div class='col-1'><input type='number' id='amountAddedToCart$item_id' class='form-control form-control-sm' min='1' max='$stock' style='width: 5rem' value='$amount' onchange='updateAmount(\"$item_id\"); updateCost(document.getElementById(\"amountAddedToCart$item_id\").value, $price, $stock, $item_id); updateSubtotal(); updateTotal()'/></div>
-                            <div class='col-1'><div class='d-flex' style='width: 50px'><span id='costAddedToCart$item_id'>$price</span>€</div></div>
-                            <div class='col-1'> <button type='button' style='padding-right: 1.5rem;scale: 75%' class='btn-close float-end' onclick='removeFromCart(\"$item_id\");removeItem(\"$item_id\"); updateSubtotal(); updateTotal()'></button></div>   
-                        </div>
-                        <hr class='border-2 border-top border-primary mb-4'>
-                    </div>";
+              <div class='row justify-content-between align-items-center'>
+              <div class='col-1'><img class='img-responsive rounded' src='$img' style='width: 100px;height: 100px' alt='Image of $name'></div>
+              <div class='col-3'><a href='$linkToProductInfo'>$name<br/>(<span id='stock$item_id'>$stock</span> left in stock)</a></div>
+              <div class='col-1'><input type='number' id='amountAddedToCart$item_id' class='form-control form-control-sm' min='1' max='$stock' style='width: 5rem' value='$amount' onchange='updateAmount(\"$item_id\"); updateCost(document.getElementById(\"amountAddedToCart$item_id\").value, $price, $stock, $item_id); updateSubtotal(); updateTotal()'/></div>
+              <div class='col-1'><div class='d-flex' style='width: 50px'><span id='costAddedToCart$item_id'>$price</span>€</div></div>
+                  <div class='col-1'> <button type='button' style='padding-right: 1.5rem;scale: 75%' class='btn-close float-end' onclick='removeFromCart(\"$item_id\");removeItem(\"$item_id\"); updateSubtotal(); updateTotal()'></button></div>   
+              </div>
+              <hr class='border-2 border-top border-primary mb-4'>
+              <script>console.log(\"pushed\");item_ids.push(\"$item_id\");</script>
+          </div>";
 }
 
 function echoBackMessage($message, $style) {

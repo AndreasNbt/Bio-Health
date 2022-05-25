@@ -16,7 +16,6 @@
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/searchpage.css">
     <script src="JS/searchpage.js"></script>
-    <script src="JS/navbar.js"></script>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -71,7 +70,7 @@
         });
     </script>
 </head>
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="grey-background d-flex flex-column min-vh-100">
+<body class="grey-background d-flex flex-column min-vh-100">
 
 <?php include "Navbar.php"; ?>
 

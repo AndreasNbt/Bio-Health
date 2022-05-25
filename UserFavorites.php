@@ -17,10 +17,9 @@
     <link rel="stylesheet" href="CSS/searchpage.css">
     <link rel="stylesheet" href="CSS/Sign Up-In.css">
     <script src="JS/searchpage.js"></script>
-    <script src="JS/navbar.js"></script>
     
 </head>
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="grey-background d-flex flex-column min-vh-100">
+<body class="grey-background d-flex flex-column min-vh-100">
     
     <?php include "Navbar.php"; ?>
     <br>

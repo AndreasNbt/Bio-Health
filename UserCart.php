@@ -16,10 +16,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <script src="JS/cartpage.js"></script>
-    <script src="JS/navbar.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'));updateCosts();updateSubtotal();updateTotal();" class="d-flex flex-column grey-background min-vh-100">
+<body onload="updateCosts();updateSubtotal();updateTotal();" class="d-flex flex-column grey-background min-vh-100">
 
     <?php include "Navbar.php"; ?>
     <br>

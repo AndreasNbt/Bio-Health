@@ -21,11 +21,10 @@
     <link rel="stylesheet" href="CSS/contactpage.css">
     <link rel="stylesheet" href="CSS/Sign Up-In.css">
     <link rel="stylesheet" href="CSS/new_product.css">
-    <script src="JS/navbar.js"></script>
 </head>
 
 
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100 grey-background">
+<body class="d-flex flex-column min-vh-100 grey-background">
 
     <?php 
         include "PHP_Back_End/db_connection.php";

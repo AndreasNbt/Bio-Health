@@ -50,14 +50,26 @@
             <div class="dropdown">
                 <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
                 <div class="dropdown-content">
-                    <a class="signedout" href="UserSignIn.php">Sign in</a>
-                    <a class="signedout" href="UserSignUp.php">Create an account</a>
-                    <a class="signedin" href="UserAccountInfo.php">Account Information</a>
-                    <a class="signedin" onclick="localStorage.setItem('signed_in_status', '0');UpdateDropdown(0)" href="PHP_Back_End/sign_out.php">Log out</a>
+                    <?php
+                        if (isset($_SESSION['ID']) and isset($_SESSION['role'])) {
+                            echo "<a class='signedin' href='UserAccountInfo.php'>Account Information</a>";
+                            echo "<a class='signedin' href='PHP_Back_End/sign_out.php'>Log out</a>";
+                        }
+                        else {
+                            echo "<a class='signedout' href='UserSignIn.php'>Sign in</a>";
+                            echo "<a class='signedout' href='UserSignUp.php'>Create an account</a>";
+                        }
+                    ?>
                 </div>
             </div>
-            <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserCart.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-            <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserFavorites.php"><i class="fa-solid fa-heart fa-2x"></i></a>
+            <?php
+            if (isset($_SESSION['ID']) and isset($_SESSION['role'])) {
+                if ($_SESSION['role'] === "Customer"){
+                    echo "<a class='nav-item nav-link nav-icon text-center dark-gray' href='UserCart.php'><i class='fa-solid fa-cart-shopping fa-2x'></i></a>";
+                    echo "<a class='nav-item nav-link nav-icon text-center dark-gray' href='UserFavorites.php'><i class='fa-solid fa-heart fa-2x'></i></a>";
+                }
+            }
+            ?>
         </div>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">

@@ -15,10 +15,9 @@
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/new_product.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
-    <script src="JS/navbar.js"></script>
 </head>
 
-<body onload="UpdateDropdown('1')" class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
     
     
     <?php 

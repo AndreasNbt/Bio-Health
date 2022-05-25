@@ -14,10 +14,9 @@
     <link rel="stylesheet" href="CSS/Sign Up-In.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
-    <script src="JS/navbar.js"></script>
 
 </head>
-<body onload="UpdateDropdown(localStorage.getItem('signed_in_status'))" class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
 
     <?php include "Navbar.php"; ?>
     <br>

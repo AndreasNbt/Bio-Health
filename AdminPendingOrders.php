@@ -16,10 +16,9 @@
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/searchpage.css">
     <script src="JS/completedorderspage.js"></script>
-    <script src="JS/navbar.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body onload="UpdateDropdown('1')" class="grey-background d-flex flex-column min-vh-100">
+<body class="grey-background d-flex flex-column min-vh-100">
 
     <?php include "Navbar.php"; ?>
     <br>
