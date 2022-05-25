@@ -96,7 +96,7 @@
 
                                 <div class="d-flex justify-content-evenly">
                                     <button class="button sign-btn submit solid-border dark-green extra-spacing my-3" type="submit">Submit</button>
-                                    <button class="button sign-btn submit red-solid-border danger-red extra-spacing my-3" type="button" onclick="document.getElementById('form').reset();location.href='AdminSearch.php?search_key='">Cancel</button>
+                                    <button class="button sign-btn submit red-solid-border danger-red extra-spacing my-3" type="button" onclick="document.getElementById('form').reset();location.href='Search.php?search_key='">Cancel</button>
                                 </div>
                             </form>
             </div>

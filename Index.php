@@ -113,27 +113,21 @@
                 <div class="col-8 mt-5 categories">
                     <h1 class="navbar-logo-1 pb-5">Take a look at our products</h1>
                     <div>
-                        <?php
-                            $search_url = "UserSearch.php";
-                            if (isset($_SESSION['role']) && $_SESSION['role'] == 'Administrator' ) {
-                                $search_url = "AdminSearch.php";
-                            }
-                        ?>
                         <div class="d-flex justify-content-around">
                             <div>
-                                <?php echo "<a href='$search_url?search_key=&category=1'>" ?>
+                                <a href="Search.php?search_key=&category=1">
                                     <img class="img-responsive rounded" src="sources/images/vegan_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Vegan</h5>
                                 </a>
                             </div>
                             <div>
-                                <?php echo "<a href='$search_url?search_key=&category=2'>" ?>
+                                <a href="Search.php?search_key=&category=2">
                                     <img class="img-responsive rounded" src="sources/images/gluten_free_free_index_image.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Gluten Free</h5>
                                 </a>
                             </div>
                             <div>
-                                <?php echo "<a href='$search_url?search_key=&category=3'>" ?>
+                                <a href="Search.php?search_key=&category=3">
                                     <img class="img-responsive rounded" src="sources/images/snacks.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Snacks</h5>
                                 </a>
@@ -141,19 +135,19 @@
                         </div>
                         <div class="d-flex justify-content-around mt-5">
                             <div>
-                                <?php echo "<a href='$search_url?search_key=&category=4'>" ?>
+                                <a href="Search.php?search_key=&category=4">
                                     <img class="img-responsive rounded" src="sources/images/personal_care.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Personal Care</h5>
                                 </a>
                             </div>
                             <div>
-                                <?php echo "<a href='$search_url?search_key=&category=5'>" ?>
+                                <a href="Search.php?search_key=&category=5">
                                     <img class="img-responsive rounded" src="sources/images/pastries.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Pastries & Confectionery</h5>
                                 </a>
                             </div>
                             <div>
-                                <?php echo "<a href='$search_url?search_key=&category=6'>" ?>
+                                <a href="Search.php?search_key=&category=6">
                                     <img class="img-responsive rounded" src="sources/images/spreads.png" style="width: 250px;height: 250px" alt="Product Name">
                                     <h5 class="caption black">Spreads</h5>
                                 </a>
@@ -167,7 +161,7 @@
 
         <div class="row justify-content-center" id="firstRowAfterCarousel">
             <div class="col-4">
-                <a href="UserSearch.php">
+                <a href="Search.php">
                     <figure class="figure">
                         <img src="https://picsum.photos/3000/2500" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -178,7 +172,7 @@
                 </a>
             </div>
             <div class="col-4">
-                <a href="UserSearch.php">
+                <a href="Search.php">
                     <figure class="figure">
                         <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
