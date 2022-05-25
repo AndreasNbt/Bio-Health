@@ -82,6 +82,7 @@ CREATE TABLE billing_address (
     order_id VARCHAR(13) NOT NULL,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
     address VARCHAR(50),
     city VARCHAR(30),
     state VARCHAR(30),

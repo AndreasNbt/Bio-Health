@@ -69,14 +69,23 @@
 
                         <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
                         <input pattern="[a-zA-Z ]{1,}" title="full name containing only english letters and spaces" required type="text" id="full_name" name="full_name" placeholder="John M. Doe" class="form-control" value="<?php echo $fullName; ?>">
+
                         <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
                         <input pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="valid email address" required type="text" id="email" name="email" placeholder="email@example.com" class="form-control" value="<?php echo $email; ?>">
 
-                        <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
-                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" required type="text" id="billing_address" name="billing_address" placeholder="542 W. 15th Street" class="form-control" value="<?php echo $address; ?>">
+                        <label for="phone_number"><i class="fa fa-mobile"></i> Phone number</label>
+                        <input pattern="[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}" title="valid phone number" required type="text" id="phone_number" name="phone_number" placeholder="0123456789" class="form-control" value="<?php echo $phoneNumber; ?>">
 
-                        <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
-                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" required type="text" id="billing_city" name="billing_city" placeholder="New York" class="form-control" value="<?php echo $city; ?>">
+                        <div class="row">
+                            <div class="col-6 d-flex" style="flex-direction: column">
+                                <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
+                                <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" required type="text" id="billing_address" name="billing_address" placeholder="542 W. 15th Street" class="form-control" value="<?php echo $address; ?>">
+                            </div>
+                            <div class="col-6 d-flex" style="flex-direction: column">
+                                <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
+                                <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" required type="text" id="billing_city" name="billing_city" placeholder="New York" class="form-control" value="<?php echo $city; ?>">
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-6 d-flex" style="flex-direction: column">

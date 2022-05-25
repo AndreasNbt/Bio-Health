@@ -5,7 +5,6 @@ include("db_connection.php");
 $order_id = strtoupper(uniqid());
 $user_id = $_SESSION['ID'];
 $order_date = date('Y-m-d');
-$latest_delivery =
 
 $sql = "SELECT cost, max_delivery_time FROM shipping WHERE user_id=$user_id";
 $res = $con->query($sql);
@@ -19,12 +18,13 @@ $res = $con->query($sql);
 
 $full_name = $_POST['full_name'];
 $email = $_POST['email'];
+$phone_number = $_POST['phone_number'];
 $billing_address = $_POST['billing_address'];
 $billing_city = $_POST['billing_city'];
 $billing_state = $_POST['billing_state'];
 $billing_zip = $_POST['billing_zip'];
 
-$sql = "INSERT INTO billing_address (order_id, name, email, address, city, state, zip) VALUES ('$order_id', '$full_name', '$email', '$billing_address', '$billing_city', '$billing_state', '$billing_zip');";
+$sql = "INSERT INTO billing_address (order_id, name, email, phone_number, address, city, state, zip) VALUES ('$order_id', '$full_name', '$email', $phone_number, '$billing_address', '$billing_city', '$billing_state', '$billing_zip');";
 $res = $con->query($sql);
 
 $res = $con->query("SELECT Full_Name, City, Address, State, Zip_Code, Phone_Number

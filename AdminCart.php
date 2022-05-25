@@ -30,6 +30,7 @@
         <?php
             $full_name = "";
             $email = "";
+            $phone_number = "";
             $billing_address = "";
             $billing_city = "";
             $billing_state = "";
@@ -48,15 +49,16 @@
                 include("PHP_Back_End/db_connection.php");
                 $order_id = $_GET['order_id'];
 
-                $sql = "SELECT name, email, address, city, state, zip FROM billing_address WHERE order_id='$order_id'";
+                $sql = "SELECT name, email, phone_number, address, city, state, zip FROM billing_address WHERE order_id='$order_id'";
                 $res = $con->query($sql);
                 $billing = mysqli_fetch_row($res);
                 $full_name = $billing[0];
                 $email = $billing[1];
-                $billing_address = $billing[2];
-                $billing_city = $billing[3];
-                $billing_state = $billing[4];
-                $billing_zip = $billing[5];
+                $phone_number = $billing[2];
+                $billing_address = $billing[3];
+                $billing_city = $billing[4];
+                $billing_state = $billing[5];
+                $billing_zip = $billing[6];
 
                 $sql = "SELECT name, number, exp_month, exp_year, cvv FROM payment_method WHERE order_id='$order_id'";
                 $res = $con->query($sql);
@@ -90,11 +92,19 @@
               <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
               <?php echo "<input readonly title='valid email address' required type='text' id='email' value='$email' class='form-control'>" ?>
 
-              <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
-              <?php echo "<input readonly title='street address without special symbols' required type='text' id='billing_address' value='$billing_address' class='form-control'>" ?>
+              <label for="phone_number"><i class="fa fa-mobile"></i> Phone number</label>
+              <?php echo "<input readonly title='valid phone number' required type='text' id='phone_number' value='$phone_number' class='form-control'>" ?>
 
-              <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
-              <?php echo "<input readonly title='valid city name' required type='text' id='billing_city' value='$billing_city' class='form-control'>" ?>
+              <div class="row">
+                  <div class="col-6 d-flex" style="flex-direction: column">
+                      <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
+                      <?php echo "<input readonly title='street address without special symbols' required type='text' id='billing_address' value='$billing_address' class='form-control'>" ?>
+                  </div>
+                  <div class="col-6 d-flex" style="flex-direction: column">
+                      <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
+                      <?php echo "<input readonly title='valid city name' required type='text' id='billing_city' value='$billing_city' class='form-control'>" ?>
+                  </div>
+              </div>
 
               <div class="row">
                 <div class="col-6 d-flex" style="flex-direction: column">
