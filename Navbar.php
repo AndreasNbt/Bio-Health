@@ -49,7 +49,9 @@
                     <?php
                         if (isset($_SESSION['ID']) and isset($_SESSION['role'])) {
                             echo "<a href='UserAccountManagement.php'>Account Management</a>";
-                            echo "<a href='UserOrderInfo.php'>Order Information</a>";
+                            if ($_SESSION['role'] === "Customer") {
+                                echo "<a href='UserOrderInfo.php'>Order Information</a>";
+                            }
                             echo "<a href='PHP_Back_End/sign_out.php'>Log out</a>";
                         }
                         else {
