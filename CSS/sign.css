@@ -57,10 +57,10 @@
 }
 
 .input-field {
-    padding: 10px;
+    padding: 8px;
     text-align: center;
-    width: 80%;
-    height: 50px;
+    width: 55%;
+    height: 45px;
     margin: 0.8rem;
 }
 
@@ -117,14 +117,20 @@
 }
 
 .sign-btn {
-    width: 40%;
+    font-size: 15pt;
+    padding: 6px 15px;
     align-self: center;
+    width: 25%;
 }
 
 .sign-btn2 {
     background-color: #e3eaf0;
     font-size: 17pt;
     padding: 6px 40px;
+}
+
+.small-btn {
+    display: none;
 }
 
 .admin-btn {
@@ -155,4 +161,19 @@
 .favorite-product {
     text-align: center;
     padding: 5%;
+}
+
+@media (max-width: 1100px) {
+    body {
+        background-color: red;
+    }
+
+    .social {
+        padding: 2rem 1rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+
 }

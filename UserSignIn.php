@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/sensei" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/Sign Up-In.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
 
@@ -46,7 +46,7 @@
                             <a href="#" class="forgot-password text-decoration-none dark-green">Forgot your password?</a>
                         </div>
                         <br>
-                        <button class="button sign-btn solid-border bot-margin dark-green my-3" type="submit">Sign in</button>
+                        <button class="button sign-btn solid-border bot-margin extra-spacing dark-green my-3" type="submit">Sign in</button>
                     </form>
                     <h5 class="dark-green header-text pt-5" style="margin-top: 50px";>With your Socials</h5>
 

@@ -38,26 +38,26 @@
                     return $data;
                 }
                 $search_key = validate($_GET['search_key']);
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' value='$search_key'$onkeyup_attribute>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search...' value='$search_key'$onkeyup_attribute>";
             }
             else {
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product'$onkeyup_attribute>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search...'$onkeyup_attribute>";
             }
             echo "<button type='submit' class='search-button position-relative'><i class='fa-solid fa-magnifying-glass fa-lg dark-green'></i></button>";
             echo "</form>";
         ?>
         <div class="navbar-nav d-flex flex-row justify-content-between">
             <div class="dropdown">
-                <a class="nav-item nav-link nav-icon text-center dark-gray" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray me-1" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
                 <div class="dropdown-content">
                     <?php
                         if (isset($_SESSION['ID']) and isset($_SESSION['role'])) {
-                            echo "<a class='signedin' href='UserAccountInfo.php'>Account Information</a>";
-                            echo "<a class='signedin' href='PHP_Back_End/sign_out.php'>Log out</a>";
+                            echo "<a href='UserAccountInfo.php'>Account Information</a>";
+                            echo "<a href='PHP_Back_End/sign_out.php'>Log out</a>";
                         }
                         else {
-                            echo "<a class='signedout' href='UserSignIn.php'>Sign in</a>";
-                            echo "<a class='signedout' href='UserSignUp.php'>Create an account</a>";
+                            echo "<a href='UserSignIn.php'>Sign in</a>";
+                            echo "<a href='UserSignUp.php'>Create an account</a>";
                         }
                     ?>
                 </div>

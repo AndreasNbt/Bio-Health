@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/sensei" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/Sign Up-In.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/new_product.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>

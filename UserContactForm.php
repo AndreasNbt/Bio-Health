@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/contactpage.css">
-    <link rel="stylesheet" href="CSS/Sign Up-In.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <link rel="stylesheet" href="CSS/new_product.css">
 </head>
 
