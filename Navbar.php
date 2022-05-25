@@ -16,9 +16,10 @@
             <h1 class="position-relative navbar-logo-2">Health</h1>
         </a>
         <?php
-            
+            $onkeyup_attribute = "";
             if (basename($_SERVER["SCRIPT_FILENAME"]) == 'UserSearch.php') {
                 echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
+                $onkeyup_attribute = " onkeyup='updateShownKey()'";
             }
             else if (basename($_SERVER["SCRIPT_FILENAME"]) == 'AdminSearch.php') {
                 echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
@@ -37,10 +38,10 @@
                     return $data;
                 }
                 $search_key = validate($_GET['search_key']);
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' value='$search_key' onkeyup='updateShownKey()'>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' value='$search_key'$onkeyup_attribute>";
             }
             else {
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product' onkeyup='updateShownKey()'>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product'$onkeyup_attribute>";
             }
             echo "<button type='submit' class='search-button position-relative'><i class='fa-solid fa-magnifying-glass fa-lg dark-green'></i></button>";
             echo "</form>";
