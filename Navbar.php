@@ -1,6 +1,6 @@
 <?php
     session_start();
-    function echoCategory($row) {
+    function echoNavCategory($row) {
         echo  '<li class="nav-item">';
         echo      '<a class="nav-link ps-0" href="UserSearch.php?search_key=&category=1">'.$row[0].'</a>';
         echo  '</li>';
@@ -95,7 +95,7 @@
                         $res = $con->query($sql);
     
                         while ($row = mysqli_fetch_row($res)) {
-                            echoCategory($row);
+                            echoNavCategory($row);
                         }
                     } 
                 ?>

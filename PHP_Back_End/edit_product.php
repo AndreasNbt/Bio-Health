@@ -11,6 +11,8 @@
     }
 
     $id = $_REQUEST['productID'];
+
+    echo $_POST['product_image'];
     
 
     $productName = validate($_POST['product_name']);
@@ -18,11 +20,11 @@
     $productStock = validate($_POST['product_stock']);
     $productDescription = validate($_POST['product_description']);
     $productCategory = validate($_POST['product_category']);
-    if (isset($_POST['product_image'])) {
+    if (isset($_POST['product_image']) && validate($_POST['product_image']) != "") {
         $productImage = "sources/images/" . validate($_POST['product_image']);
     }
     else {
-        $productImage = $_GET['productImage'];
+        $productImage = $_REQUEST['productImage'];
     }
 
     $getCategoryId = "SELECT id
