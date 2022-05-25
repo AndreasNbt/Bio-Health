@@ -3,7 +3,13 @@
     include("db_connection.php");
     include("search_functions.php");
     if (isset($_GET['key']) and isset($_GET['category']) and isset($_GET['order'])) {
-        updateSearchResults($_GET['key'], $_GET['category'], $_GET['order'], 'user');
+        if (isset($_SESSION['role']) and $_SESSION['role'] === "Administrator") {
+            updateSearchResults($_GET['key'], $_GET['category'], $_GET['order'], 'admin');
+        }
+        else if (!(isset($_SESSION['role'])) or $_SESSION['role'] === "Customer") {
+            updateSearchResults($_GET['key'], $_GET['category'], $_GET['order'], 'user');
+        }
+
     }
     else if (isset($_GET['product_id']) and isset($_GET['amount'])) {
         $product_id = $_GET['product_id'];

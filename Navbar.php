@@ -2,7 +2,7 @@
     session_start();
     function echoNavCategory($row) {
         echo  '<li class="nav-item">';
-        echo      '<a class="nav-link ps-0" href="UserSearch.php?search_key=&category=1">'.$row[0].'</a>';
+        echo  '<a class="nav-link ps-0" href="Search.php?search_key=&category=1">'.$row[0].'</a>';
         echo  '</li>';
     }
 ?>
@@ -17,18 +17,14 @@
         </a>
         <?php
             $onkeyup_attribute = "";
-            if (basename($_SERVER["SCRIPT_FILENAME"]) == 'UserSearch.php') {
+            if (basename($_SERVER["SCRIPT_FILENAME"]) == 'Search.php') {
                 echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
-                $onkeyup_attribute = " onkeyup='updateShownKey()'";
+                if (!(isset($_SESSION['role'])) or $_SESSION['role'] === "Consumer") {
+                    $onkeyup_attribute = " onkeyup='updateShownKey()'";
+                }
             }
-            else if (basename($_SERVER["SCRIPT_FILENAME"]) == 'AdminSearch.php') {
-                echo "<form id='search_bar' class='form-inline d-flex flex-row search'>";
-            }
-            else if (isset($_SESSION['role']) && $_SESSION['role'] == 'Administrator' ) {
-                echo "<form id='search_bar' action='AdminSearch.php' method='get' class='form-inline d-flex flex-row search'>";
-            }
-            else  {
-                echo "<form id='search_bar' action='UserSearch.php' method='get' class='form-inline d-flex flex-row search'>";
+            else {
+                echo "<form id='search_bar' action='Search.php' method='get' class='form-inline d-flex flex-row search'>";
             }
             if (isset($_GET['search_key'])) {
                 function validate($data) {
@@ -86,7 +82,7 @@
                             <a class="nav-link" href="AdminNewProduct.php">Add products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="AdminSearch.php?search_key=">Edit products</a>
+                            <a class="nav-link" href="Search.php?search_key=">Edit products</a>
                         </li>';
                     }
                     else {

@@ -41,9 +41,9 @@
 
     $res = $con->query($sql);
     if ($res) {
-        header("Location: ../AdminSearch.php?search_key=");
+        header("Location: ../Search.php?search_key=");
     }
     else {
-        header("Location: ../AdminSearch.php?search_key=?error=problem updating data");
+        header("Location: ../Search.php?search_key=?error=problem updating data");
     }
 ?>
