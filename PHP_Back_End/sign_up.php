@@ -60,6 +60,7 @@
                 
                 $_SESSION['ID'] = $row[0];
                 $_SESSION['Username'] = $row[1];
+                $_SESSION['role'] = $row[4];
 
                 
                 $id = $_SESSION['ID'];

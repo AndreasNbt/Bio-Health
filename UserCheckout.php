@@ -20,7 +20,44 @@
 </head>
 <body class="d-flex flex-column min-vh-100 grey-background" onload="updateShippingAddress()">
    
-    <?php include "Navbar.php"; ?>
+    <?php 
+        include "PHP_Back_End/db_connection.php";
+        include "Navbar.php"; 
+
+        $userId = $_SESSION['ID'];
+
+        $sql = "SELECT Full_Name, City, Address, State, Zip_Code, Phone_Number
+                FROM user_info
+                WHERE User_ID = '$userId'";
+        
+        $res = $con->query($sql);
+        $row = mysqli_fetch_row($res);
+
+        $fullName = "";
+        $city = "";
+        $address = "";
+        $state = "";
+        $zipCode = "";
+        $phoneNumber = "";
+
+        if ($row) {
+        $fullName = $row[0];
+        $city = $row[1];
+        $address = $row[2];
+        $state = $row[3];
+        $zipCode = $row[4];
+        $phoneNumber = $row[5];
+        }
+
+        $res = $con->query("SELECT email
+                            FROM user
+                            WHERE user_id='$userId'");
+        
+        $email = mysqli_fetch_row($res)[0];
+
+        $con->close();
+    ?>
+
     <br>
 
     <div id="form" class="container-fluid left-right-pad">
@@ -31,25 +68,24 @@
                         <h3>Billing address</h3>
 
                         <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
-                        <input pattern="[a-zA-Z ]{1,}" title="full name containing only english letters and spaces" required type="text" id="full_name" name="full_name" placeholder="John M. Doe" class="form-control">
-
+                        <input pattern="[a-zA-Z ]{1,}" title="full name containing only english letters and spaces" required type="text" id="full_name" name="full_name" placeholder="John M. Doe" class="form-control" value="<?php echo $fullName; ?>">
                         <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
-                        <input pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="valid email address" required type="text" id="email" name="email" placeholder="email@example.com" class="form-control">
+                        <input pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="valid email address" required type="text" id="email" name="email" placeholder="email@example.com" class="form-control" value="<?php echo $email; ?>">
 
                         <label for="billing_address"><i class="fa fa-address-card-o"></i> Address</label>
-                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" required type="text" id="billing_address" name="billing_address" placeholder="542 W. 15th Street" class="form-control">
+                        <input pattern="[A-Za-z0-9'\.\-\s\,]" title="street address without special symbols" required type="text" id="billing_address" name="billing_address" placeholder="542 W. 15th Street" class="form-control" value="<?php echo $address; ?>">
 
                         <label for="billing_city"><i class="fa fa-building-o"></i> City</label>
-                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" required type="text" id="billing_city" name="billing_city" placeholder="New York" class="form-control">
+                        <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid city name" required type="text" id="billing_city" name="billing_city" placeholder="New York" class="form-control" value="<?php echo $city; ?>">
 
                         <div class="row">
                             <div class="col-6 d-flex" style="flex-direction: column">
                                 <label for="billing_state">State</label>
-                                <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid state name (not necessarily US)" required type="text" id="billing_state" name="billing_state" placeholder="NY" class="form-control">
+                                <input pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$" title="valid state name (not necessarily US)" required type="text" id="billing_state" name="billing_state" placeholder="NY" class="form-control" value="<?php echo $state; ?>">
                             </div>
                             <div class="col-6 d-flex" style="flex-direction: column">
                                 <label for="billing_zip">Zip code</label>
-                                <input pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)" title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="billing_zip" name="billing_zip" placeholder="10001" class="form-control">
+                                <input pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)" title="valid zip code with 5 or 9 digits with or without a dash" required type="text" id="billing_zip" name="billing_zip" placeholder="10001" class="form-control" value="<?php echo $zipCode; ?>">
                             </div>
                         </div>
                     </div>

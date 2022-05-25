@@ -27,6 +27,43 @@ $billing_zip = $_POST['billing_zip'];
 $sql = "INSERT INTO billing_address (order_id, name, email, address, city, state, zip) VALUES ('$order_id', '$full_name', '$email', '$billing_address', '$billing_city', '$billing_state', '$billing_zip');";
 $res = $con->query($sql);
 
+$res = $con->query("SELECT Full_Name, City, Address, State, Zip_Code, Phone_Number
+                    FROM user_info
+                    WHERE User_ID = $user_id");
+
+$row = mysqli_fetch_row($res);
+if (!isset($row[0])) {
+    $res = $con->query("UPDATE user_info 
+                        SET Full_Name = '$full_name'
+                        WHERE User_ID = $user_id");
+}
+if (!isset($row[1])) {
+    $res = $con->query("UPDATE user_info 
+                        SET City = '$billing_city'
+                        WHERE User_ID = $user_id");
+}
+if (!isset($row[2])) {
+    $res = $con->query("UPDATE user_info 
+                        SET Address = '$billing_address'
+                        WHERE User_ID = $user_id");
+}
+if (!isset($row[3])) {
+    $res = $con->query("UPDATE user_info 
+                        SET State = '$billing_state'
+                        WHERE User_ID = $user_id");
+}
+if (!isset($row[4])) {
+    $res = $con->query("UPDATE user_info 
+                        SET Zip_Code = '$billing_zip'
+                        WHERE User_ID = $user_id");
+}
+/*if (!isset($row[5])) {
+    $res = $con->query("UPDATE user_info 
+                        SET Phone_Number = '$billing_phone'
+                        WHERE User_ID = $id");
+}*/
+
+
 $card_name = $_POST['card_name'];
 $card_number = $_POST['card_number'];
 $card_expiration_month = $_POST['card_expiration_month'];
