@@ -144,6 +144,10 @@
     padding: 2rem;
 }
 
+.fit {
+    min-height:fit-content;
+}
+
 .forgot-password {
     font-size: 10pt;
     padding: 12px;

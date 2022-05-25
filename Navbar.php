@@ -44,11 +44,12 @@
         ?>
         <div class="navbar-nav d-flex flex-row justify-content-between">
             <div class="dropdown">
-                <a class="nav-item nav-link nav-icon text-center dark-gray me-1" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                <a class="nav-item nav-link nav-icon text-center dark-gray me-3" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
                 <div class="dropdown-content">
                     <?php
                         if (isset($_SESSION['ID']) and isset($_SESSION['role'])) {
-                            echo "<a href='UserAccountInfo.php'>Account Information</a>";
+                            echo "<a href='UserAccountManagement.php'>Account Management</a>";
+                            echo "<a href='UserOrderInfo.php'>Order Information</a>";
                             echo "<a href='PHP_Back_End/sign_out.php'>Log out</a>";
                         }
                         else {

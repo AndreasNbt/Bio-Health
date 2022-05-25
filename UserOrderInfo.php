@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Info - Bio&Health</title>
+    <title>Order Info - Bio&Health</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -59,13 +59,13 @@
         <div class="main-container row text-center" style="margin: 0">
             <div class="solid-border col-8 container big-container">
                 <div class="d-flex justify-content-center py-1">
-                    <h1 class="dark-green extra-spacing header-text m-0">Account Information</h1>
+                    <h1 class="dark-green extra-spacing header-text m-0">Order Information</h1>
                 </div>
                 <hr class="hr-border m-0">
 
                
                 <?php
-                    echo'<form action="PHP_Back_End/account_info.php" method="post">
+                    echo'<form action="PHP_Back_End/order_info.php" method="post">
                         <div>
                             <div class="field d-flex flex-column">
                                 <label for="product_name" class="product_label">Full Name</label>

@@ -1,4 +1,3 @@
-
 <?php
 
     session_start();
@@ -11,20 +10,15 @@
         return $data;
     }
 
-    $full_name = validate($_POST['full_name']);
-    $city = validate($_POST['city']);
-    $address = validate($_POST['address']);
-    $state = validate($_POST['state']);
-    $zip_code = validate($_POST['zip_code']);
-    $phone_number = validate($_POST['phone_number']);
-
-
+    $email = validate($_POST['email']);
+    $username = validate($_POST['username']);
+    $password = validate($_POST['password']);
+    
     $id = $_SESSION['ID'];
 
-    $sql = "UPDATE user_info 
-            SET Full_Name = '$full_name', City = '$city', Address = '$address', State = '$state',
-                Zip_Code = '$zip_code', Phone_Number = '$phone_number'
-            WHERE User_ID = $id";   
+    $sql = "UPDATE user 
+            SET email = '$email', username = '$username', password = '$password'
+            WHERE user_id = $id";   
 
     $res = $con->query($sql);
     $con -> close();
@@ -35,7 +29,7 @@
     }
     else {
         echo "There was a problem updating the data, please try later";
-        header("Location: ../UserAccountInfo.php?error=problem updating data");
+        header("Location: ../UserAccountManagement.php?error=problem updating data");
     }
     
 ?>
