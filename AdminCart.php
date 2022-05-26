@@ -84,7 +84,7 @@
         <div class="row pt-4">
           <div class="col-6" style="padding-right: 5rem">
             <div class="d-flex" style="flex-direction: column">
-              <h3>Billing address</h3>
+              <h3>Billing Address</h3>
 
               <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
               <?php echo "<input readonly title='full name containing only english letters and spaces' required type='text' id='full_name' value='$full_name' class='form-control'>" ?>

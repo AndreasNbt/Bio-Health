@@ -65,7 +65,7 @@
             <div class="row" style="padding: 2rem 20% 0 20%;">
                 <div class="col-6">
                     <div class="d-flex" style="flex-direction: column">
-                        <h3>Billing address</h3>
+                        <h3>Billing Address</h3>
 
                         <label for="full_name"><i class="fa fa-user-o"></i> Full name</label>
                         <input pattern="[a-zA-Z ]{1,}" title="full name containing only english letters and spaces" required type="text" id="full_name" name="full_name" placeholder="John M. Doe" class="form-control" value="<?php echo $fullName; ?>">
