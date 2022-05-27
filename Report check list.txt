@@ -1,13 +1,12 @@
 JS
 X	cartpage.js
 X	checkoutpage.js
-	completedorderspage.js
+X	completedorderspage.js
 	new_product.js
 X	search.js
 	
 PHP_Back_End
 	account_info.php
-	admin_cart.php
 X	checkout.php
 	db_connection.php
 X	delete_product.php
@@ -16,7 +15,7 @@ X	edit_cart.php
 	new_category.php
 	new_product.php
 	order_info.php
-	pending_orders.php
+X	pending_orders.php
 X	search.php
 X	search_functions.php
 	sign_in.php
@@ -24,9 +23,10 @@ X	search_functions.php
 	sign_up.php
 
 htdocs
-	AdminCart.php
+X	AdminCart.php
 	AdminEditProduct.php
 	AdminNewProduct.php
+X	AdminPendingOrders.php
 X	db.sql
 X	Footer.php
 	Index.php

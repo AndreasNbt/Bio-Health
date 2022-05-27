@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="CSS/sign.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
-    <script src="JS/general.js"></script>
     
 </head>
 <body class="d-flex flex-column min-vh-100">
