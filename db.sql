@@ -37,13 +37,20 @@ CREATE TABLE product (
     image VARCHAR(40) NOT NULL,
     category_id INT,
     PRIMARY KEY (id),
-    FOREIGN KEY (category_id) REFERENCES category(id)
+    FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE SET NULL
 );
 
 CREATE TABLE offers (
     id INT AUTO_INCREMENT,
     product_id INT NOT NULL,
     offer_percentage INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+);
+
+CREATE TABLE new (
+    id INT AUTO_INCREMENT,
+    product_id INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
@@ -75,7 +82,7 @@ CREATE TABLE `order` (
     total_cost FLOAT NOT NULL,
     completed BOOLEAN NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES user(user_id)
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE billing_address (
@@ -202,3 +209,13 @@ VALUES
         (12,45),
         (9,20),
         (14,25);
+
+INSERT INTO new (product_id)
+VALUES 
+        (5),
+        (10),
+        (15),
+        (20),
+        (25),
+        (30),
+        (35);

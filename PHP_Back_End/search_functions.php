@@ -33,9 +33,19 @@ function updateSearchResults($search_key, $category_id, $order_id, $user_type) {
     if ($user_type === 'user') {
         $sql_minimum_stock = " AND stock > 0";
     }
-    $sql_product = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product WHERE name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
-    $sql_category = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
-    $sql = $sql_product."\nUNION\n".$sql_category.getOrderQuery($order_id).";";
+
+    if ($search_key != "offers" && $search_key != "new") {
+        $sql_product = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product WHERE name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
+        $sql_category = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
+        $sql = $sql_product."\nUNION\n".$sql_category.getOrderQuery($order_id).";";
+    }
+    else if ($search_key == "offers") {
+        $sql = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product JOIN offers ON product.id = offers.product_id".$sql_minimum_stock.getOrderQuery($order_id);
+    }
+    else {
+        $sql = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product JOIN new ON product.id = new.product_id".$sql_minimum_stock.getOrderQuery($order_id);
+    }
+    
     $res = $con->query($sql);
     while ($row = mysqli_fetch_array($res)) {
         if ($user_type === 'user') {
@@ -55,11 +65,27 @@ function echoAdminProduct($id) {
     $sql = "SELECT name, FORMAT(price, 2), stock, image, category_id FROM `product` WHERE id=$id;";
     $res = $con->query($sql);
     $product = mysqli_fetch_row($res);
+
+    $isOffer = false;
+    $isNew = false;
+
     $name = $product[0];
     $price = $product[1];
     $stock = $product[2];
     $img = $product[3];
     $cat = $product[4];
+
+    $res = $con->query("SELECT offer_percentage FROM offers WHERE product_id = $id");
+    if ($res) {
+        $percentage = mysqli_fetch_row($res)[0];
+        $newPrice = number_format($price - ($percentage/100)*$price,2);
+        $isOffer = true;
+    }
+
+    $res = $con->query("SELECT product_id FROM new WHERE product_id = $id");
+    if ($res) {
+        $isNew = true;
+    }
 
     $sql = "SELECT icon FROM `category` WHERE id=$cat;";
     $res = $con->query($sql);
@@ -79,13 +105,23 @@ function echoAdminProduct($id) {
                 <div class='row'>
                     <div class='col-auto'>
                         <a href='$linkToEditProduct' style='font-size: 14px'>$name<br/>($stock left in stock)</a>
-                    </div>
-                    <div class='col text-end pt-3'>
-                        <p class='product-info' style='font-size: 14px'>{$price}€</p>
-                    </div>
+                    </div>";
+        if ($isOffer) {
+            echo "<div class='col text-end pt-3'>
+                    <p class='product-info erased' style='font-size: 14px'>{$price}€</p>
+                    <p class='product-info' style='font-size: 14px'>{$newPrice}€</p>
+                  </div>
+                </div>";
+        }
+        else {
+          echo "<div class='col text-end pt-3'>
+                    <p class='product-info' style='font-size: 14px'>{$price}€</p>
                 </div>
+          </div>";
+        }
+                    
 
-                <!-- categories and cart button -->
+      echo   "<!-- categories and cart button -->
                 <div class='row' style='padding-left: 0.75rem; padding-right: 0'>
                     <div class='col-auto d-flex flex-wrap align-items-center' style='padding-left: 0;padding-right: 0.25rem'>
                         <img class='img-responsive' src='$icon' style='width: 20px;height: 20px' alt='Product Name'>
@@ -141,6 +177,22 @@ function echoUserProduct($id) {
     $img = $product[3];
     $cat = $product[4];
 
+    $isOffer = false;
+    $isNew = false;
+
+    $res = $con->query("SELECT offer_percentage FROM offers WHERE product_id = $id");
+    if (mysqli_num_rows($res) > 0) {
+        $percentage = mysqli_fetch_row($res)[0];
+        $newPrice = number_format($price - ($percentage/100)*$price,2);
+        $isOffer = true;
+    }
+
+    $res = $con->query("SELECT product_id FROM new WHERE product_id = $id");
+    if ($res) {
+        $isNew = true;
+    }
+
+
     $sql = "SELECT icon FROM `category` WHERE id=$cat;";
     $res = $con->query($sql);
     $icon = mysqli_fetch_row($res)[0];
@@ -175,13 +227,23 @@ function echoUserProduct($id) {
                 <div class='row'>
                     <div class='col-auto'>
                         <a href='$linkToProductInfo' style='font-size: 14px'>$name<br/>(<span id='stock$id'>$stock</span> left in stock)</a>
+                    </div>";
+        if ($isOffer) {
+              echo "<div class='col text-end pt-3'>
+                        <p class='product-info erased' style='font-size: 14px'>{$price}€</p>
+                        <p class='product-info' style='font-size: 14px'>{$newPrice}€</p>
                     </div>
-                    <div class='col text-end pt-3'>
-                        <p class='product-info' style='font-size: 14px'><span id='price$id'>$price</span>€</p>
+                </div>";
+            }
+        else {
+              echo "<div class='col text-end pt-3'>
+                        <p class='product-info' style='font-size: 14px'>{$price}€</p>
                     </div>
-                </div>
+            </div>";
+        }
+                                
 
-                <!-- categories and cart button -->
+       echo    "<!-- categories and cart button -->
                 <div class='row' style='padding-left: 0.75rem; padding-right: 0'>
                     <div class='col-auto d-flex flex-wrap align-items-center' style='padding-left: 0;padding-right: 0.25rem'>
                         <img class='img-responsive' src='$icon' style='width: 20px;height: 20px' alt='Product Name'>

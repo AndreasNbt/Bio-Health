@@ -161,7 +161,7 @@
 
         <div class="row justify-content-center" id="firstRowAfterCarousel">
             <div class="col-4">
-                <a href="Search.php">
+                <a href="Search.php?search_key=offers">
                     <figure class="figure">
                         <img src="https://picsum.photos/3000/2500" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -172,7 +172,7 @@
                 </a>
             </div>
             <div class="col-4">
-                <a href="Search.php">
+                <a href="Search.php?search_key=new">
                     <figure class="figure">
                         <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
