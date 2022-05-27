@@ -8,7 +8,7 @@ X	search.js
 PHP_Back_End
 	account_info.php
 	admin_cart.php
-	checkout.php
+X	checkout.php
 	db_connection.php
 X	delete_product.php
 X	edit_cart.php
@@ -34,12 +34,12 @@ X	Navbar.php
 X	Search.php
 	UserAccountManagement.php
 X	UserCart.php
-	UserCheckout.php
+X	UserCheckout.php
 	UserContactForm.php
 	UserContactFormCompletion.php
 	UserFavourites.php
 	UserMoreInfo.php
-	UserOrderCompletion.php
+X	UserOrderCompletion.php
 	UserOrderInfo.php
 	UserProductInfo.php
 	UserSignIn.php
