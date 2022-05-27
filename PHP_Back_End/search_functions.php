@@ -160,6 +160,7 @@ function echoUserProduct($id) {
         $hidden = "hidden ";
     }
     $totalCost = $amount * $price;
+    $totalCost = number_format($totalCost, 2);
 
     mysqli_close($con);
 

@@ -16,6 +16,9 @@
         <script src="https://kit.fontawesome.com/61e165c770.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="CSS/cartpage.css">
         <script src="JS/cartpage.js"></script>
+        <link rel="stylesheet" href="CSS/searchpage.css">
+        <script src="JS/search.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body class="d-flex flex-column min-vh-100">
         
@@ -23,6 +26,14 @@
         <br>
 
         <?php
+            $id = "";
+            $name = "";
+            $price = "";
+            $stock = "";
+            $desc = "";
+            $img = "";
+            $cat = "";
+            $icon = "";
             if (isset($_GET['productID'])) {
                 $id = $_GET['productID'];
 
@@ -61,32 +72,98 @@
                     <div class="d-flex flex-column" >
                         <?php
                           echo "<h5 style='font-weight: bold'>$name</h5>
-                                Price: {$price}€ </br>
-                                Stock: $stock";
+                                <p>
+                                    Price: <span id='price$id'>$price</span>€</br>
+                                    Stock: <span id='stock$id'>$stock</span>
+                                </p>";
                         ?>
                     </div>
 
                     <div class="d-flex justify-content-between light-green p-2">
-                        <button id="addToCartBtn" class="add-btn light-green">Add to Cart</button>
-                        <div class="d-flex">
-                            <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserCart.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                            <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserFavorites.php"><i class="fa-solid fa-heart fa-2x"></i></a>
-                        </div> 
+                        <?php
+                            if (isset($_GET['productID'])) {
+                                $id = $_GET['productID'];
+
+                                include("PHP_Back_End/db_connection.php");
+
+                                $sql = "SELECT name, FORMAT(price, 2), stock, image, category_id FROM `product` WHERE id=$id;";
+                                $res = $con->query($sql);
+                                $product = mysqli_fetch_row($res);
+                                $name = $product[0];
+                                $price = $product[1];
+                                $stock = $product[2];
+                                $img = $product[3];
+                                $cat = $product[4];
+
+                                $sql = "SELECT icon FROM `category` WHERE id=$cat;";
+                                $res = $con->query($sql);
+                                $icon = mysqli_fetch_row($res)[0];
+                                $linkToProductInfo = "UserProductInfo.php"."?productID=$id";
+
+                                $amount = 0;
+                                $hidden = "";
+                                if (isset($_SESSION['ID'])) {
+                                    $user_id = $_SESSION['ID'];
+                                    $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
+                                    $res = $con->query($sql);
+                                    if (mysqli_num_rows($res) > 0) {
+                                        $amount = mysqli_fetch_row($res)[0];
+                                    }
+                                }
+                                else {
+                                    $hidden = "hidden ";
+                                }
+                                $totalCost = $amount * $price;
+
+                                mysqli_close($con);
+
+                                echo "<button {$hidden}type='button' class='add-btn light-green' data-bs-toggle='modal' data-bs-target='#addToCartModal$id' onclick='saveValues(\"$id\")'>Add to cart</button>
+                                   <div class='modal fade' id='addToCartModal$id'>
+                                       <div class='modal-dialog modal-lg'>
+                                           <div class='modal-content'>
+            
+                                               <div class='modal-header'>
+                                                   <h3 class='modal-title' style='padding-left: 1.5rem'>Add $name to your cart</h3>
+                                                   <button type='button' style='padding-right: 1.5rem' class='btn-close' data-bs-dismiss='modal'></button>
+                                               </div>
+            
+                                               <div class='modal-body'>
+                                                   <div class='container-fluid'>
+                                                       <div class='row'>
+                                                           <div class='col-6'>
+                                                               <p class='text-lg'>Product name: $name</p>
+                                                               <p class='text-lg'>Available stock: $stock</p>
+                                                               <p class='text-lg' style='font-weight: bold'>Cost: <span id='costAddedToCart$id'>{$totalCost}€</span></p>
+                                                           </div>
+            
+                                                           <div class='col-6'>
+                                                               <label class='form-label float-end text-lg' for='amountAddedToCart$id'>Amount to be added to cart:</label>
+                                                               <input type='number' id='amountAddedToCart$id' class='form-control float-end text-lg' min='0' max='$stock' style='width: 12.5rem' value='$amount' onchange='updateCost($id)'/>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+            
+                                               <div class='modal-footer'>
+                                                   <button type='button' class='btn btn-outline-success text-lg' id='finishCartButton$id' data-bs-dismiss='modal' onclick='addToCart(\"$id\")'>Finish</button>
+                                                   <button type='button' class='btn btn-outline-danger text-lg' data-bs-dismiss='modal' onclick='restoreValues(\"$id\")'>Cancel</button>
+                                               </div>
+            
+                                           </div>
+                                       </div>";
+                            }
+                        ?>
+                    </div>
+                    <div class="d-flex">
+                        <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserCart.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                        <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserFavorites.php"><i class="fa-solid fa-heart fa-2x"></i></a>
                     </div>
 
-                    <div class="mt-5"> 
+                    <div>
                         <ul class="nav nav-tabs" id="myTab" >
                             <li class="nav-item">
                                 <a href="#description" class="nav-link active" data-bs-toggle="tab">Description</a>
                             </li>
-                                <!--
-                                <li class="nav-item">
-                                    <a href="#ingredients" class="nav-link" data-bs-toggle="tab">Ingredients</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#nutritional" class="nav-link" data-bs-toggle="tab">Nutritional table </a>
-                                </li>
-                                -->
                         </ul>
                         <div class="tab-content" style="border-top:2px solid green">
                             <div class="tab-pane fade show active" id="description">
