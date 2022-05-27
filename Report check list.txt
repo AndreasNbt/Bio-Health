@@ -1,6 +1,6 @@
 JS
 X	cartpage.js
-	checkoutpage.js
+X	checkoutpage.js
 	completedorderspage.js
 	new_product.js
 X	search.js
@@ -16,7 +16,6 @@ X	edit_cart.php
 	new_category.php
 	new_product.php
 	order_info.php
-	pending_orders.php
 X	search.php
 X	search_functions.php
 	sign_in.php
