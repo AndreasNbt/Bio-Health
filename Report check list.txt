@@ -1,0 +1,46 @@
+JS
+X	cartpage.js
+	checkoutpage.js
+	completedorderspage.js
+	new_product.js
+X	search.js
+	
+PHP_Back_End
+	account_info.php
+	admin_cart.php
+	checkout.php
+	db_connection.php
+X	delete_product.php
+X	edit_cart.php
+	edit_product.php
+	new_category.php
+	new_product.php
+	order_info.php
+	pending_orders.php
+X	search.php
+X	search_functions.php
+	sign_in.php
+	sign_out.php
+	sign_up.php
+
+htdocs
+	AdminCart.php
+	AdminEditProduct.php
+	AdminNewProduct.php
+X	db.sql
+X	Footer.php
+	Index.php
+X	Navbar.php
+X	Search.php
+	UserAccountManagement.php
+X	UserCart.php
+	UserCheckout.php
+	UserContactForm.php
+	UserContactFormCompletion.php
+	UserFavourites.php
+	UserMoreInfo.php
+	UserOrderCompletion.php
+	UserOrderInfo.php
+	UserProductInfo.php
+	UserSignIn.php
+	UserSignUp.php

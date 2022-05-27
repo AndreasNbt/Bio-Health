@@ -57,11 +57,11 @@ if (!isset($row[4])) {
                         SET Zip_Code = '$billing_zip'
                         WHERE User_ID = $user_id");
 }
-/*if (!isset($row[5])) {
+if (!isset($row[5])) {
     $res = $con->query("UPDATE user_info 
-                        SET Phone_Number = '$billing_phone'
-                        WHERE User_ID = $id");
-}*/
+                        SET Phone_Number = '$phone_number'
+                        WHERE User_ID = $user_id");
+}
 
 
 $card_name = $_POST['card_name'];
