@@ -22,7 +22,7 @@
                 <br>
                 <br>
                 <p class="copyright">@ 2022 Bio & Health. All rights reserved.</p>
-                <p class="copyright"><a class="black" href="UserProductInfo.php">Terms of use</a> | <a href="UserProductInfo.php" class="black">Personal data</a>
+                <p class="copyright"><a class="black" href="UserMoreInfo.php">Terms of use</a> | <a href="UserMoreInfo.php" class="black">Personal data</a>
             </div>
         </div>
     </section>

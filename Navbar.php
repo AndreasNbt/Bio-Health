@@ -34,10 +34,10 @@
                     return $data;
                 }
                 $search_key = validate($_GET['search_key']);
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search...' value='$search_key'$onkeyup_attribute>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product or category...' value='$search_key'$onkeyup_attribute>";
             }
             else {
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search...'$onkeyup_attribute>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product or category...'$onkeyup_attribute>";
             }
             echo "<button type='submit' class='search-button position-relative'><i class='fa-solid fa-magnifying-glass fa-lg dark-green'></i></button>";
             echo "</form>";
