@@ -34,6 +34,10 @@
             $img = "";
             $cat = "";
             $icon = "";
+
+        $amount = 0;
+        $totalCost = 0;
+        $hidden = "";
             if (isset($_GET['productID'])) {
                 $id = $_GET['productID'];
 
@@ -52,6 +56,19 @@
                 $sql = "SELECT icon FROM `category` WHERE id=$cat;";
                 $res = $con->query($sql);
                 $icon = mysqli_fetch_row($res)[0];
+
+                if (isset($_SESSION['ID']) and $_SESSION['role'] === "Customer") {
+                    $user_id = $_SESSION['ID'];
+                    $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
+                    $res = $con->query($sql);
+                    if (mysqli_num_rows($res) > 0) {
+                        $amount = mysqli_fetch_row($res)[0];
+                    }
+                }
+                else {
+                    $hidden = "hidden ";
+                }
+                $totalCost = $amount * $price;
 
                 mysqli_close($con);
             }
@@ -81,44 +98,8 @@
 
                     <div class="d-flex justify-content-between light-green p-2">
                         <?php
-                            if (isset($_GET['productID'])) {
-                                $id = $_GET['productID'];
-
-                                include("PHP_Back_End/db_connection.php");
-
-                                $sql = "SELECT name, FORMAT(price, 2), stock, image, category_id FROM `product` WHERE id=$id;";
-                                $res = $con->query($sql);
-                                $product = mysqli_fetch_row($res);
-                                $name = $product[0];
-                                $price = $product[1];
-                                $stock = $product[2];
-                                $img = $product[3];
-                                $cat = $product[4];
-
-                                $sql = "SELECT icon FROM `category` WHERE id=$cat;";
-                                $res = $con->query($sql);
-                                $icon = mysqli_fetch_row($res)[0];
-                                $linkToProductInfo = "UserProductInfo.php"."?productID=$id";
-
-                                $amount = 0;
-                                $hidden = "";
-                                if (isset($_SESSION['ID'])) {
-                                    $user_id = $_SESSION['ID'];
-                                    $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
-                                    $res = $con->query($sql);
-                                    if (mysqli_num_rows($res) > 0) {
-                                        $amount = mysqli_fetch_row($res)[0];
-                                    }
-                                }
-                                else {
-                                    $hidden = "hidden ";
-                                }
-                                $totalCost = $amount * $price;
-
-                                mysqli_close($con);
-
-                                echo "<button {$hidden}type='button' class='add-btn light-green' data-bs-toggle='modal' data-bs-target='#addToCartModal$id' onclick='saveValues(\"$id\")'>Add to cart</button>
-                                   <div class='modal fade' id='addToCartModal$id'>
+                            echo "<button {$hidden}type='button' class='add-btn light-green' data-bs-toggle='modal' data-bs-target='#addToCartModal$id' onclick='saveValues(\"$id\")'>Add to cart</button>
+                                  <div class='modal fade' id='addToCartModal$id'>
                                        <div class='modal-dialog modal-lg'>
                                            <div class='modal-content'>
             
@@ -151,12 +132,15 @@
             
                                            </div>
                                        </div>";
-                            }
                         ?>
                     </div>
                     <div class="d-flex">
-                        <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserCart.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                        <a class="nav-item nav-link nav-icon text-center dark-gray" href="UserFavorites.php"><i class="fa-solid fa-heart fa-2x"></i></a>
+                        <?php
+                            if (isset($_SESSION['ID']) and $_SESSION['role'] === "Customer") {
+                                echo "<a class='nav-item nav-link nav-icon text-center dark-gray' href='UserCart.php'><i class='fa-solid fa-cart-shopping fa-2x'></i></a>
+                                      <a class='nav-item nav-link nav-icon text-center dark-gray' href='UserFavorites.php'><i class='fa-solid fa-heart fa-2x'></i></a>";
+                            }
+                        ?>
                     </div>
 
                     <div>
