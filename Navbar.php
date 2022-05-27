@@ -44,7 +44,14 @@
         ?>
         <div class="navbar-nav d-flex flex-row justify-content-between">
             <div class="dropdown">
-                <a class="nav-item nav-link nav-icon text-center dark-gray me-3" href="#"><i class="fa-solid fa-user-gear fa-2x"></i></a>
+                <?php
+                    if (isset($_SESSION['ID']) and isset($_SESSION['role']) and $_SESSION['role'] === "Customer") {
+                        echo "<a class='nav-item nav-link nav-icon text-center dark-gray me-3' href='#'><i class='fa-solid fa-user-gear fa-2x'></i></a>";
+                    }
+                    else {
+                        echo "<a class='nav-item nav-link nav-icon text-center dark-gray me-0' href='#'><i class='fa-solid fa-user-gear fa-2x'></i></a>";
+                    }
+                ?>
                 <div class="dropdown-content">
                     <?php
                         if (isset($_SESSION['ID']) and isset($_SESSION['role'])) {
