@@ -16,6 +16,7 @@ X	edit_cart.php
 	new_category.php
 	new_product.php
 	order_info.php
+	pending_orders.php
 X	search.php
 X	search_functions.php
 	sign_in.php

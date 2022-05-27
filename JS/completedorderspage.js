@@ -3,7 +3,7 @@ function deleteOrder(orderIndex) {
 }
 
 function completeOrder(order_id) {
-    $.get('AdminPendingOrders.php', {order_id:order_id}, function(data){
+    $.get('PHP_Back_End/pending_orders.php', {order_id:order_id}, function(data){
         return false;
     });
     document.getElementById("order" + order_id).remove()
@@ -25,7 +25,7 @@ function updateOrders(order_row) {
         document.getElementById(order_row).value = "ASC";
     }
     console.log(order_row + " - " + order_type);
-    $.get('AdminPendingOrders.php', {order_row:order_row, order_type:order_type}, function(data){
+    $.get('PHP_Back_End/pending_orders.php', {order_row:order_row, order_type:order_type}, function(data){
         $("#orders").html(data);
     });
     updateURL(order_row, order_type);
