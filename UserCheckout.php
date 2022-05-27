@@ -182,7 +182,7 @@
                                 $res = $con->query($sql);
                                 $shipping_cost = mysqli_fetch_row($res)[0];
 
-                                $sql = "SELECT amount, price FROM cart_item, product WHERE user_id=$user_id AND cart_item.product_id=product.id;";
+                                $sql = "SELECT amount, FORMAT(price, 2) FROM cart_item, product WHERE user_id=$user_id AND cart_item.product_id=product.id;";
                                 $res = $con->query($sql);
                                 mysqli_close($con);
 
@@ -192,6 +192,7 @@
                                     $total_cost += $item[0] * $item[1];
                                 }
                                 $total_cost += $shipping_cost;
+                                $total_cost = number_format($total_cost, 2);
                                 echo "<input hidden name='total_cost' value='$total_cost'/>";
                                 echo "$total_cost";
                             ?></span>€

@@ -28,7 +28,7 @@
 
                 include("PHP_Back_End/db_connection.php");
 
-                $sql = "SELECT name, price, stock, description, image, category_id FROM `product` WHERE id=$id;";
+                $sql = "SELECT name, FORMAT(price, 2), stock, description, image, category_id FROM `product` WHERE id=$id;";
                 $res = $con->query($sql);
                 $product = mysqli_fetch_row($res);
                 $name = $product[0];

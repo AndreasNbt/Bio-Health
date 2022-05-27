@@ -12,7 +12,7 @@ while ($item = mysqli_fetch_row($res)) {
     echocart_item($item[0], $item[1], $item[2]);
 }
 
-$sql = "SELECT total_cost, DATE_FORMAT(latest_delivery, '%e/%c/%Y'), datediff(latest_delivery, CURRENT_DATE) FROM `order` WHERE id='$order_id';";
+$sql = "SELECT FORMAT(total_cost, 2), DATE_FORMAT(latest_delivery, '%e/%c/%Y'), datediff(latest_delivery, CURRENT_DATE) FROM `order` WHERE id='$order_id';";
 $res = $con->query($sql);
 $order = mysqli_fetch_row($res);
 $total_cost =$order[0];
@@ -52,7 +52,7 @@ echo "</div>
 function echocart_item($item_id, $product_id, $amount) {
     include("PHP_Back_End/db_connection.php");
 
-    $sql = "SELECT name, price, stock, image FROM `product` WHERE id=$product_id;";
+    $sql = "SELECT name, FORMAT(price, 2), stock, image FROM `product` WHERE id=$product_id;";
     $res = $con->query($sql);
     $product = mysqli_fetch_row($res);
     $name = $product[0];

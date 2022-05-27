@@ -87,7 +87,7 @@
             function echocart_item($item_id, $product_id, $amount) {
                 include("PHP_Back_End/db_connection.php");
 
-                $sql = "SELECT name, price, stock, image FROM `product` WHERE id=$product_id;";
+                $sql = "SELECT name, FORMAT(price, 2), stock, image FROM `product` WHERE id=$product_id;";
                 $res = $con->query($sql);
                 $product = mysqli_fetch_row($res);
                 $name = $product[0];

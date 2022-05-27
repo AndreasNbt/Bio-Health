@@ -26,7 +26,7 @@
 
         $pID = $_GET['productID'];
 
-        $sql = "SELECT name, price, stock, description, image, category_id
+        $sql = "SELECT name, FORMAT(price, 2), stock, description, image, category_id
                 FROM product
                 WHERE id = '$pID'";
         

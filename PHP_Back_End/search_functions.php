@@ -33,8 +33,8 @@ function updateSearchResults($search_key, $category_id, $order_id, $user_type) {
     if ($user_type === 'user') {
         $sql_minimum_stock = " AND stock > 0";
     }
-    $sql_product = "SELECT product.id, product.price, product.stock FROM product WHERE name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
-    $sql_category = "SELECT product.id, product.price, product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
+    $sql_product = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product WHERE name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
+    $sql_category = "SELECT product.id, FORMAT(product.price, 2), product.stock FROM product, category WHERE product.category_id=category.id AND category.name LIKE '%$search_key%'".$sql_minimum_stock.getCategoryQuery($category_id);
     $sql = $sql_product."\nUNION\n".$sql_category.getOrderQuery($order_id).";";
     $res = $con->query($sql);
     while ($row = mysqli_fetch_array($res)) {
@@ -52,7 +52,7 @@ function echoAdminProduct($id) {
 
     include("db_connection.php");
 
-    $sql = "SELECT name, price, stock, image, category_id FROM `product` WHERE id=$id;";
+    $sql = "SELECT name, FORMAT(price, 2), stock, image, category_id FROM `product` WHERE id=$id;";
     $res = $con->query($sql);
     $product = mysqli_fetch_row($res);
     $name = $product[0];
@@ -132,7 +132,7 @@ function echoUserProduct($id) {
 
     include("db_connection.php");
 
-    $sql = "SELECT name, price, stock, image, category_id FROM `product` WHERE id=$id;";
+    $sql = "SELECT name, FORMAT(price, 2), stock, image, category_id FROM `product` WHERE id=$id;";
     $res = $con->query($sql);
     $product = mysqli_fetch_row($res);
     $name = $product[0];

@@ -52,7 +52,7 @@ function echoOrder($order_id) {
 
     include("db_connection.php");
 
-    $sql = "SELECT user_id,  DATE_FORMAT(order_date, '%e/%c/%Y'), DATE_FORMAT(latest_delivery, '%e/%c/%Y'), total_cost FROM `order` WHERE id='$order_id';";
+    $sql = "SELECT user_id,  DATE_FORMAT(order_date, '%e/%c/%Y'), DATE_FORMAT(latest_delivery, '%e/%c/%Y'), FORMAT(total_cost, 2) FROM `order` WHERE id='$order_id';";
     $res = $con->query($sql);
     if (mysqli_num_rows($res) > 0) {
         $order = mysqli_fetch_row($res);
