@@ -113,7 +113,7 @@
                               <div class='col-1'> <button type='button' style='padding-right: 1.5rem;scale: 75%' class='btn-close float-end' onclick='removeFromCart(\"$item_id\");removeItem(\"$item_id\"); updateSubtotal(); updateTotal()'></button></div>   
                           </div>
                           <hr class='border-2 border-top border-primary mb-4'>
-                          <script>console.log(\"pushed\");item_ids.push(\"$item_id\");</script>
+                          <script>item_ids.push(\"$item_id\");</script>
                       </div>";
             }
 

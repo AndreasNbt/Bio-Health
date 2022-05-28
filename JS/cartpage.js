@@ -1,7 +1,5 @@
 let item_ids = []
 
-console.log(item_ids);
-
 function updateShippingType() {
     var shipping_select = document.getElementById("shipping_type");
     var cost = shipping_select.options[shipping_select.selectedIndex].value.split("|")[0];
@@ -25,7 +23,6 @@ function removeFromCart(item_id) {
 }
 
 function updateCosts() {
-    console.log(item_ids);
     for (let i = 0 ; i < item_ids.length ; i++) {
         updateCost(parseFloat(document.getElementById('amountAddedToCart' + item_ids[i].toString()).value), parseFloat(document.getElementById("costAddedToCart" + item_ids[i].toString()).innerHTML), parseFloat(document.getElementById("stock" + item_ids[i].toString()).innerHTML), item_ids[i])
     }
@@ -36,7 +33,6 @@ function updateTotal() {
 }
 
 function updateSubtotal() {
-    console.log(item_ids);
     if (item_ids.length === 0) {
         document.getElementById("empty_message").style.display = "inline"
         document.getElementById("checkout_button").disabled = true;
@@ -52,7 +48,6 @@ function updateSubtotal() {
 }
 
 function removeItem(elementIndex) {
-    console.log(item_ids);
     var index = item_ids.indexOf(elementIndex);
     if (index !== -1) {
         item_ids.splice(index, 1);

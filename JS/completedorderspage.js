@@ -10,7 +10,6 @@ function completeOrder(order_id) {
 }
 
 function updateOrders(order_row) {
-    console.log("hi1");
     var order_type = document.getElementById(order_row).value;
     if (order_type === "ASC") {
         document.getElementById(order_row + "_sort_icon").innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 512\" style=\"width: 12px; vertical-align: bottom; cursor: pointer\">" +
@@ -24,7 +23,6 @@ function updateOrders(order_row) {
             "<path d=\"M311.9 335.1l-132.4 136.8C174.1 477.3 167.1 480 160 480c-7.055 0-14.12-2.702-19.47-8.109l-132.4-136.8C-9.229 317.8 3.055 288 27.66 288h264.7C316.9 288 329.2 317.8 311.9 335.1z\"/></svg>"
         document.getElementById(order_row).value = "ASC";
     }
-    console.log(order_row + " - " + order_type);
     $.get('PHP_Back_End/pending_orders.php', {order_row:order_row, order_type:order_type}, function(data){
         $("#orders").html(data);
     });
@@ -32,7 +30,6 @@ function updateOrders(order_row) {
 }
 
 function updateURL(order_row, order_type){
-    console.log("hi2");
     var ordersUrl = "AdminPendingOrders.php";
     var orderRowUrl = "?order_row=" + order_row;
     var orderTypeUrl = "&order_type=" + order_type;
