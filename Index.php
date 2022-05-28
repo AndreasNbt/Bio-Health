@@ -24,8 +24,8 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    
-<?php 
+
+<?php
     include "Navbar.php";
 ?>
 
@@ -161,7 +161,7 @@
 
         <div class="row justify-content-center" id="firstRowAfterCarousel">
             <div class="col-4">
-                <a href="Search.php?search_key=offers">
+                <a href="Search.php?search_key=&category=-1">
                     <figure class="figure">
                         <img src="https://picsum.photos/3000/2500" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -172,7 +172,7 @@
                 </a>
             </div>
             <div class="col-4">
-                <a href="Search.php?search_key=new">
+                <a href="Search.php?search_key=&category=-2">
                     <figure class="figure">
                         <img src="https://picsum.photos/1920/720" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
@@ -195,16 +195,16 @@
     </div>
 </div>
 
-    
-<?php 
+
+<?php
     include "Footer.php";
 ?>
 
-    <script>
-        $('.carousel').carousel({
+<script>
+    $('.carousel').carousel({
         interval: 4000
-      })
-    </script>
+    })
+</script>
 
 </body>
 

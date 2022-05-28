@@ -104,6 +104,16 @@
                         } else {
                             echo "<option value='0' 'selected'>Show All</option>";
                         }
+                        $selected_option = "";
+                        if ($category_value === '-1') {
+                            $selected_option = " selected";
+                        }
+                        echo "<option value='-1'$selected_option>Offers</option>";
+                        $selected_option = "";
+                        if ($category_value === '-2') {
+                            $selected_option = " selected";
+                        }
+                        echo "<option value='-2'$selected_option>New Products</option>";
 
                         $sql = "SELECT id, name FROM `category`;";
                         $res = $con->query($sql);

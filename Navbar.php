@@ -1,8 +1,8 @@
 <?php
     session_start();
-    function echoNavCategory($row) {
+    function echoNavCategory($category_id, $category_name) {
         echo  '<li class="nav-item">';
-        echo  '<a class="nav-link ps-0" href="Search.php?search_key=&category=1">'.$row[0].'</a>';
+        echo  "<a class='nav-link ps-0' href='Search.php?search_key=&category=$category_id'>".$category_name.'</a>';
         echo  '</li>';
     }
 ?>
@@ -96,12 +96,14 @@
                         </li>';
                     }
                     else {
-                        $sql = "SELECT name FROM category";
+                        $sql = "SELECT id, name FROM category";
 
                         $res = $con->query($sql);
-    
+
+                        echoNavCategory(-1, "Offers");
+                        echoNavCategory(-2, "New Products");
                         while ($row = mysqli_fetch_row($res)) {
-                            echoNavCategory($row);
+                            echoNavCategory($row[0], $row[1]);
                         }
                     } 
                 ?>

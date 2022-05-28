@@ -53,7 +53,7 @@ function updateShownKey() {
 
 function updateURL(search_key, category_id, order_id){
     var searchUrl = "Search.php?search_key=" + search_key;
-    var categoryUrl = (category_id > 0)?("&category=" + category_id):("");
+    var categoryUrl = (category_id >= -2)?("&category=" + category_id):("");
     var orderUrl = (order_id > 0)?("&order=" + order_id):("");
     window.history.pushState("", "", searchUrl + categoryUrl + orderUrl);
 }

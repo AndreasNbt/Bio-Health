@@ -234,8 +234,3 @@
     color: var(--primary-color-colored);
     background-color: transparent;
 }
-
-.erased {
-    color: red;
-    text-decoration: line-through;
-}

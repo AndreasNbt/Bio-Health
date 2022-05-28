@@ -182,19 +182,29 @@
                                 $res = $con->query($sql);
                                 $shipping_cost = mysqli_fetch_row($res)[0];
 
-                                $sql = "SELECT amount, FORMAT(price, 2) FROM cart_item, product WHERE user_id=$user_id AND cart_item.product_id=product.id;";
+                                $sql = "SELECT product.id, amount, FORMAT(price, 2) FROM cart_item, product WHERE user_id=$user_id AND cart_item.product_id=product.id;";
                                 $res = $con->query($sql);
-                                mysqli_close($con);
 
                                 $total_cost = 0;
                                 while ($item = mysqli_fetch_row($res)) {
-                                    $a = $item[0] * $item[1];
-                                    $total_cost += $item[0] * $item[1];
+                                    $product_id = $item[0];
+                                    $amount = $item[1];
+                                    $initial_price = $item[2];
+
+                                    $price = $initial_price;
+                                    $temp_res = $con->query("SELECT offer_percentage FROM offers WHERE product_id = $product_id");
+                                    if (mysqli_num_rows($temp_res) > 0) {
+                                        $percentage = mysqli_fetch_row($temp_res)[0];
+                                        $price = number_format($initial_price - ($percentage/100)*$initial_price,2);
+                                    }
+
+                                    $total_cost += $amount * $price;
                                 }
                                 $total_cost += $shipping_cost;
                                 $total_cost = number_format($total_cost, 2);
                                 echo "<input hidden name='total_cost' value='$total_cost'/>";
                                 echo "$total_cost";
+                                mysqli_close($con);
                             ?></span>€
                     </b>
                 </div>

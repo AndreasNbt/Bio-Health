@@ -245,13 +245,22 @@
                   $res = $con->query($sql);
                   $product = mysqli_fetch_row($res);
                   $name = $product[0];
-                  $price = $product[1];
+                  $initial_price = $product[1];
                   $stock = $product[2];
                   $img = $product[3];
+                  $linkToEditProduct = "AdminEditProduct.php"."?productID=$product_id";
+
+                  $price = $initial_price;
+                  $res = $con->query("SELECT offer_percentage FROM offers WHERE product_id = $product_id");
+                  if (mysqli_num_rows($res) > 0) {
+                      $percentage = mysqli_fetch_row($res)[0];
+                      $price = number_format($initial_price - ($percentage/100)*$initial_price,2);
+                  }
+
+                  mysqli_close($con);
+
                   $value = $amount * $price;
                   $value = number_format($value, 2);
-                  $linkToEditProduct = "AdminEditProduct.php"."?productID=$product_id";
-                  mysqli_close($con);
 
                   echo "<div'>
                   <div class='row justify-content-between align-items-center'>
