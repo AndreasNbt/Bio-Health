@@ -265,7 +265,7 @@
                   echo "<div'>
                   <div class='row justify-content-between align-items-center'>
                       <div class='col-2'><img class='img-responsive rounded' src='$img' style='width: 100px;height: 100px' alt='Image of $name'></div>
-                      <div class='col-3'><a href='$linkToEditProduct'>$name<br>($stock in stock)</a></div>
+                      <div class='col-3'><a href='$linkToEditProduct' style='word-break: break-word'>$name<br>($stock in stock)</a></div>
                       <div class='col-1'>Amount:&nbsp$amount</div>
                       <div class='col-2 text-center'>{$value}€</div>
                   </div>

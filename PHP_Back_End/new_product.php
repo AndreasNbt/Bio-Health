@@ -16,7 +16,7 @@
     $productCategory = validate($_POST['product_category']);
     $productPrice = validate($_POST['product_price']);
     $productStock = validate($_POST['product_stock']);
-    $productImage = "sources/images/" . validate($_POST['product_image']);
+    $productImage = "sources/images/products/" . validate($_POST['product_image']);
 
     if (empty($productName)) {
         header("Location: ../AdminNewProduct.php?error=Product name is required");

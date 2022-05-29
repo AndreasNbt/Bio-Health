@@ -62,7 +62,7 @@
                 </div>
                 <div class="solid-border col-3 container small-container">
                     <div class="logo mt-3">
-                        <a href="#"><img src="sources/images/bioandhealthlogo.png" width="128" height="128" alt="Logo"></a>
+                        <a href="#"><img src="sources/images/other/bioandhealthlogo.png" width="128" height="128" alt="Logo"></a>
                     </div>
                     <h2 class="dark-green header-text my-5">Don't have an account?</h2>
                     <h6 class="fill-text mx-0">Don't worry, you can sign up with the button below</h6>

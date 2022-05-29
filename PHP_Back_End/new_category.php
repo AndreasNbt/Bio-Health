@@ -13,7 +13,7 @@
     }
 
     $categoryName = validate($_POST['category']);
-    $categoryImage = "sources/images/" . $_POST['category_image'];
+    $categoryImage = "sources/images/category_icons/" . $_POST['category_image'];
 
 
     $sql = "INSERT INTO category(name, icon)

@@ -41,7 +41,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a href="Search.php?search_key=&category=-1">
-                    <img src="sources/images/carousel_offers.png" class="d-block w-100" alt="...">
+                    <img src="sources/images/carousel_slides/carousel_offers.png" class="d-block w-100" alt="...">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Offers</h5>
@@ -50,7 +50,7 @@
             </div>
             <div class="carousel-item">
                 <a href="Search.php?search_key=&category=-2">
-                    <img src="sources/images/carousel_new.png" class="d-block w-100" alt="...">
+                    <img src="sources/images/carousel_slides/carousel_new.png" class="d-block w-100" alt="...">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5 style="color: white">New products</h5>
@@ -59,7 +59,7 @@
             </div>
             <div class="carousel-item">
                 <a href="Search.php?search_key=&category=1">
-                    <img src="sources/images/carousel_vegan.png" class="d-block w-100" alt="...">
+                    <img src="sources/images/carousel_slides/carousel_vegan.png" class="d-block w-100" alt="...">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Vegan products</h5>
@@ -67,11 +67,11 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#indexCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#indexCarousel" data-bs-slide="prev" style="margin-top: 19%; margin-bottom: 19%">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#indexCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#indexCarousel" data-bs-slide="next" style="margin-top: 19%; margin-bottom: 19%">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -81,29 +81,29 @@
         <h1 class="navbar-logo-1 pb-3">Take a look at our products</h1>
         <div class="d-flex justify-content-around">
             <a href="Search.php?search_key=&category=1">
-                <img class="img-responsive rounded" src="sources/images/vegan_index_image.png" style="width: 300px;height: 300px" alt="Product Name">
+                <img class="img-responsive rounded" src="sources/images/index_categories/vegan_index_image.png" style="width: 300px;height: 300px" alt="Product Name">
                 <h5 class="caption black">Vegan</h5>
             </a>
             <a href="Search.php?search_key=&category=2">
-                <img class="img-responsive rounded" src="sources/images/gluten_free_free_index_image.png" style="width: 300px;height: 300px" alt="Product Name">
+                <img class="img-responsive rounded" src="sources/images/index_categories/gluten_free_free_index_image.png" style="width: 300px;height: 300px" alt="Product Name">
                 <h5 class="caption black">Gluten Free</h5>
             </a>
             <a href="Search.php?search_key=&category=3">
-                <img class="img-responsive rounded" src="sources/images/snacks.png" style="width: 300px;height: 300px" alt="Product Name">
+                <img class="img-responsive rounded" src="sources/images/index_categories/snacks.png" style="width: 300px;height: 300px" alt="Product Name">
                 <h5 class="caption black">Snacks</h5>
             </a>
         </div>
         <div class="d-flex justify-content-around mt-3">
             <a href="Search.php?search_key=&category=4">
-                <img class="img-responsive rounded" src="sources/images/personal_care.png" style="width: 300px;height: 300px" alt="Product Name">
+                <img class="img-responsive rounded" src="sources/images/index_categories/personal_care.png" style="width: 300px;height: 300px" alt="Product Name">
                 <h5 class="caption black">Personal Care</h5>
             </a>
             <a href="Search.php?search_key=&category=5">
-                <img class="img-responsive rounded" src="sources/images/pastries.png" style="width: 300px;height: 300px" alt="Product Name">
+                <img class="img-responsive rounded" src="sources/images/index_categories/pastries.png" style="width: 300px;height: 300px" alt="Product Name">
                 <h5 class="caption black">Pastries & Confectionery</h5>
             </a>
             <a href="Search.php?search_key=&category=6">
-                <img class="img-responsive rounded" src="sources/images/spreads.png" style="width: 300px;height: 300px" alt="Product Name">
+                <img class="img-responsive rounded" src="sources/images/index_categories/spreads.png" style="width: 300px;height: 300px" alt="Product Name">
                 <h5 class="caption black">Spreads</h5>
             </a>
         </div>
@@ -113,20 +113,20 @@
             <div class="col">
                 <a href="Search.php?search_key=&category=-1">
                     <figure class="figure">
-                        <img src="sources/images/offers_promotion_image.png" class="img-fluid rounded" alt="Offers">
+                        <img src="sources/images/other/offers_promotion_image.png" class="img-fluid rounded" alt="Offers">
                     </figure>
                 </a>
             </div>
             <div class="col">
                 <a href="Search.php?search_key=&category=-2">
                     <figure class="figure">
-                        <img src="sources/images/new_products_promotion_image.png" class="img-fluid rounded mx-auto d-block"
+                        <img src="sources/images/other/new_products_promotion_image.png" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
                     </figure>
                 </a>
                 <a href="UserMoreInfo.php">
                     <figure class="figure">
-                        <img src="sources/images/about_us_image.png" class="img-fluid rounded mx-auto d-block"
+                        <img src="sources/images/other/about_us_image.png" class="img-fluid rounded mx-auto d-block"
                              alt="Responsive image">
                     </figure>
                 </a>

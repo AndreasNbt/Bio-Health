@@ -5,3 +5,6 @@ Things left to do:
     -Change password for the admin in the database
     -Add more customers to the database
     -Potentially change user_id type from int to string
+
+Last product was Tahini with honey
+SKU creator: SELECT Upper(LEFT(MD5(RAND()), 8));

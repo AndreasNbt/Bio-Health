@@ -21,7 +21,7 @@
     $productDescription = validate($_POST['product_description']);
     $productCategory = validate($_POST['product_category']);
     if (isset($_POST['product_image']) && validate($_POST['product_image']) != "") {
-        $productImage = "sources/images/" . validate($_POST['product_image']);
+        $productImage = "sources/images/products/" . validate($_POST['product_image']);
     }
     else {
         $productImage = $_REQUEST['productImage'];
