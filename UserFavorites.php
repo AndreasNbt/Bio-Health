@@ -21,63 +21,67 @@
 </head>
 <body class="grey-background d-flex flex-column min-vh-100">
     
-    <?php include "Navbar.php"; ?>
+    <?php include "Navbar.php";
+        $product_ids = array();
+        $products = array();
+        $user_id = $_SESSION['ID'];
+
+        include("PHP_Back_End/db_connection.php");
+
+        
+
+        // echo $user_id;   
+        $sql = "SELECT product_id FROM user_favourites
+                WHERE user_id = $user_id";
+        $res = $con->query($sql);
+
+        while($row = mysqli_fetch_row($res)){
+            $product_ids[] = $row[0]; 
+        }
+        
+        
+        $values = '('.implode( ',', $product_ids ).')';
+    
+        $sql = "SELECT id, name, price, image FROM product WHERE id IN $values";
+
+        $res = $con->query($sql);
+        
+        while($row = mysqli_fetch_row($res)){
+            $products[$row[0]]['id'] = $row[0];
+            $products[$row[0]]['name'] = $row[1];
+            $products[$row[0]]['price'] = $row[2];
+            $products[$row[0]]['image'] = $row[3]; 
+        }
+
+        mysqli_close($con);
+
+    ?>
     <br>
 
     <div class="container-fluid left-right-pad">
         <table style="margin:auto">
-            <tr>
+                <?php
+                $index = 0;
+                foreach( $products as $product){
+                    if( $index === 0 || ($index % 3 === 0 ) ){
+                        echo "<tr>";
+                        $tr = true;
+                    }
+                    $index += 1;
+                ?>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php?product_id=<?php echo $product['id']; ?>"><img src="<?php echo $product['image']; ?>" style="width:100%"></a>
                     <h5>
-                        Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
+                        <?php echo $product['name'] . "Price: " . $product['price'] . "EUR"; ?>
                     </h5>
                     <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Add to Cart</button>
                     <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
                 </td>
-                <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
-                    <h5>
-                        Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
-                    </h5>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Add to Cart</button>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
-                </td>
-                <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
-                    <h5>
-                        Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
-                    </h5>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Add to Cart</button>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
-                    <h5>
-                        Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
-                    </h5>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Add to Cart</button>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
-                </td>
-                <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
-                    <h5>
-                        Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
-                    </h5>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Add to Cart</button>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
-                </td>
-                <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
-                    <h5>
-                        Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
-                    </h5>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Add to Cart</button>
-                    <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
-                </td>
-            </tr>
+                <?php if($tr){ 
+                    "</tr>";
+                    }
+                } 
+                ?>
         </table>
 
     </div>

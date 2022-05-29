@@ -129,6 +129,15 @@ CREATE TABLE order_item (
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
+CREATE TABLE user_favourites (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+)
+
 INSERT INTO user (username, password, email, role)
 VALUES
         ('admin', 'admin', '', 1),

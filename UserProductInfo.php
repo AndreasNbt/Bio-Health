@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="CSS/searchpage.css">
         <script src="JS/search.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="JS/addToFavourites.js"></script>
     </head>
     <body class="d-flex flex-column min-vh-100">
         
@@ -71,6 +72,18 @@
                 $totalCost = $amount * $price;
 
                 mysqli_close($con);
+                echo implode(',',$_POST);
+
+                if( isset( $_POST['action'] ) ){
+                    include("PHP_Back_End/db_connection.php");
+                    if( $_POST['action'] === 'add_to_favourites' ){
+                        echo "done";
+                    $sql = "INSERT INTO user_favourites (user_id, product_id)
+                    VALUES ( $user_id, $id);";
+                    $res = $con->query( $sql);
+                    mysqli_close($con);
+                    }
+                }
             }
         ?>
         <section id="product-info">
@@ -138,7 +151,7 @@
                         <?php
                             if (isset($_SESSION['ID']) and $_SESSION['role'] === "Customer") {
                                 echo "<a class='nav-item nav-link nav-icon text-center dark-gray' href='UserCart.php'><i class='fa-solid fa-cart-shopping fa-2x'></i></a>
-                                      <a class='nav-item nav-link nav-icon text-center dark-gray' href='UserFavorites.php'><i class='fa-solid fa-heart fa-2x'></i></a>";
+                                      <a class='nav-item nav-link nav-icon text-center dark-gray' href=''><i id='add-to-favourites' class='fa-solid fa-heart fa-2x' data-product-id='". $id ."'></i></a>";
                             }
                         ?>
                     </div>
