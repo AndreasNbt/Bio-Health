@@ -32,81 +32,50 @@
 
 
 <div class="container-fluid border main text-center left-right-pad">
-    <div class="row justify-content-center" id="carouselrow">
-            <div class="carouselCol">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                                aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
-                                aria-label="Slide 5"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <a href="#firstlink">
-                                <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="carousel slide 1">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#secondlink">
-                                <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="carousel slide 2">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#thirdlink">
-                                <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="carousel slide 3">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#fourthlink">
-                                <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="carousel slide 4">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Fourth slide label</h5>
-                                <p>Some representative placeholder content for the fourth slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#fifthlink">
-                                <img src="https://picsum.photos/1920/720" class="d-block w-100" alt="carousel slide 5">
-                            </a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Fifth slide label</h5>
-                                <p>Some representative placeholder content for the fifth slide.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+    <div id="indexCarousel" class="carousel carousel-dark slide" style="padding-left: 9%;padding-right: 9%;" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#indexCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#indexCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#indexCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="Search.php?search_key=&category=-1">
+                    <img src="sources/images/carousel_offers.png" class="d-block w-100" alt="...">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Offers</h5>
+                    <p>Check out the limited time offers on our products.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="Search.php?search_key=&category=-2">
+                    <img src="sources/images/carousel_new.png" class="d-block w-100" alt="...">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 style="color: white">New products</h5>
+                    <p>Check out our newest products, you might find something you like.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="Search.php?search_key=&category=1">
+                    <img src="sources/images/carousel_vegan.png" class="d-block w-100" alt="...">
+                </a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Vegan products</h5>
+                    <p>Check out our most popular category.</p>
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#indexCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#indexCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
     <div class="row justify-content-center mt-5 categories">
         <h1 class="navbar-logo-1 pb-3">Take a look at our products</h1>
@@ -165,16 +134,9 @@
         </div>
 </div>
 
-
 <?php
     include "Footer.php";
 ?>
-
-<script>
-    $('.carousel').carousel({
-        interval: 3000
-    })
-</script>
 
 </body>
 
