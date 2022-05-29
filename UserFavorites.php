@@ -28,7 +28,7 @@
         <table style="margin:auto">
             <tr>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/pic1.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
                     <h5>
                         Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
                     </h5>
@@ -36,7 +36,7 @@
                     <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
                 </td>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/pic1.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
                     <h5>
                         Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
                     </h5>
@@ -44,7 +44,7 @@
                     <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
                 </td>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/pic1.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
                     <h5>
                         Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
                     </h5>
@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/pic1.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
                     <h5>
                         Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
                     </h5>
@@ -62,7 +62,7 @@
                     <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
                 </td>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/pic1.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
                     <h5>
                         Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
                     </h5>
@@ -70,7 +70,7 @@
                     <button class="button sign-btn solid-border dark-green extra-spacing mt-3" style="width: 60%">Remove</button>
                 </td>
                 <td class="favorite-product">
-                    <a href="UserProductInfo.php"><img src="sources/images/pic1.png" style="width:100%"></a>
+                    <a href="UserProductInfo.php"><img src="sources/images/Pizza_base.png" style="width:100%"></a>
                     <h5>
                         Product name &nbsp;&nbsp;&nbsp;&nbsp; Price: 5 &euro;
                     </h5>
