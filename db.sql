@@ -3,8 +3,8 @@ USE BioHealth;
 
 CREATE TABLE user (
     user_id INT AUTO_INCREMENT,
-    username VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(75) NOT NULL,
     password VARCHAR(20) NOT NULL,
     role enum('Administrator', 'Customer') NOT NULL,
     PRIMARY KEY(user_id)
@@ -140,13 +140,51 @@ CREATE TABLE user_favourites (
 
 INSERT INTO user (username, password, email, role)
 VALUES
-        ('admin', 'admin', '', 1),
-        ('user', 'user', '', 2);
+        ('admin', '5rUWqHq2jH', 'BioAndHealth@gmail.com', 1),
+        ('ChrisForb', 'juKDJUMZdMgX', 'ChrisForb@gmail.com', 2),
+        ('AnnaGrey', 'KCRMgyuvQQ', 'AnnaGrey@outlook.com', 2),
+        ('AnastasisVegan', 'VJa6cXKyvAzW', 'AnastasisVegan@hotmail.com', 2),
+        ('TopVaggelis', 'LXtDmvUR', 'TopVaggelis@gmail.com', 2),
+        ('FirstAspasia', 'QPXsSafg', 'FirstAspasia@gmail.com', 2),
+        ('MckenzieSpectacular', 'avyvBMzHCt72', 'MckenzieSpectacular@outlook.com', 2),
+        ('ArmandoKungFu', 'xntqENHgJjk7Aq', 'ArmandoKungFu@gmail.com', 2),
+        ('JeffreyFreeThrow', 'ugKdsyFqFMUpN7', 'JeffreyFreeThrow@gmail.com', 2),
+        ('ZionSmartest', 'BDeZzEq3', 'ZionSmartest@hotmail.com', 2),
+        ('LennoxPupa', 'qaE25ZNz3N', 'LennoxPupa@gmail.com', 2),
+        ('ElisaGoose', '85LuNweSprvmwj', 'ElisaGoose@outlook.com', 2),
+        ('GeorgeBuzzDroid', 'B9kv4FZE', 'GeorgeBuzzDroid@hotmail.com', 2),
+        ('BedrockJim', 'X5N79sqcLY', 'BedrockJim@outlook.com', 2),
+        ('TerminatorJennifer', 'q6VZj27Z2QYPZ2', 'TerminatorJennifer@outlook.com', 2),
+        ('IceGiantGenesis', 'fvGXfAAtEJf5', 'IceGiantGenesis@outlook.com', 2),
+        ('HobgoblinJason', 'EfEeHDHN', 'HobgoblinJason@hotmail.com', 2),
+        ('LukaJack-o-lantern', 'ydZLy4JJbsZjaX', 'LukaJack-o-lantern@gmail.com', 2),
+        ('AnnabellePumpkin', '8k7dsdEKv5', 'AnnabellePumpkin@gmail.com', 2),
+        ('LorettaHoney', 'svamjebWtWKv', 'LorettaHoney@hotmail.com', 2),
+        ('KyloWizard', 'wpLc5Mjxwz3XdU', 'KyloWizard@gmail.com', 2);
 
 INSERT INTO user_info (User_ID)
 VALUES
         (1),
-        (2);
+        (2),
+        (3),
+        (4),
+        (5),
+        (6),
+        (7),
+        (8),
+        (9),
+        (10),
+        (11),
+        (12),
+        (13),
+        (14),
+        (15),
+        (16),
+        (17),
+        (18),
+        (19),
+        (20),
+        (21);
 
 INSERT INTO category (name, icon)
 VALUES 

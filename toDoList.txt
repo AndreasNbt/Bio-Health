@@ -1,9 +1,7 @@
 Things left to do:
+    -Update and finish report
     -Favorites front end
     -Product info front end
-    -Change password for the admin in the database
-    -Add more customers to the database
     -Potentially change user_id type from int to string
 
-Last product was Tahini with honey
-SKU creator: SELECT Upper(LEFT(MD5(RAND()), 8));
+SKU creating MySQL code: SELECT Upper(LEFT(MD5(RAND()), 8));
