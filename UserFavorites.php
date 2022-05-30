@@ -29,19 +29,7 @@
 
         include("PHP_Back_End/db_connection.php");
 
-        // echo $user_id;   
-        $sql = "SELECT product_id FROM user_favourites
-                WHERE user_id = '$user_id'";
-        $res = $con->query($sql);
-
-        while($row = mysqli_fetch_row($res)){
-            $product_ids[] = $row[0];
-        }
-
-        $values = '('.implode( ',', $product_ids ).')';
-    
-        $sql = "SELECT id, name, price, stock, image FROM product WHERE id IN $values";
-
+        $sql = "SELECT product.id, name, price, stock, image FROM product, user_favourites WHERE user_favourites.user_id='$user_id' AND product.id=user_favourites.product_id;";
         $res = $con->query($sql);
         
         while($row = mysqli_fetch_row($res)){
