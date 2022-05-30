@@ -3,6 +3,10 @@ function removeFromFavorites(product_id) {
         return false;
     });
     document.getElementById("product" + product_id).remove();
+    if (document.getElementById("products").innerHTML.trim() === "") {
+        document.getElementById("emptyMessage").style.display = "block";
+    }
+
 }
 
 $(function(){
