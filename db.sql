@@ -140,7 +140,7 @@ CREATE TABLE user_favourites (
 
 INSERT INTO user (user_id, username, password, email, role)
 VALUES
-        ('7929791AD63B5', 'admin', '5rUWqHq2jH', 'BioAndHealth@gmail.com', 1),
+        ('7929791AD63B5', 'admin', '5rUWqHq2jH', 'admin@bioandhealth.gr', 1),
         ('66D0745253A89', 'ChrisForb', 'juKDJUMZdMgX', 'ChrisForb@gmail.com', 2),
         ('0411F942B6D00', 'AnnaGrey', 'KCRMgyuvQQ', 'AnnaGrey@outlook.com', 2),
         ('E955E4E5D7E7C', 'AnastasisVegan', 'VJa6cXKyvAzW', 'AnastasisVegan@hotmail.com', 2),
