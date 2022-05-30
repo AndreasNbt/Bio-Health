@@ -11,7 +11,7 @@ X	completedorderspage.js
 X	search.js
 	
 PHP_Back_End
-	account_info.php
+X	account_info.php
 X	checkout.php
 X	db_connection.php
 X	delete_product.php
@@ -20,13 +20,13 @@ X	edit_cart.php
 X	favorites.php
 	new_category.php
 	new_product.php
-	order_info.php
+X	order_info.php
 X	pending_orders.php
 X	search.php
 X	search_functions.php
-	sign_in.php
-	sign_out.php
-	sign_up.php
+X	sign_in.php
+X	sign_out.php
+X	sign_up.php
 
 htdocs
 X	AdminCart.php
@@ -38,7 +38,7 @@ X	Footer.php
 X	Index.php
 X	Navbar.php
 X	Search.php
-	UserAccountManagement.php
+X	UserAccountManagement.php
 X	UserCart.php
 X	UserCheckout.php
 	UserContactForm.php
@@ -46,7 +46,7 @@ X	UserCheckout.php
 X	UserFavourites.php
 	UserMoreInfo.php
 X	UserOrderCompletion.php
-	UserOrderInfo.php
+X	UserOrderInfo.php
 X	UserProductInfo.php
-	UserSignIn.php
-	UserSignUp.php
+X	UserSignIn.php
+X	UserSignUp.php

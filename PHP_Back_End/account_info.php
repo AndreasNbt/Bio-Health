@@ -14,6 +14,19 @@
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
     
+    if (empty($email)) {
+        header("Location: ../UserSignUp.php?error=Email is required");
+        exit();
+    }
+    else if (empty($username)) {
+        header("Location: ../UserSignUp.php?error=Username is required");
+        exit();
+    }
+    else if (empty($password)) {
+        header("Location: ../UserSignUp.php?error=Password is required");
+        exit();
+    }
+
     $id = $_SESSION['ID'];
 
     $sql = "UPDATE user 
