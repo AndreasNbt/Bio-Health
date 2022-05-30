@@ -1,6 +1,5 @@
 Things left to do:
     -Update and finish report
-    -Favorites front end
     -Product info front end
 
 SKU creating MySQL code: SELECT Upper(LEFT(MD5(RAND()), 8));
