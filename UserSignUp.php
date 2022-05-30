@@ -51,14 +51,6 @@
                         <button class="small-btn solid-border dark-green"><i class="fa-light fa-right-to-bracket"></i></button>
                     </form>
 
-                    <h5 class="dark-green header-text pt-2 mt-5">With your Socials</h5>
-
-                    <div class="social-icons my-1">
-                        <a href="https://facebook.com" class="dark-green"><i class="fa-brands fa-facebook fa-2x social"></i></a>
-                        <a href="https://instagram.com" class="dark-green"><i class="fa-brands fa-instagram fa-2x social"></i></a>
-                        <a href="https://google.com" class="dark-green"><i class="fa-brands fa-google fa-2x social"></i></a>
-                        <a href="https://twitter.com" class="dark-green"><i class="fa-brands fa-twitter fa-2x social"></i></a>
-                    </div>
 
                 </div>
                 <div class="solid-border col-3 container small-container">

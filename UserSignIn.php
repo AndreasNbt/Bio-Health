@@ -48,16 +48,7 @@
                         <br>
                         <button class="button sign-btn solid-border bot-margin extra-spacing dark-green my-3" type="submit">Sign in</button>
                     </form>
-                    <h5 class="dark-green header-text pt-5" style="margin-top: 50px";>With your Socials</h5>
-
-                    <div class="social-icons mx-0 my-1">
-                        <a href="https://facebook.com" class="dark-green"><i class="fa-brands fa-facebook fa-2x social"></i></a>
-                        <a href="https://instagram.com" class="dark-green"><i class="fa-brands fa-instagram fa-2x social"></i></a>
-                        <a href="https://google.com" class="dark-green"><i class="fa-brands fa-google fa-2x social"></i></a>
-                        <a href="https://twitter.com" class="dark-green"><i class="fa-brands fa-twitter fa-2x social"></i></a>
-                    </div>
-
-                    
+                   
                     <br>
                 </div>
                 <div class="solid-border col-3 container small-container">
