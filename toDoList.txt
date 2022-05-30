@@ -1,7 +1,6 @@
 Things left to do:
-    -Favorites front and backend
+    -Favorites front end
     -Product info front end
-    -Add products to database
     -Change password for the admin in the database
     -Add more customers to the database
     -Potentially change user_id type from int to string
