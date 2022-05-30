@@ -3,6 +3,7 @@ If you analyze one of the non marked files in the report,
 add an X to the start of its line.
 
 JS
+X   addToFavorites.js
 X	cartpage.js
 X	checkoutpage.js
 X	completedorderspage.js
@@ -16,6 +17,7 @@ X	db_connection.php
 X	delete_product.php
 X	edit_cart.php
 	edit_product.php
+X	favorites.php
 	new_category.php
 	new_product.php
 	order_info.php
@@ -41,7 +43,7 @@ X	UserCart.php
 X	UserCheckout.php
 	UserContactForm.php
 	UserContactFormCompletion.php
-	UserFavourites.php
+X	UserFavourites.php
 	UserMoreInfo.php
 X	UserOrderCompletion.php
 	UserOrderInfo.php
