@@ -7,7 +7,7 @@ X   addToFavorites.js
 X	cartpage.js
 X	checkoutpage.js
 X	completedorderspage.js
-	new_product.js
+X	new_product.js
 X	search.js
 	
 PHP_Back_End
@@ -16,10 +16,10 @@ X	checkout.php
 X	db_connection.php
 X	delete_product.php
 X	edit_cart.php
-	edit_product.php
+X	edit_product.php
 X	favorites.php
-	new_category.php
-	new_product.php
+X	new_category.php
+X	new_product.php
 X	order_info.php
 X	pending_orders.php
 X	search.php
@@ -30,8 +30,8 @@ X	sign_up.php
 
 htdocs
 X	AdminCart.php
-	AdminEditProduct.php
-	AdminNewProduct.php
+X	AdminEditProduct.php
+X	AdminNewProduct.php
 X	AdminPendingOrders.php
 X	db.sql
 X	Footer.php
