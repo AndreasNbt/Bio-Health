@@ -20,7 +20,7 @@ $(function(){
             }
             
         }).done(function(){
-            alert("ok2");
+            console.log("ok");
         });
     })
 
