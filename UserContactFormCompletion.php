@@ -32,7 +32,7 @@
             
         $header = "From: " . $email; 
        
-        $result = mail($mailto, $topic, $message, $header); // This email sent to My address
+        $result = mail($mailto, $topic, $message, $header); 
         
         if ($result) {
             $reply1 = "Your message has been sent.";

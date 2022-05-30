@@ -41,10 +41,10 @@ X	Search.php
 X	UserAccountManagement.php
 X	UserCart.php
 X	UserCheckout.php
-	UserContactForm.php
-	UserContactFormCompletion.php
+X	UserContactForm.php
+X	UserContactFormCompletion.php
 X	UserFavourites.php
-	UserMoreInfo.php
+X	UserMoreInfo.php
 X	UserOrderCompletion.php
 X	UserOrderInfo.php
 X	UserProductInfo.php
