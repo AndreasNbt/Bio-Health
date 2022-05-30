@@ -111,19 +111,16 @@
         }
         $totalCost = $amount * $price;
 
-        mysqli_close($con);
-        echo implode(',', $_POST);
-
-        if (isset($_POST['action'])) {
-            include("PHP_Back_End/db_connection.php");
-            if ($_POST['action'] === 'add_to_favourites') {
-                echo "done";
-                $sql = "INSERT INTO user_favourites(user_id, product_id)
-                    VALUES ('$user_id', $id);";
-                $res = $con->query($sql);
-                mysqli_close($con);
-            }
+        $isFavorite = "fa-regular fa-heart fa-2x";
+        $heart_type = "empty";
+        $sql = "SELECT id FROM user_favourites WHERE product_id=$id AND user_id='$user_id';";
+        $res = $con->query($sql);
+        if (mysqli_num_rows($res) > 0) {
+            $isFavorite = "fa-solid fa-heart fa-2x";
+            $heart_type = "full";
         }
+
+        mysqli_close($con);
     }
     ?>
     <div class="container-fluid left-right-pad">
@@ -141,7 +138,10 @@
                         </div>
                         <div class="col">
                             <?php if (isset($_SESSION['ID']) and $_SESSION['role'] === "Customer") {
-                                echo "<a class='nav-item nav-link nav-icon text-end dark-gray' style='padding-right: 0' href=''><i id='add-to-favourites' class='fa-solid fa-heart fa-2x' data-product-id='" . $id . "'></i></a>";
+                                echo "<a class='nav-item nav-link nav-icon text-end dark-gray' id='heart_icon' style='padding-right: 0'>
+                                          <i id='add-to-favourites' onclick='addRemFav(\"$id\")' class='$isFavorite' data-product-id='" . $id . "'></i>
+                                          <input hidden id='heart_type' value='$heart_type'>
+                                      </a>";
                             }?>
                         </div>
                     </div>
