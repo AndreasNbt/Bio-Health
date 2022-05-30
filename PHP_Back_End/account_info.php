@@ -18,7 +18,7 @@
 
     $sql = "UPDATE user 
             SET email = '$email', username = '$username', password = '$password'
-            WHERE user_id = $id";   
+            WHERE user_id = '$id'";
 
     $res = $con->query($sql);
     $con -> close();

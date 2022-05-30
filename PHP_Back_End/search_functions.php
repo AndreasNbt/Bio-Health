@@ -223,7 +223,7 @@ function echoUserProduct($id) {
     $hidden = "";
     if (isset($_SESSION['ID'])) {
         $user_id = $_SESSION['ID'];
-        $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
+        $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id='$user_id';";
         $res = $con->query($sql);
         if (mysqli_num_rows($res) > 0) {
             $amount = mysqli_fetch_row($res)[0];

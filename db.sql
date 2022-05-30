@@ -2,7 +2,7 @@ CREATE DATABASE BioHealth DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE BioHealth;
 
 CREATE TABLE user (
-    user_id INT AUTO_INCREMENT,
+    user_id VARCHAR(13),
     username VARCHAR(50) NOT NULL,
     email VARCHAR(75) NOT NULL,
     password VARCHAR(20) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE user_info (
-    User_ID INT,
+    User_ID VARCHAR(13),
     Full_Name VARCHAR(30),
     City VARCHAR(30),
     Address VARCHAR(30),
@@ -57,7 +57,7 @@ CREATE TABLE new (
 
 CREATE TABLE cart_item (
     id INT AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    user_id VARCHAR(13) NOT NULL,
     product_id INT NOT NULL,
     amount INT NOT NULL,
     PRIMARY KEY (id),
@@ -66,7 +66,7 @@ CREATE TABLE cart_item (
 );
 
 CREATE TABLE shipping (
-    user_id INT NOT NULL,
+    user_id VARCHAR(13) NOT NULL,
     cost INT NOT NULL,
     max_delivery_time INT NOT NULL,
     PRIMARY KEY (user_id),
@@ -76,7 +76,7 @@ CREATE TABLE shipping (
 
 CREATE TABLE `order` (
     id VARCHAR(13),
-    user_id INT NOT NULL,
+    user_id VARCHAR(13) NOT NULL,
     order_date DATE NOT NULL,
     latest_delivery DATE NOT NULL,
     total_cost FLOAT NOT NULL,
@@ -131,60 +131,60 @@ CREATE TABLE order_item (
 
 CREATE TABLE user_favourites (
     id INT NOT NULL AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    user_id VARCHAR(13) NOT NULL,
     product_id INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
 
-INSERT INTO user (username, password, email, role)
+INSERT INTO user (user_id, username, password, email, role)
 VALUES
-        ('admin', '5rUWqHq2jH', 'BioAndHealth@gmail.com', 1),
-        ('ChrisForb', 'juKDJUMZdMgX', 'ChrisForb@gmail.com', 2),
-        ('AnnaGrey', 'KCRMgyuvQQ', 'AnnaGrey@outlook.com', 2),
-        ('AnastasisVegan', 'VJa6cXKyvAzW', 'AnastasisVegan@hotmail.com', 2),
-        ('TopVaggelis', 'LXtDmvUR', 'TopVaggelis@gmail.com', 2),
-        ('FirstAspasia', 'QPXsSafg', 'FirstAspasia@gmail.com', 2),
-        ('MckenzieSpectacular', 'avyvBMzHCt72', 'MckenzieSpectacular@outlook.com', 2),
-        ('ArmandoKungFu', 'xntqENHgJjk7Aq', 'ArmandoKungFu@gmail.com', 2),
-        ('JeffreyFreeThrow', 'ugKdsyFqFMUpN7', 'JeffreyFreeThrow@gmail.com', 2),
-        ('ZionSmartest', 'BDeZzEq3', 'ZionSmartest@hotmail.com', 2),
-        ('LennoxPupa', 'qaE25ZNz3N', 'LennoxPupa@gmail.com', 2),
-        ('ElisaGoose', '85LuNweSprvmwj', 'ElisaGoose@outlook.com', 2),
-        ('GeorgeBuzzDroid', 'B9kv4FZE', 'GeorgeBuzzDroid@hotmail.com', 2),
-        ('BedrockJim', 'X5N79sqcLY', 'BedrockJim@outlook.com', 2),
-        ('TerminatorJennifer', 'q6VZj27Z2QYPZ2', 'TerminatorJennifer@outlook.com', 2),
-        ('IceGiantGenesis', 'fvGXfAAtEJf5', 'IceGiantGenesis@outlook.com', 2),
-        ('HobgoblinJason', 'EfEeHDHN', 'HobgoblinJason@hotmail.com', 2),
-        ('LukaJack-o-lantern', 'ydZLy4JJbsZjaX', 'LukaJack-o-lantern@gmail.com', 2),
-        ('AnnabellePumpkin', '8k7dsdEKv5', 'AnnabellePumpkin@gmail.com', 2),
-        ('LorettaHoney', 'svamjebWtWKv', 'LorettaHoney@hotmail.com', 2),
-        ('KyloWizard', 'wpLc5Mjxwz3XdU', 'KyloWizard@gmail.com', 2);
+        ('7929791AD63B5', 'admin', '5rUWqHq2jH', 'BioAndHealth@gmail.com', 1),
+        ('66D0745253A89', 'ChrisForb', 'juKDJUMZdMgX', 'ChrisForb@gmail.com', 2),
+        ('0411F942B6D00', 'AnnaGrey', 'KCRMgyuvQQ', 'AnnaGrey@outlook.com', 2),
+        ('E955E4E5D7E7C', 'AnastasisVegan', 'VJa6cXKyvAzW', 'AnastasisVegan@hotmail.com', 2),
+        ('3B56FFE5D3830', 'TopVaggelis', 'LXtDmvUR', 'TopVaggelis@gmail.com', 2),
+        ('61BEB4A801FC3', 'FirstAspasia', 'QPXsSafg', 'FirstAspasia@gmail.com', 2),
+        ('996054D7A092B', 'MckenzieSpectacular', 'avyvBMzHCt72', 'MckenzieSpectacular@outlook.com', 2),
+        ('76BC9C9C27D86', 'ArmandoKungFu', 'xntqENHgJjk7Aq', 'ArmandoKungFu@gmail.com', 2),
+        ('5028D1EAE9C88', 'JeffreyFreeThrow', 'ugKdsyFqFMUpN7', 'JeffreyFreeThrow@gmail.com', 2),
+        ('E55A06C0A5EBF', 'ZionSmartest', 'BDeZzEq3', 'ZionSmartest@hotmail.com', 2),
+        ('EB902471FDE20', 'LennoxPupa', 'qaE25ZNz3N', 'LennoxPupa@gmail.com', 2),
+        ('11EBFFFA6BA28', 'ElisaGoose', '85LuNweSprvmwj', 'ElisaGoose@outlook.com', 2),
+        ('869839741AE8A', 'GeorgeBuzzDroid', 'B9kv4FZE', 'GeorgeBuzzDroid@hotmail.com', 2),
+        ('1C0FEF5777EBC', 'BedrockJim', 'X5N79sqcLY', 'BedrockJim@outlook.com', 2),
+        ('3E285E8916813', 'TerminatorJennifer', 'q6VZj27Z2QYPZ2', 'TerminatorJennifer@outlook.com', 2),
+        ('2D0885E9640C3', 'IceGiantGenesis', 'fvGXfAAtEJf5', 'IceGiantGenesis@outlook.com', 2),
+        ('2DB792ADA16C9', 'HobgoblinJason', 'EfEeHDHN', 'HobgoblinJason@hotmail.com', 2),
+        ('105175DC907A4', 'LukaJack-o-lantern', 'ydZLy4JJbsZjaX', 'LukaJack-o-lantern@gmail.com', 2),
+        ('BBD202C932599', 'AnnabellePumpkin', '8k7dsdEKv5', 'AnnabellePumpkin@gmail.com', 2),
+        ('C1262299B7A1B', 'LorettaHoney', 'svamjebWtWKv', 'LorettaHoney@hotmail.com', 2),
+        ('1B77B11DB8EB0', 'KyloWizard', 'wpLc5Mjxwz3XdU', 'KyloWizard@gmail.com', 2);
 
 INSERT INTO user_info (User_ID)
 VALUES
-        (1),
-        (2),
-        (3),
-        (4),
-        (5),
-        (6),
-        (7),
-        (8),
-        (9),
-        (10),
-        (11),
-        (12),
-        (13),
-        (14),
-        (15),
-        (16),
-        (17),
-        (18),
-        (19),
-        (20),
-        (21);
+        ('7929791AD63B5'),
+        ('66D0745253A89'),
+        ('0411F942B6D00'),
+        ('E955E4E5D7E7C'),
+        ('3B56FFE5D3830'),
+        ('61BEB4A801FC3'),
+        ('996054D7A092B'),
+        ('76BC9C9C27D86'),
+        ('5028D1EAE9C88'),
+        ('E55A06C0A5EBF'),
+        ('EB902471FDE20'),
+        ('11EBFFFA6BA28'),
+        ('869839741AE8A'),
+        ('1C0FEF5777EBC'),
+        ('3E285E8916813'),
+        ('2D0885E9640C3'),
+        ('2DB792ADA16C9'),
+        ('105175DC907A4'),
+        ('BBD202C932599'),
+        ('C1262299B7A1B'),
+        ('1B77B11DB8EB0');
 
 INSERT INTO category (name, icon)
 VALUES 

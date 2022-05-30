@@ -24,7 +24,7 @@
     $sql = "UPDATE user_info 
             SET Full_Name = '$full_name', City = '$city', Address = '$address', State = '$state',
                 Zip_Code = '$zip_code', Phone_Number = '$phone_number'
-            WHERE User_ID = $id";   
+            WHERE User_ID = '$id'";
 
     $res = $con->query($sql);
     $con -> close();

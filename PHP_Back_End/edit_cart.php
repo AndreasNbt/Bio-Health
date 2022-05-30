@@ -26,7 +26,7 @@ else if (isset($_POST['cost']) and isset($_POST['max_delivery_time'])) {
     $user_id = $_SESSION['ID'];
     $cost = $_POST['cost'];
     $max_delivery_time = $_POST['max_delivery_time'];
-    $sql = "INSERT INTO shipping (user_id, cost, max_delivery_time) VALUES ($user_id, $cost, $max_delivery_time) ON DUPLICATE KEY UPDATE cost=$cost, max_delivery_time=$max_delivery_time;";
+    $sql = "INSERT INTO shipping (user_id, cost, max_delivery_time) VALUES ('$user_id', $cost, $max_delivery_time) ON DUPLICATE KEY UPDATE cost=$cost, max_delivery_time=$max_delivery_time;";
     $res = $con->query($sql);
     mysqli_close($con);
 }

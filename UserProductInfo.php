@@ -60,7 +60,7 @@
 
                 if (isset($_SESSION['ID']) and $_SESSION['role'] === "Customer") {
                     $user_id = $_SESSION['ID'];
-                    $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
+                    $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id='$user_id';";
                     $res = $con->query($sql);
                     if (mysqli_num_rows($res) > 0) {
                         $amount = mysqli_fetch_row($res)[0];
@@ -78,8 +78,8 @@
                     include("PHP_Back_End/db_connection.php");
                     if( $_POST['action'] === 'add_to_favourites' ){
                         echo "done";
-                    $sql = "INSERT INTO user_favourites (user_id, product_id)
-                    VALUES ( $user_id, $id);";
+                    $sql = "INSERT INTO user_favourites(user_id, product_id)
+                    VALUES ('$user_id', $id);";
                     $res = $con->query( $sql);
                     mysqli_close($con);
                     }

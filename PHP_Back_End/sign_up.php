@@ -44,23 +44,17 @@
             $res = $con->query($sql);
 
             if (mysqli_num_rows($res) === 0 ){
-                $sql = "INSERT INTO user(email, username, password, role)
-                        VALUES ('$email', '$username', '$password', 2)";
+                $user_id = strtoupper(uniqid());
+                $sql = "INSERT INTO user(user_id, email, username, password, role)
+                        VALUES ('$user_id', '$email', '$username', '$password', 2)";
                 
                 $con->query($sql);
 
-                $get_last_row = "SELECT *  
-                                 FROM user
-                                 WHERE user_id = (SELECT max(user_id) FROM user)";
-
-                $res = $con -> query($get_last_row);
-                $row = mysqli_fetch_row($res);
-
                 echo "Successfully signed up!";
                 
-                $_SESSION['ID'] = $row[0];
-                $_SESSION['Username'] = $row[1];
-                $_SESSION['role'] = $row[4];
+                $_SESSION['ID'] = $user_id;
+                $_SESSION['Username'] = $username;
+                $_SESSION['role'] = 'Customer';
 
                 
                 $id = $_SESSION['ID'];

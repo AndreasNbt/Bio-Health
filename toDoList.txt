@@ -2,6 +2,5 @@ Things left to do:
     -Update and finish report
     -Favorites front end
     -Product info front end
-    -Potentially change user_id type from int to string
 
 SKU creating MySQL code: SELECT Upper(LEFT(MD5(RAND()), 8));

@@ -32,7 +32,8 @@
             }
             else {
                 include("PHP_Back_End/db_connection.php");
-                $sql = "SELECT id, product_id, amount FROM `cart_item` WHERE user_id=".$_SESSION['ID'].";";
+                $user_id = $_SESSION['ID'];
+                $sql = "SELECT id, product_id, amount FROM `cart_item` WHERE user_id='$user_id';";
                 $res = $con->query($sql);
                 mysqli_close($con);
 

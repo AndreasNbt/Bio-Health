@@ -31,11 +31,11 @@
 
         // echo $user_id;   
         $sql = "SELECT product_id FROM user_favourites
-                WHERE user_id = $user_id";
+                WHERE user_id = '$user_id'";
         $res = $con->query($sql);
 
         while($row = mysqli_fetch_row($res)){
-            $product_ids[] = $row[0]; 
+            $product_ids[] = $row[0];
         }
 
         $values = '('.implode( ',', $product_ids ).')';
@@ -99,7 +99,7 @@
 
                     if (isset($_SESSION['ID']) and $_SESSION['role'] === "Customer") {
                         $user_id = $_SESSION['ID'];
-                        $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id=$user_id;";
+                        $sql = "SELECT amount FROM cart_item WHERE product_id=$id AND user_id='$user_id';";
                         $res = $con->query($sql);
                         if (mysqli_num_rows($res) > 0) {
                             $amount = mysqli_fetch_row($res)[0];

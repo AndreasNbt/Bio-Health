@@ -178,11 +178,11 @@
                                 include("PHP_Back_End/db_connection.php");
 
                                 $user_id = $_SESSION['ID'];
-                                $sql = "SELECT cost FROM shipping WHERE user_id=$user_id;";
+                                $sql = "SELECT cost FROM shipping WHERE user_id='$user_id';";
                                 $res = $con->query($sql);
                                 $shipping_cost = mysqli_fetch_row($res)[0];
 
-                                $sql = "SELECT product.id, amount, FORMAT(price, 2) FROM cart_item, product WHERE user_id=$user_id AND cart_item.product_id=product.id;";
+                                $sql = "SELECT product.id, amount, FORMAT(price, 2) FROM cart_item, product WHERE user_id='$user_id' AND cart_item.product_id=product.id;";
                                 $res = $con->query($sql);
 
                                 $total_cost = 0;
