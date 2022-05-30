@@ -1,5 +1,0 @@
-Things left to do:
-    -Update and finish report
-    -Product info front end
-
-SKU creating MySQL code: SELECT Upper(LEFT(MD5(RAND()), 8));
