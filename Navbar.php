@@ -34,7 +34,7 @@
                     return $data;
                 }
                 $search_key = validate($_GET['search_key']);
-                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product or category...' value='$search_key'$onkeyup_attribute>";
+                echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product or category...' autocomplete='off' value='$search_key'$onkeyup_attribute>";
             }
             else {
                 echo "<input name='search_key' id='search_key' class='form-control search-bar' type='text' placeholder='Search for a product or category...'$onkeyup_attribute>";
